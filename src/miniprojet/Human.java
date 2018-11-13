@@ -5,77 +5,81 @@
  */
 package miniprojet;
 
+
+
+
 /**
  *
  * @author Louis
  */
 public class Human {
-    private String firstname;
-    private String surname;
-    private float wallet;
-    private float popularity;
-    private String shout;
+    private String prenom;
+    private String surnom;
+    private float porte_monnaie;
+    private float popularite;
+    private String cri;
 
-    public Human(String firstname, String surname, float wallet, float popularity, String shout) {
-        this.firstname = firstname;
-        this.surname = surname;
-        this.wallet = wallet;
-        this.popularity = popularity;
-        this.shout = shout;
-    }
-    
-
-    
-    
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public Human(String prenom, String surnom, float porte_monnaie, float popularite, String cri) {
+        this.prenom = prenom;
+        this.surnom = surnom;
+        this.porte_monnaie = porte_monnaie;
+        this.popularite = popularite;
+        this.cri = cri;
     }
 
-    public void setWallet(float wallet) {
-        this.wallet = wallet;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
-    public void setPopularity(float popularity) {
-        this.popularity = popularity;
+    public void setSurnom(String surnom) {
+        this.surnom = surnom;
     }
 
-    public void setShout(String shout) {
-        this.shout = shout;
+    public void setPorte_monnaie(float porte_monnaie) {
+        this.porte_monnaie = porte_monnaie;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public void setPopularite(float popularite) {
+        this.popularite = popularite;
     }
 
-    public String getSurname() {
-        return surname;
+    public void setCri(String cri) {
+        this.cri = cri;
     }
 
-    public float getWallet() {
-        return wallet;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public float getPopularity() {
-        return popularity;
+    public String getSurnom() {
+        return surnom;
     }
 
-    public String getShout() {
-        return shout;
+    public float getPorte_monnaie() {
+        return porte_monnaie;
     }
-    
-    public void speak(){
+
+    public float getPopularite() {
+        return popularite;
+    }
+
+    public String getCri() {
+        return cri;
+    }
+     
+    public void parler(){
         
     }
-    public void drink(){
+    public void boire(){
     
     }
-    public void pay(){
+    public void payer(){
         
     }
-    public void offerdrink(){
+    public void offrir_verre(){
         
     }
-    public void introduceys(){
+    public void se_presenter(){
         
     }
 }

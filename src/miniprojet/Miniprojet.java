@@ -3,18 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package miniprojet;
+
+import java.io.IOException;
 
 /**
  *
  * @author Louis
  */
+
+
 public class Miniprojet {
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
         TestClass test = new TestClass();
         test.test();

@@ -5,61 +5,77 @@
  */
 package miniprojet;
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.File;
 /**
  *
  * @author Louis
  */
 public class Client extends Human {
-
-    private String favoritedrink;
-    private String favoritedrink2;
-    private float alcohollevel;
     
+    private String boisson_fav_1;
+    private String boisson_fav_2;
+    private float niveau_alcool;
 
-    public Client(String firstname, String surname, float wallet, float popularity, String shout, String favoritedrink, String favoritedrink2, float alcohollevel) {
-        super(firstname,surname,wallet,popularity,shout);
-        this.favoritedrink = favoritedrink;
-        this.favoritedrink2 = favoritedrink2;
-        this.alcohollevel = alcohollevel;
+    public Client(String boisson_fav_1, String boisson_fav_2, float niveau_alcool, String prenom, String surnom, float porte_monnaie, float popularite, String cri) {
+        super(prenom, surnom, porte_monnaie, popularite, cri);
+        this.boisson_fav_1 = boisson_fav_1;
+        this.boisson_fav_2 = boisson_fav_2;
+        this.niveau_alcool = niveau_alcool;
+        try{
+            char separator= ';';
+            File file=new File(".\\db\\clients.txt"); // définir l'arborescence
+            if(!file.exists()){
+                file.createNewFile();
+                System.out.println("c nv");
+            }
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
+            bw.write(this.getPrenom()+separator+this.getSurnom()+separator+this.getPorte_monnaie()+separator
+                            +this.getPopularite()+separator+this.getCri()+separator+this.getBoisson_fav_1()+separator
+                        +this.boisson_fav_2+separator+this.niveau_alcool);  
+                        // écrire une ligne dans le fichier clients.txt
+            bw.write("\n"); // forcer le passage à la ligne
+            bw.close(); // fermer le fichier à la fin des traitements
+        } 
+        catch (Exception e){}
+  
+    }
+    public String getBoisson_fav_1() {
+        return boisson_fav_1;
     }
 
-    public void setFavoritedrink(String favoritedrink) {
-        this.favoritedrink = favoritedrink;
+    public String getBoisson_fav_2() {
+        return boisson_fav_2;
     }
 
-    public void setFavoritedrink2(String favoritedrink2) {
-        this.favoritedrink2 = favoritedrink2;
+    public float getNiveau_alcool() {
+        return niveau_alcool;
     }
 
-    public void setAlcohollevel(float alcohollevel) {
-        this.alcohollevel = alcohollevel;
+    public void setBoisson_fav_1(String boisson_fav_1) {
+        this.boisson_fav_1 = boisson_fav_1;
     }
 
-    public String getFavoritedrink() {
-        return favoritedrink;
+    public void setBoisson_fav_2(String boisson_fav_2) {
+        this.boisson_fav_2 = boisson_fav_2;
     }
 
-    public String getFavoritedrink2() {
-        return favoritedrink2;
-    }
-
-    public float getAlcohollevel() {
-        return alcohollevel;
+    public void setNiveau_alcool(float niveau_alcool) {
+        this.niveau_alcool = niveau_alcool;
     }
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName()+" : ( Firstname : "+this.getFirstname()+", Surname : "+this.getSurname()+", Wallet : "
-                +this.getWallet()+", Popularity : "+this.getPopularity()+", Shout : "+this.getShout() +", favoritedrink=" 
-                + favoritedrink + ", favoritedrink2 : " + favoritedrink2 + ", alcohollevel : " + alcohollevel + " )";
-    }
+        return "Client{ Prenom: "+this.getPrenom()+", Surnom : "+this.getSurnom()+", Porte Monnaie : "+this.getPorte_monnaie()
+        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri()+", boisson_fav_1="+ boisson_fav_1 + ", boisson_fav_2=" + boisson_fav_2 + ", niveau_alcool=" + niveau_alcool + '}';
+    } 
     
-    
-    
-    public void getFreeDrink(){
+    public void verre_gratuit(){
         
     }
-    public void introduceysother(){
+    public void se_presenter_court(){
         
     }
 }
