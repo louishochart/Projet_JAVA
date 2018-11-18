@@ -3,20 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miniprojet;
+package miniprojet.Bar;
 
+import miniprojet.Humans.*;
+import miniprojet.Bar.*;
+import miniprojet.*;
 /**
  *
  * @author Louis
  */
-public enum Color {
-    RED,
-    BlUE,
-    BLACK,
-    GREEN,
-    YELLOW,
-    WHITE,
-    GREY,
-    ORANGE,
-    BROWN;
+public class Caisse {
+    float caisse;
 }

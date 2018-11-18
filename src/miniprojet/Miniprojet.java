@@ -7,6 +7,9 @@
 package miniprojet;
 
 import java.io.IOException;
+import miniprojet.Humans.*;
+import miniprojet.Bar.*;
+import miniprojet.*;
 
 /**
  *

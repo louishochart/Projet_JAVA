@@ -3,23 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package miniprojet;
+package miniprojet.Humans;
 
-
-
+import miniprojet.Humans.*;
+import miniprojet.Bar.*;
+import miniprojet.*;
 
 /**
  *
  * @author Louis
  */
 public class Human {
-    private String prenom;
-    private String surnom;
-    private float porte_monnaie;
-    private float popularite;
-    private String cri;
+    String prenom;
+    String surnom;
+    double porte_monnaie;
+    int popularite;
+    String cri;
 
-    public Human(String prenom, String surnom, float porte_monnaie, float popularite, String cri) {
+    public Human(String prenom, String surnom, double porte_monnaie, int popularite, String cri) {
         this.prenom = prenom;
         this.surnom = surnom;
         this.porte_monnaie = porte_monnaie;
@@ -35,11 +36,11 @@ public class Human {
         this.surnom = surnom;
     }
 
-    public void setPorte_monnaie(float porte_monnaie) {
+    public void setPorte_monnaie(double porte_monnaie) {
         this.porte_monnaie = porte_monnaie;
     }
 
-    public void setPopularite(float popularite) {
+    public void setPopularite(int popularite) {
         this.popularite = popularite;
     }
 
@@ -55,11 +56,11 @@ public class Human {
         return surnom;
     }
 
-    public float getPorte_monnaie() {
+    public double getPorte_monnaie() {
         return porte_monnaie;
     }
 
-    public float getPopularite() {
+    public int getPopularite() {
         return popularite;
     }
 
