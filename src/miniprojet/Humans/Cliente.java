@@ -37,10 +37,9 @@ public class Cliente extends Human {
         this.boisson_fav_2 = boisson_fav_2;
         this.niveau_alcool = niveau_alcool;
         this.nb_bijoux=nb_bijoux;
-        Save();
     }
     
-    public Cliente() throws IOException{
+    public Cliente(){
         super(new Random().getRandomPrenom_f(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
         this.boisson_fav_1=new Random().getRandomBoisson();
         Boissons b = new Random().getRandomBoisson();
@@ -58,7 +57,7 @@ public class Cliente extends Human {
     public void Save(){     
         try{
             char separator= ';';
-            File file=new File(".\\db\\clients.txt"); // définir l'arborescence
+            File file=new File(".\\db\\clientes.txt"); // définir l'arborescence
             if(!file.exists()){
                 file.createNewFile();
             }

@@ -21,10 +21,10 @@ public class Patronne extends Cliente {
 
     public Patronne(String prenom, String surnom, double porte_monnaie, int popularite, String cri, Boissons boisson_fav_1, Boissons boisson_fav_2, float niveau_alcool, int nb_bijoux) {
         super(prenom, surnom, porte_monnaie, popularite, cri, boisson_fav_1, boisson_fav_2, niveau_alcool, nb_bijoux);
-        Save();
+        
     }
     
-    public Patronne() throws IOException{
+    public Patronne() {
         super(new Random().getRandomPrenom_f(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri(),new Random().getRandomBoisson(),new Random().getRandomBoisson(),0f,(int)Math.random()*10);
         Save();
     }

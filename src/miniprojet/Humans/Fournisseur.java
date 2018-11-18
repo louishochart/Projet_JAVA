@@ -20,11 +20,10 @@ import miniprojet.Functions.Random;
  */
 public class Fournisseur extends Human {
 
-    public Fournisseur(String prenom, String surnom, float porte_monnaie, int popularite, String cri) {
+    public Fournisseur(String prenom, String surnom, double porte_monnaie, int popularite, String cri) {
         super(prenom, surnom, porte_monnaie, popularite, cri);
-        Save();
     }
-    public Fournisseur() throws IOException{
+    public Fournisseur(){
         super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
         Save();
     }

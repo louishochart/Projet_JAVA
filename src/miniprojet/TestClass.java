@@ -55,7 +55,11 @@ public class TestClass {
         Barman barman = new Barman("Louis", "Hoch",15,15,"oh",Boissons.Jus_d_Orange,Boissons.Eau);
         System.out.println(barman);
         */
-        
+        /*
+        new Files().emptyFiles();
+        new Files().checkIfEmpty("clients");
+        System.out.println(new Files().checkIfEmpty("clients"));
+        */
         Interface1 gui  = new Interface1();
         
         /*
@@ -73,6 +77,5 @@ public class TestClass {
         System.out.println(t.getClients().get(1));
         System.out.println(t.getNbClients());
         */
-        
     }
 }

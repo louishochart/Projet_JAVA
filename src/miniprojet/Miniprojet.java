@@ -7,6 +7,8 @@
 package miniprojet;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import miniprojet.Humans.*;
 import miniprojet.Bar.*;
 import miniprojet.*;
@@ -18,12 +20,14 @@ import miniprojet.*;
 
 
 public class Miniprojet {
-
+    
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
+        
         TestClass test = new TestClass();
         test.test();
     }

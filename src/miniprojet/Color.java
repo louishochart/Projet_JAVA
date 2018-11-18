@@ -10,13 +10,25 @@ package miniprojet;
  * @author Louis
  */
 public enum Color {
-    RED,
-    BlUE,
-    BLACK,
-    GREEN,
-    YELLOW,
-    WHITE,
-    GREY,
-    ORANGE,
-    BROWN;
+    RED("RED"),
+    BlUE("BLUE"),
+    BLACK("BLACK"),
+    GREEN("GREEN"),
+    YELLOW("YELLOW"),
+    WHITE("WHITE"),
+    GREY("GREY"),
+    ORANGE("ORANGE"),
+    BROWN("BROWN");
+    
+    String name;
+
+    private Color(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
+    
 }

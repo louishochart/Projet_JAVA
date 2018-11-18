@@ -23,13 +23,12 @@ public class Serveur extends Human{
     private final Boissons boisson = Boissons.EAU;
     private int taille_biceps;
 
-    public Serveur(String prenom, String surnom, float porte_monnaie, int popularite, String cri, int taille_biceps) {
+    public Serveur(String prenom, String surnom, double porte_monnaie, int popularite, String cri, int taille_biceps) {
         super(prenom, surnom, porte_monnaie, popularite, cri);
         this.taille_biceps = taille_biceps;
-        Save();
     }
     
-    public Serveur() throws IOException{
+    public Serveur(){
         super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
         this.taille_biceps=(int)(Math.random()*10);
         Save();

@@ -23,20 +23,20 @@ public class Barman extends Human{
     private Boissons boisson_fav_1;
     private Boissons boisson_fav_2;
     
-    public Barman(String prenom, String surnom, float porte_monnaie, int popularite, String cri, Boissons boisson_fav_1, Boissons boisson_fav_2) {
+    public Barman(String prenom, String surnom, double porte_monnaie, int popularite, String cri, Boissons boisson_fav_1, Boissons boisson_fav_2) {
         
         super(prenom, surnom, porte_monnaie, popularite, cri);
         this.setBoisson_fav_1(boisson_fav_1);
         this.setBoisson_fav_2(boisson_fav_2);
     }
     
-    public Barman() throws IOException{
+    public Barman(){
         super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
-        this.boisson_fav_1=new Random().getRandomBoisson();
-        Boissons b = new Random().getRandomBoisson();
+        this.boisson_fav_1=new Random().getRandomSoft();
+        Boissons b = new Random().getRandomSoft();
         
         while(boisson_fav_1.getName().equals(b.getName())){
-            b = new Random().getRandomBoisson();
+            b = new Random().getRandomSoft();
         }
         this.boisson_fav_2=b;
         Save();

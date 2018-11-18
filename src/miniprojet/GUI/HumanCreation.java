@@ -20,6 +20,11 @@ import java.awt.event.ActionListener;
 import java.awt.Font;
 import static java.lang.Integer.parseInt;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
+
+import miniprojet.Bar.*;
+import miniprojet.Humans.*;
 
 /**
  *
@@ -31,6 +36,7 @@ public class HumanCreation extends JFrame {
     private JButton clientes = new JButton("Cliente");
     private JButton serveurs = new JButton("Serveur");
     private JButton serveuses = new JButton("Serveuse");
+    private JButton valider = new JButton("Valider");
     private JButton retour = new JButton("Retour");
    
     
@@ -41,10 +47,11 @@ public class HumanCreation extends JFrame {
         clientes.addActionListener(new ClientesListener());
         serveurs.addActionListener(new ServeursListener());
         serveuses.addActionListener(new ServeusesListener());
+        valider.addActionListener(new ValiderListener());
         retour.addActionListener(new RetourListener());
         
         this.setTitle("Bar actuel");
-        this.setSize(610, 200);
+        this.setSize(610, 150);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
@@ -56,6 +63,13 @@ public class HumanCreation extends JFrame {
         hbox1.add(serveuses);
         vbox1.add(hbox1);
         this.getContentPane().add(vbox1, BorderLayout.NORTH);
+        
+        Box vbox3 = Box.createVerticalBox();
+        Box hbox3 = Box.createHorizontalBox();
+        vbox3.add(new JLabel(" "));
+        hbox3.add(valider);
+        vbox3.add(hbox3);
+        this.getContentPane().add(vbox3, BorderLayout.CENTER);
         
         Box vbox2 = Box.createVerticalBox();
         Box hbox2 = Box.createHorizontalBox();
@@ -91,9 +105,13 @@ public class HumanCreation extends JFrame {
         class ValiderListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 if(jtf.getText().matches("\\d+")){      
+                    List<Client> clients = new ArrayList<Client>();
                     for(int i = 0 ; i < parseInt(jtf.getText()) ; i++){
-                        System.out.println("ok");
+                        clients.add(new Client());
                     }
+                    Bar.getInstance().setClients(clients);
+                    dispose();
+                    HumanCreation fen = new HumanCreation();
                 }
             }
         }   
@@ -127,9 +145,13 @@ public class HumanCreation extends JFrame {
         class ValiderListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 if(jtf.getText().matches("\\d+")){      
+                    List<Cliente> clientes = new ArrayList<Cliente>();
                     for(int i = 0 ; i < parseInt(jtf.getText()) ; i++){
-                        System.out.println("ok");
+                        clientes.add(new Cliente());
                     }
+                    Bar.getInstance().setClientes(clientes);
+                    dispose();
+                    HumanCreation fen = new HumanCreation();
                 }
             }
         }   
@@ -163,9 +185,13 @@ public class HumanCreation extends JFrame {
         class ValiderListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 if(jtf.getText().matches("\\d+")){      
+                    List<Serveur> serveurs = new ArrayList<Serveur>();
                     for(int i = 0 ; i < parseInt(jtf.getText()) ; i++){
-                        System.out.println("ok");
+                        serveurs.add(new Serveur());
                     }
+                    Bar.getInstance().setServeurs(serveurs);
+                    dispose();
+                    HumanCreation fen = new HumanCreation();
                 }
             }
         }   
@@ -199,9 +225,13 @@ public class HumanCreation extends JFrame {
         class ValiderListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 if(jtf.getText().matches("\\d+")){      
+                    List<Serveuse> serveuses = new ArrayList<Serveuse>();
                     for(int i = 0 ; i < parseInt(jtf.getText()) ; i++){
-                        System.out.println("ok");
+                        serveuses.add(new Serveuse());
                     }
+                    Bar.getInstance().setServeuses(serveuses);
+                    dispose();
+                    HumanCreation fen = new HumanCreation();
                 }
             }
         }   
@@ -219,6 +249,13 @@ public class HumanCreation extends JFrame {
             NouveauBar fen = new NouveauBar();
         }
     }   
+    
+    class ValiderListener implements ActionListener{
+        public void actionPerformed(ActionEvent ae) {
+            dispose();
+            BarActuel fen = new BarActuel();
+        }
+    }  
     
     
     

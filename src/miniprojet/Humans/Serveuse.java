@@ -23,13 +23,12 @@ public class Serveuse extends Human{
     private final Boissons boisson = Boissons.EAU;
     private int coeff_charme;
     
-    public Serveuse(String prenom, String surnom, float porte_monnaie, int popularite, String cri, int taille_biceps) {
+    public Serveuse(String prenom, String surnom, double porte_monnaie, int popularite, String cri, int taille_biceps) {
         super(prenom, surnom, porte_monnaie, popularite, cri);
         this.coeff_charme = taille_biceps;
-        Save();
     }
     
-    public Serveuse() throws IOException{
+    public Serveuse(){
         super(new Random().getRandomPrenom_f(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
         this.coeff_charme=(int)(Math.random()*10);
         Save();

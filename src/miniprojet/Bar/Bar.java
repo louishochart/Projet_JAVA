@@ -17,7 +17,9 @@ import miniprojet.*;
  * @author Louis
  */
 
+
 public class Bar {
+    
     private Patronne patronne ;
     private String name ;
     private Barman barman;
@@ -28,18 +30,28 @@ public class Bar {
     private List<Client> clients = new ArrayList<Client>();
     private List<Cliente> clientes = new ArrayList<Cliente>();
     private List<Boissons> boissons = new ArrayList<Boissons>();
-
-    public Bar(Patronne patronne, Barman barman, Fournisseur fournisseur) {
+      
+    /** Holder */
+    private static class BarHolder
+    {       
+        /** Instance unique non préinitialisée */
+        private final static Bar instance = new Bar();
+    }
+ 
+    /** Point d'accès pour l'instance unique du singleton */
+    public static Bar getInstance()
+    {
+        return BarHolder.instance;
+    }
+    
+    private Bar(Patronne patronne, Barman barman, Fournisseur fournisseur) {
         this.patronne = patronne;
-        this.name = "Chez" + this.patronne.getPrenom();
+        this.name = "Chez " + this.patronne.getPrenom();
         this.barman = barman;
         this.fournisseur = fournisseur;
     }    
-    public Bar() throws IOException{
-        this.patronne = new Patronne();
-        this.name = "Chez " + this.patronne.getPrenom();
-        this.barman = new Barman();
-        this.fournisseur = new Fournisseur();
+    private Bar() 
+    {
     }
 
     public void addTable(Table t){
@@ -96,6 +108,7 @@ public class Bar {
 
     public void setPatronne(Patronne patronne) {
         this.patronne = patronne;
+        this.name = "Chez " + patronne.getPrenom();
     }
     public void setTables(List<Table> tables) {
         this.tables = tables;

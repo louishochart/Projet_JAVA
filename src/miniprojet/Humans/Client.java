@@ -38,10 +38,9 @@ public class Client extends Human {
         this.boisson_fav_2 = boisson_fav_2;
         this.niveau_alcool = niveau_alcool;
         this.couleur_tshirt=couleur_tshirt;
-        Save();
     }
     
-    public Client() throws IOException{
+    public Client(){
         super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
         this.boisson_fav_1=new Random().getRandomBoisson();
         Boissons b = new Random().getRandomBoisson();
@@ -66,7 +65,7 @@ public class Client extends Human {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             bw.write(this.getPrenom()+separator+this.getSurnom()+separator+this.getPorte_monnaie()+separator
                             +this.getPopularite()+separator+this.getCri()+separator+this.getBoisson_fav_1()+separator
-                        +this.boisson_fav_2+separator+this.niveau_alcool+separator+this.couleur_tshirt);  
+                        +this.boisson_fav_2+separator+this.niveau_alcool+separator+this.couleur_tshirt.getName());  
                         // écrire une ligne dans le fichier clients.txt
             bw.write("\n"); // forcer le passage à la ligne
             bw.close(); // fermer le fichier à la fin des traitements

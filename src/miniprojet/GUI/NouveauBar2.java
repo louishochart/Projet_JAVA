@@ -20,6 +20,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import miniprojet.Bar.*;
+import miniprojet.Humans.*;
+import miniprojet.Functions.*;
 
 
 /**
@@ -42,35 +44,35 @@ public class NouveauBar2 extends JFrame {
         bouton2.addActionListener(new Bouton2Listener());
         retour.addActionListener(new RetourListener());
         
-        try {
-            Bar bar = new Bar();
-            JLabel name = new JLabel(bar.getName());
-            JLabel patronne = new JLabel(bar.getPatronne().toString());
-            JLabel barman = new JLabel(bar.getBarman().toString());
-            JLabel fournisseur = new JLabel(bar.getFournisseur().toString());
-            Box vbox1= Box.createVerticalBox();
-            vbox1.add(label);
-            vbox1.add(new JLabel("  "));
-            vbox1.add(name);
-            vbox1.add(new JLabel("  "));
-            vbox1.add(patronne);
-            vbox1.add(barman);
-            vbox1.add(fournisseur);
-            vbox1.add(new JLabel("  "));
-            vbox1.add(bouton2);
-            vbox1.add(retour);
+        new Files().emptyFiles();
+        
+        
+        
+        Bar.getInstance().setPatronne(new Patronne());
+        Bar.getInstance().setFournisseur(new Fournisseur());
+        Bar.getInstance().setBarman(new Barman());
+        
             
-            
-            this.getContentPane().add(vbox1);
-            this.getContentPane().setBackground(Color.ORANGE);
+        JLabel name = new JLabel(Bar.getInstance().getName());
+        JLabel patronne = new JLabel(Bar.getInstance().getPatronne().toString());
+        JLabel barman = new JLabel(Bar.getInstance().getBarman().toString());
+        JLabel fournisseur = new JLabel(Bar.getInstance().getFournisseur().toString());
+        Box vbox1= Box.createVerticalBox();
+        vbox1.add(label);
+        vbox1.add(new JLabel("  "));
+        vbox1.add(name);
+        vbox1.add(new JLabel("  "));
+        vbox1.add(patronne);
+        vbox1.add(barman);
+        vbox1.add(fournisseur);
+        vbox1.add(new JLabel("  "));
+        vbox1.add(bouton2);
+        vbox1.add(retour);
 
-            this.setVisible(true);;
-            
-        }
-        catch (IOException ex) {
-            Logger.getLogger(NouveauBar2.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.getContentPane().add(vbox1);
+        this.getContentPane().setBackground(Color.ORANGE);
 
+        this.setVisible(true);;  
     }
     
     class Bouton2Listener implements ActionListener{

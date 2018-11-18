@@ -15,7 +15,7 @@ import miniprojet.*;
  */
 public enum Boissons {
     // nom('de cb va augmenter le taux avec un verre','prix achat','prix vente')
-    CIDRE("CIDE",0.05f, 0.5f, 1.55f),
+    CIDRE("CIDRE",0.05f, 0.5f, 1.55f),
     BIERE("BIERE",0.15f, 1.2f, 2f),
     VIN("VIN",0.2f, 2f, 6f),
     WHISKY("WHISKY",0.3f, 3.5f, 8f),
