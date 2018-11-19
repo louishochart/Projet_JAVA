@@ -1,1 +1,2 @@
-Appoline;Moulart;27.86;41;YES;VIN;JUSDEFRUIT;0.0;0
+Agnes;Boizard;39.81;48;Cool;BIERE;TEQUILA;0.0;0
+Maud;DelaPorte;94.79;3;YES;CIDRE;VODKA;0.0;0

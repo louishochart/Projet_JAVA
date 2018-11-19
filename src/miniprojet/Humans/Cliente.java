@@ -20,15 +20,15 @@ import miniprojet.Functions.Random;
  *
  * @author Louis
  */
-public class Cliente extends Human {
+public class Cliente extends Humain {
     
-    private Boissons boisson_fav_1;
-    private Boissons boisson_fav_2;
+    private Boisson boisson_fav_1;
+    private Boisson boisson_fav_2;
     private float niveau_alcool;
     int nb_bijoux;
 
-    public Cliente(String prenom, String surnom, double porte_monnaie, int popularite, String cri, Boissons boisson_fav_1, Boissons boisson_fav_2, float niveau_alcool, int nb_bijoux) {
-        super(prenom, surnom, porte_monnaie, popularite, cri);
+    public Cliente(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool, int nb_bijoux) {
+        super(prenom, nom, porte_monnaie, popularite, cri);
         
         this.boisson_fav_1 = boisson_fav_1;
         while(boisson_fav_1.getName().equals(boisson_fav_2.getName())){
@@ -42,7 +42,7 @@ public class Cliente extends Human {
     public Cliente(){
         super(new Random().getRandomPrenom_f(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
         this.boisson_fav_1=new Random().getRandomBoisson();
-        Boissons b = new Random().getRandomBoisson();
+        Boisson b = new Random().getRandomBoisson();
         
         while(boisson_fav_1.getName().equals(b.getName())){
             b = new Random().getRandomBoisson();
@@ -62,7 +62,7 @@ public class Cliente extends Human {
                 file.createNewFile();
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
-            bw.write(this.getPrenom()+separator+this.getSurnom()+separator+this.getPorte_monnaie()+separator
+            bw.write(this.getPrenom()+separator+this.getNom()+separator+this.getPorte_monnaie()+separator
                             +this.getPopularite()+separator+this.getCri()+separator+this.getBoisson_fav_1()+separator
                         +this.boisson_fav_2+separator+this.niveau_alcool+separator+this.nb_bijoux);  
                         // écrire une ligne dans le fichier clients.txt
@@ -71,11 +71,11 @@ public class Cliente extends Human {
         } 
         catch (Exception e){}  
     }
-    public Boissons getBoisson_fav_1() {
+    public Boisson getBoisson_fav_1() {
         return boisson_fav_1;
     }
 
-    public Boissons getBoisson_fav_2() {
+    public Boisson getBoisson_fav_2() {
         return boisson_fav_2;
     }
 
@@ -83,11 +83,16 @@ public class Cliente extends Human {
         return niveau_alcool;
     }
 
-    public void setBoisson_fav_1(Boissons boisson_fav_1) {
+    public int getNb_bijoux() {
+        return nb_bijoux;
+    }
+    
+
+    public void setBoisson_fav_1(Boisson boisson_fav_1) {
         this.boisson_fav_1 = boisson_fav_1;
     }
 
-    public void setBoisson_fav_2(Boissons boisson_fav_2) {
+    public void setBoisson_fav_2(Boisson boisson_fav_2) {
         this.boisson_fav_2 = boisson_fav_2;
     }
 
@@ -95,10 +100,16 @@ public class Cliente extends Human {
         this.niveau_alcool = niveau_alcool;
     }
 
+    public void setNb_bijoux(int nb_bijoux) {
+        this.nb_bijoux = nb_bijoux;
+    }
+    
+
     @Override
     public String toString() {
-        return "Cliente{ Prenom: "+this.getPrenom()+", Surnom : "+this.getSurnom()+", Porte Monnaie : "+this.getPorte_monnaie()
-        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri()+", boisson_fav_1="+ boisson_fav_1 + ", boisson_fav_2=" + boisson_fav_2 + ", niveau_alcool=" + niveau_alcool + '}';
+        return "Cliente{ Prenom: "+this.getPrenom()+" , Surnom : "+this.getNom()+" , Porte Monnaie : "+this.getPorte_monnaie()
+        +" , Popularité : "+this.getPopularite()+" , Cri : "+this.getCri()+" , boisson_fav_1 : "+ boisson_fav_1 + " , boisson_fav_2 : " 
+                + boisson_fav_2 + " , niveau_alcool : " + niveau_alcool + " ,nombre_bijoux : "+nb_bijoux+'}';
     } 
     
     public void verre_gratuit(){

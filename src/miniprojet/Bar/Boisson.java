@@ -13,7 +13,7 @@ import miniprojet.*;
  *
  * @author Louis
  */
-public enum Boissons {
+public enum Boisson {
     // nom('de cb va augmenter le taux avec un verre','prix achat','prix vente')
     CIDRE("CIDRE",0.05f, 0.5f, 1.55f),
     BIERE("BIERE",0.15f, 1.2f, 2f),
@@ -34,12 +34,11 @@ public enum Boissons {
     private final float prix_vente;
     
 
-    private Boissons(String name, float degree, float prix_achat, float prix_vente) {
+    private Boisson(String name, float degree, float prix_achat, float prix_vente) {
         this.name = name;
         this.degree = degree;
         this.prix_achat = prix_achat;
-        this.prix_vente = prix_vente;
-        
+        this.prix_vente = prix_vente;      
     }
 
     public String getName() {

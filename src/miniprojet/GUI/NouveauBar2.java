@@ -47,7 +47,8 @@ public class NouveauBar2 extends JFrame {
         new Files().emptyFiles();
         
         
-        
+        Bar.getInstance().setStock(new Stock(50));
+        Bar.getInstance().setCaisse(new Caisse(500f));
         Bar.getInstance().setPatronne(new Patronne());
         Bar.getInstance().setFournisseur(new Fournisseur());
         Bar.getInstance().setBarman(new Barman());

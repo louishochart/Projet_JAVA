@@ -18,14 +18,14 @@ import miniprojet.Functions.Random;
  *
  * @author Louis
  */
-public class Barman extends Human{
+public class Barman extends Humain{
     
-    private Boissons boisson_fav_1;
-    private Boissons boisson_fav_2;
+    private Boisson boisson_fav_1;
+    private Boisson boisson_fav_2;
     
-    public Barman(String prenom, String surnom, double porte_monnaie, int popularite, String cri, Boissons boisson_fav_1, Boissons boisson_fav_2) {
+    public Barman(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2) {
         
-        super(prenom, surnom, porte_monnaie, popularite, cri);
+        super(prenom, nom, porte_monnaie, popularite, cri);
         this.setBoisson_fav_1(boisson_fav_1);
         this.setBoisson_fav_2(boisson_fav_2);
     }
@@ -33,7 +33,7 @@ public class Barman extends Human{
     public Barman(){
         super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
         this.boisson_fav_1=new Random().getRandomSoft();
-        Boissons b = new Random().getRandomSoft();
+        Boisson b = new Random().getRandomSoft();
         
         while(boisson_fav_1.getName().equals(b.getName())){
             b = new Random().getRandomSoft();
@@ -50,7 +50,7 @@ public class Barman extends Human{
                 file.createNewFile();
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-            bw.write(this.getPrenom()+separator+this.getSurnom()+separator+this.getPorte_monnaie()+separator
+            bw.write(this.getPrenom()+separator+this.getNom()+separator+this.getPorte_monnaie()+separator
                             +this.getPopularite()+separator+this.getCri()+separator+this.boisson_fav_1+separator
                         +this.boisson_fav_2);  
                         // écrire une ligne dans le fichier clients.txt
@@ -62,21 +62,21 @@ public class Barman extends Human{
 
     @Override
     public String toString() {
-        return "Barman{ Prenom: "+this.getPrenom()+", Surnom : "+this.getSurnom()+", Porte Monnaie : "+this.getPorte_monnaie()
-        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri()+", boisson_fav_1="+ boisson_fav_1 + ", boisson_fav_2=" + boisson_fav_2 + '}';
+        return "Barman{ Prenom: "+this.getPrenom()+" , Surnom : "+this.getNom()+" , Porte Monnaie : "+this.getPorte_monnaie()
+        +" , Popularité : "+this.getPopularite()+" , Cri : "+this.getCri()+" , boisson_fav_1 : "+ boisson_fav_1 + " , boisson_fav_2 : " + boisson_fav_2 + '}';
     }
     
     
     
-    public Boissons getBoisson_fav_1() {
+    public Boisson getBoisson_fav_1() {
         return boisson_fav_1;
     }
 
-    public Boissons getBoisson_fav_2() {
+    public Boisson getBoisson_fav_2() {
         return boisson_fav_2;
     }
 
-    public void setBoisson_fav_1(Boissons boisson_fav_1) {
+    public void setBoisson_fav_1(Boisson boisson_fav_1) {
         if (boisson_fav_1.getDegree()!=0){
             System.out.println("Le Barman déteste l'aloool");
         }
@@ -85,7 +85,7 @@ public class Barman extends Human{
         }
     }
 
-    public void setBoisson_fav_2(Boissons boisson_fav_2) {
+    public void setBoisson_fav_2(Boisson boisson_fav_2) {
         if (boisson_fav_2.getDegree()!=0){
             System.out.println("Le Barman déteste l'aloool");
         }

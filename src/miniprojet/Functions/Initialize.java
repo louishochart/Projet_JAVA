@@ -15,6 +15,7 @@ import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import miniprojet.Bar.*;
@@ -34,6 +35,8 @@ public class Initialize {
         Bar.getInstance().setClientes(clientes());
         Bar.getInstance().setServeurs(serveurs());
         Bar.getInstance().setServeuses(serveuses());
+        Bar.getInstance().setStock(stock());
+        Bar.getInstance().setCaisse(caisse());
     }
     public Patronne patronne(){
         BufferedReader br=null;
@@ -44,13 +47,13 @@ public class Initialize {
             while((st = br.readLine()) != null){
                 String[] valeurs = st.split(";");
                 String prenom = valeurs[0];
-                String surnom = valeurs[1];
+                String nom = valeurs[1];
                 double porte_monnaie = parseDouble(valeurs[2]);
                 int popularite = parseInt(valeurs[3]);
                 String cri = valeurs[4];
-                Boissons[] boissons = Boissons.values();
-                Boissons boisson_fav_1 = null;
-                Boissons boisson_fav_2 = null;
+                Boisson[] boissons = Boisson.values();
+                Boisson boisson_fav_1 = null;
+                Boisson boisson_fav_2 = null;
                 for(int i = 0 ; i < boissons.length ; i ++){
                     if(boissons[i].getName().equals(valeurs[5])){
                         boisson_fav_1=boissons[i];
@@ -62,7 +65,7 @@ public class Initialize {
                 float niveau_alcool = parseFloat(valeurs[7]);
                 Color couleur_tshirt = null;
                 int nb_bijoux = parseInt(valeurs[8]);
-                return(new Patronne(prenom,surnom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,nb_bijoux));
+                return(new Patronne(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,nb_bijoux));
             }   
             return(new Patronne());
         } catch (FileNotFoundException ex) {
@@ -90,13 +93,13 @@ public class Initialize {
             while((st = br.readLine()) != null){
                 String[] valeurs = st.split(";");
                 String prenom = valeurs[0];
-                String surnom = valeurs[1];
+                String nom = valeurs[1];
                 double porte_monnaie = parseDouble(valeurs[2]);
                 int popularite = parseInt(valeurs[3]);
                 String cri = valeurs[4];
-                Boissons[] boissons = Boissons.values();
-                Boissons boisson_fav_1 = null;
-                Boissons boisson_fav_2 = null;
+                Boisson[] boissons = Boisson.values();
+                Boisson boisson_fav_1 = null;
+                Boisson boisson_fav_2 = null;
                 for(int i = 0 ; i < boissons.length ; i ++){
                     if(boissons[i].getName().equals(valeurs[5])){
                         boisson_fav_1=boissons[i];
@@ -105,7 +108,7 @@ public class Initialize {
                         boisson_fav_2=boissons[i];
                     }
                 }
-                return(new Barman(prenom,surnom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2));
+                return(new Barman(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2));
             }   
             return(new Barman());
         } catch (FileNotFoundException ex) {
@@ -132,11 +135,11 @@ public class Initialize {
             while((st = br.readLine()) != null){
                 String[] valeurs = st.split(";");
                 String prenom = valeurs[0];
-                String surnom = valeurs[1];
+                String nom = valeurs[1];
                 double porte_monnaie = parseDouble(valeurs[2]);
                 int popularite = parseInt(valeurs[3]);
                 String cri = valeurs[4];
-                return(new Fournisseur(prenom,surnom,porte_monnaie,popularite,cri));
+                return(new Fournisseur(prenom,nom,porte_monnaie,popularite,cri));
             }   
             return(new Fournisseur());
         } catch (FileNotFoundException ex) {
@@ -165,13 +168,13 @@ public class Initialize {
             while((st = br.readLine()) != null){
                 String[] valeurs = st.split(";");
                 String prenom = valeurs[0];
-                String surnom = valeurs[1];
+                String nom = valeurs[1];
                 double porte_monnaie = parseDouble(valeurs[2]);
                 int popularite = parseInt(valeurs[3]);
                 String cri = valeurs[4];
-                Boissons[] boissons = Boissons.values();
-                Boissons boisson_fav_1 = null;
-                Boissons boisson_fav_2 = null;
+                Boisson[] boissons = Boisson.values();
+                Boisson boisson_fav_1 = null;
+                Boisson boisson_fav_2 = null;
                 for(int i = 0 ; i < boissons.length ; i ++){
                     if(boissons[i].getName().equals(valeurs[5])){
                         boisson_fav_1=boissons[i];
@@ -188,7 +191,7 @@ public class Initialize {
                         couleur_tshirt=couleurs[i];
                     }
                 }
-                liste.add(new Client(prenom,surnom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,couleur_tshirt));
+                liste.add(new Client(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,couleur_tshirt));
             }   
             return(liste);
         } catch (FileNotFoundException ex) {
@@ -217,13 +220,13 @@ public class Initialize {
             while((st = br.readLine()) != null){
                 String[] valeurs = st.split(";");
                 String prenom = valeurs[0];
-                String surnom = valeurs[1];
+                String nom = valeurs[1];
                 double porte_monnaie = parseDouble(valeurs[2]);
                 int popularite = parseInt(valeurs[3]);
                 String cri = valeurs[4];
-                Boissons[] boissons = Boissons.values();
-                Boissons boisson_fav_1 = null;
-                Boissons boisson_fav_2 = null;
+                Boisson[] boissons = Boisson.values();
+                Boisson boisson_fav_1 = null;
+                Boisson boisson_fav_2 = null;
                 for(int i = 0 ; i < boissons.length ; i ++){
                     if(boissons[i].getName().equals(valeurs[5])){
                         boisson_fav_1=boissons[i];
@@ -235,7 +238,7 @@ public class Initialize {
                 float niveau_alcool = parseFloat(valeurs[7]);
                 Color couleur_tshirt = null;
                 int nb_bijoux = parseInt(valeurs[8]);
-                liste.add(new Cliente(prenom,surnom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,nb_bijoux));
+                liste.add(new Cliente(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,nb_bijoux));
             }   
             return(liste);
         } catch (FileNotFoundException ex) {
@@ -263,12 +266,12 @@ public class Initialize {
             while((st = br.readLine()) != null){
                 String[] valeurs = st.split(";");
                 String prenom = valeurs[0];
-                String surnom = valeurs[1];
+                String nom = valeurs[1];
                 double porte_monnaie = parseDouble(valeurs[2]);
                 int popularite = parseInt(valeurs[3]);
                 String cri = valeurs[4];
                 int taille_biceps = parseInt(valeurs[6]);           
-                liste.add(new Serveur(prenom,surnom,porte_monnaie,popularite,cri,taille_biceps));
+                liste.add(new Serveur(prenom,nom,porte_monnaie,popularite,cri,taille_biceps));
             }   
             return(liste);
         } catch (FileNotFoundException ex) {
@@ -295,12 +298,12 @@ public class Initialize {
             while((st = br.readLine()) != null){
                 String[] valeurs = st.split(";");
                 String prenom = valeurs[0];
-                String surnom = valeurs[1];
+                String nom = valeurs[1];
                 double porte_monnaie = parseDouble(valeurs[2]);
                 int popularite = parseInt(valeurs[3]);
                 String cri = valeurs[4];
                 int coeff_charme = parseInt(valeurs[6]);           
-                liste.add(new Serveuse(prenom,surnom,porte_monnaie,popularite,cri,coeff_charme));
+                liste.add(new Serveuse(prenom,nom,porte_monnaie,popularite,cri,coeff_charme));
             }   
             return(liste);
         } catch (FileNotFoundException ex) {
@@ -318,4 +321,65 @@ public class Initialize {
         }
     }
     
+    public Stock stock(){
+        BufferedReader br=null;
+        try {
+            File file=new File(".\\db\\stocks.txt"); // définir l'arborescence
+            br = new BufferedReader(new FileReader(file));
+            String st;
+            ArrayList <Boisson> boissons = new ArrayList <Boisson>();
+            ArrayList <Integer> quantites = new ArrayList <Integer>();
+            while((st = br.readLine()) != null){
+                String[] valeurs = st.split(";");
+                Boisson boisson = null;
+                for(int i = 0 ; i < Boisson.values().length ; i ++){
+                    if(Boisson.values()[i].getName().equals(valeurs[0])){
+                        boisson=Boisson.values()[i];
+                    }
+                }
+                boissons.add(boisson);
+                quantites.add(parseInt(valeurs[1]));
+            }   
+            return(new Stock(boissons,quantites));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            return(new Stock(0));
+        } catch (IOException ex) {
+            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            return(new Stock(0));
+        } finally {
+            
+            try {
+                br.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    public Caisse caisse(){
+        BufferedReader br=null;
+        float caisse=0f;
+        try {
+            File file=new File(".\\db\\caisse.txt"); // définir l'arborescence
+            br = new BufferedReader(new FileReader(file));
+            String st;
+            while((st = br.readLine()) != null){
+                caisse=parseFloat(st);
+            }   
+            return(new Caisse(caisse));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            return(new Caisse(caisse));
+        } catch (IOException ex) {
+            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            return(new Caisse(caisse));
+        } finally {
+            
+            try {
+                br.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 }

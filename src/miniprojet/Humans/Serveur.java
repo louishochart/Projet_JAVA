@@ -18,13 +18,13 @@ import miniprojet.Functions.Random;
  *
  * @author Louis
  */
-public class Serveur extends Human{
+public class Serveur extends Humain{
     
-    private final Boissons boisson = Boissons.EAU;
+    private final Boisson boisson = Boisson.EAU;
     private int taille_biceps;
 
-    public Serveur(String prenom, String surnom, double porte_monnaie, int popularite, String cri, int taille_biceps) {
-        super(prenom, surnom, porte_monnaie, popularite, cri);
+    public Serveur(String prenom, String nom, double porte_monnaie, int popularite, String cri, int taille_biceps) {
+        super(prenom, nom, porte_monnaie, popularite, cri);
         this.taille_biceps = taille_biceps;
     }
     
@@ -43,7 +43,7 @@ public class Serveur extends Human{
                 System.out.println("c nv");
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
-            bw.write(this.getPrenom()+separator+this.getSurnom()+separator+this.getPorte_monnaie()
+            bw.write(this.getPrenom()+separator+this.getNom()+separator+this.getPorte_monnaie()
             +separator+this.getPopularite()+separator+this.getCri()+separator+this.boisson+separator+this.taille_biceps);  
                         // écrire une ligne dans le fichier clients.txt
             bw.write("\n"); // forcer le passage à la ligne
@@ -54,11 +54,11 @@ public class Serveur extends Human{
     
     @Override
     public String toString() {
-        return "Serveur{ Prenom: "+this.getPrenom()+", Surnom : "+this.getSurnom()+", Porte Monnaie : "+this.getPorte_monnaie()
-        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri() + '}';
+        return "Serveur{ Prenom: "+this.getPrenom()+", Surnom : "+this.getNom()+", Porte Monnaie : "+this.getPorte_monnaie()
+        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri() + " , taille_biceps : "+taille_biceps + '}';
     }
 
-    public Boissons getBoisson() {
+    public Boisson getBoisson() {
         return boisson;
     }
 

@@ -29,7 +29,9 @@ public class Bar {
     private List<Serveuse> serveuses = new ArrayList<Serveuse>();
     private List<Client> clients = new ArrayList<Client>();
     private List<Cliente> clientes = new ArrayList<Cliente>();
-    private List<Boissons> boissons = new ArrayList<Boissons>();
+    private List<Boisson> boissons = new ArrayList<Boisson>();
+    private Stock stock;
+    private Caisse caisse;
       
     /** Holder */
     private static class BarHolder
@@ -71,7 +73,7 @@ public class Bar {
     public void addCliente(Cliente c){
         this.clientes.add(c);
     }
-    public void addBoisson(Boissons b){
+    public void addBoisson(Boisson b){
         this.boissons.add(b);
     }
     
@@ -102,9 +104,17 @@ public class Bar {
     public List<Cliente> getClientes() {
         return clientes;
     }
-    public List<Boissons> getBoissons() {
+    public List<Boisson> getBoissons() {
         return boissons;
     }
+    public Stock getStock() {
+        return stock;
+    }
+    public Caisse getCaisse() {
+        return caisse;
+    }
+    
+    
 
     public void setPatronne(Patronne patronne) {
         this.patronne = patronne;
@@ -131,9 +141,16 @@ public class Bar {
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
     }
-    public void setBoissons(List<Boissons> boissons) {
+    public void setBoissons(List<Boisson> boissons) {
         this.boissons = boissons;
     }
+    public void setStock(Stock stock) {
+        this.stock = stock;
+    }
+    public void setCaisse(Caisse caisse) {
+        this.caisse = caisse;
+    }
+    
     
     
     

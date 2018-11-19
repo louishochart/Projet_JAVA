@@ -18,10 +18,10 @@ import miniprojet.Functions.Random;
  *
  * @author Louis
  */
-public class Fournisseur extends Human {
+public class Fournisseur extends Humain {
 
-    public Fournisseur(String prenom, String surnom, double porte_monnaie, int popularite, String cri) {
-        super(prenom, surnom, porte_monnaie, popularite, cri);
+    public Fournisseur(String prenom, String nom, double porte_monnaie, int popularite, String cri) {
+        super(prenom, nom, porte_monnaie, popularite, cri);
     }
     public Fournisseur(){
         super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
@@ -36,7 +36,7 @@ public class Fournisseur extends Human {
                 file.createNewFile();
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-            bw.write(this.getPrenom()+separator+this.getSurnom()+separator+this.getPorte_monnaie()+separator
+            bw.write(this.getPrenom()+separator+this.getNom()+separator+this.getPorte_monnaie()+separator
                             +this.getPopularite()+separator+this.getCri());  
                         // écrire une ligne dans le fichier clients.txt
             bw.write("\n"); // forcer le passage à la ligne
@@ -48,8 +48,8 @@ public class Fournisseur extends Human {
 
     @Override
     public String toString() {
-        return "Fournisseur{ Prenom: "+this.getPrenom()+", Surnom : "+this.getSurnom()+", Porte Monnaie : "+this.getPorte_monnaie()
-        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri() + '}';
+        return "Fournisseur{ Prenom: "+this.getPrenom()+" , Surnom : "+this.getNom()+" , Porte Monnaie : "+this.getPorte_monnaie()
+        +" , Popularité : "+this.getPopularite()+" , Cri : "+this.getCri() + '}';
     }
     
     

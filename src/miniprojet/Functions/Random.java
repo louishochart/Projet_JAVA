@@ -144,15 +144,15 @@ public class Random {
         double random = Math.random()*100*Math.random()*100/100;
         return((int)random);
     }
-    public Boissons getRandomBoisson(){
-        Boissons[] boissons = Boissons.values();
+    public Boisson getRandomBoisson(){
+        Boisson[] boissons = Boisson.values();
         int count = boissons.length;
         double random = Math.random()*(count);
         return(boissons[(int)random]);
     }
-    public Boissons getRandomSoft(){
-        Boissons[] boissons = Boissons.values();
-        List<Boissons> softs = new ArrayList<Boissons>();
+    public Boisson getRandomSoft(){
+        Boisson[] boissons = Boisson.values();
+        List<Boisson> softs = new ArrayList<Boisson>();
         for(int i = 0 ; i < boissons.length;i++){
             if (boissons[i].getDegree()==0){
                 softs.add(boissons[i]);

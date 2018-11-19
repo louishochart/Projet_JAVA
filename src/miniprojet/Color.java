@@ -10,15 +10,18 @@ package miniprojet;
  * @author Louis
  */
 public enum Color {
-    RED("RED"),
-    BlUE("BLUE"),
-    BLACK("BLACK"),
-    GREEN("GREEN"),
-    YELLOW("YELLOW"),
-    WHITE("WHITE"),
-    GREY("GREY"),
+    ROUGE("ROUGE"),
+    BlEU("BLEU"),
+    NOIR("NOIR"),
+    VERT("VERT"),
+    JAUNE("JAUNE"),
+    BLANC("BLANC"),
+    GRIS("GRIS"),
     ORANGE("ORANGE"),
-    BROWN("BROWN");
+    VIOLET("VIOLET"),
+    CYAN("CYAN"),
+    
+    MARRON("MARRON");
     
     String name;
 

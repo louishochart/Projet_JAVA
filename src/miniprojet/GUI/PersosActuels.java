@@ -39,12 +39,14 @@ public class PersosActuels extends JFrame{
     private JButton clientes = new JButton("Clientes");
     private JButton serveurs = new JButton("Serveurs");
     private JButton serveuses = new JButton("Serveuses");
+    private JButton stock = new JButton("Stock");
+    private JButton caisse = new JButton("Caisse");
     private JButton retour = new JButton("Retour");
     
     public PersosActuels(){
         new Initialize();
         this.setTitle("Personnages Actuels");
-        this.setSize(600, 150);
+        this.setSize(1300, 600);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
@@ -55,7 +57,8 @@ public class PersosActuels extends JFrame{
         clientes.addActionListener(new ClientesListener());
         serveurs.addActionListener(new ServeursListener());
         serveuses.addActionListener(new ServeusesListener());
-        
+        stock.addActionListener(new StockListener());
+        caisse.addActionListener(new CaisseListener());
         retour.addActionListener(new RetourListener());
         
         Box vbox1 = Box.createVerticalBox();
@@ -67,7 +70,14 @@ public class PersosActuels extends JFrame{
         hbox1.add(clientes);
         hbox1.add(serveurs);
         hbox1.add(serveuses);  
+  
+        Box hbox2 = Box.createHorizontalBox(); 
+        hbox2.add(stock);
+        hbox2.add(caisse);
+        
         vbox1.add(hbox1);
+        vbox1.add(hbox2);
+        
         this.getContentPane().add(vbox1, BorderLayout.NORTH);
         Box vbox3 = Box.createVerticalBox();
         Box hbox3 = Box.createHorizontalBox();
@@ -87,7 +97,7 @@ public class PersosActuels extends JFrame{
         public void actionPerformed(ActionEvent ae) {
             
             retour.addActionListener(new RetourListener());
-            JLabel label = new JLabel(Bar.getInstance().getPatronne().getPrenom()+" "+Bar.getInstance().getPatronne().getSurnom());   
+            JLabel label = new JLabel(Bar.getInstance().getPatronne().toString());   
             Box vbox1 = Box.createVerticalBox();
             Box hbox1 = Box.createHorizontalBox();
             hbox1.add(label);
@@ -116,7 +126,7 @@ public class PersosActuels extends JFrame{
         public void actionPerformed(ActionEvent ae) {
             
             retour.addActionListener(new RetourListener());
-            JLabel label = new JLabel(Bar.getInstance().getBarman().getPrenom()+" "+Bar.getInstance().getBarman().getSurnom());   
+            JLabel label = new JLabel(Bar.getInstance().getBarman().toString());   
             Box vbox1 = Box.createVerticalBox();
             Box hbox1 = Box.createHorizontalBox();
             hbox1.add(label);
@@ -145,7 +155,7 @@ public class PersosActuels extends JFrame{
         public void actionPerformed(ActionEvent ae) {
             
             retour.addActionListener(new RetourListener());
-            JLabel label = new JLabel(Bar.getInstance().getFournisseur().getPrenom()+" "+Bar.getInstance().getFournisseur().getSurnom());   
+            JLabel label = new JLabel(Bar.getInstance().getFournisseur().toString());   
             Box vbox1 = Box.createVerticalBox();
             Box hbox1 = Box.createHorizontalBox();
             hbox1.add(label);
@@ -174,7 +184,7 @@ public class PersosActuels extends JFrame{
             retour.addActionListener(new RetourListener());           
             Box vbox1 = Box.createVerticalBox();          
             for(int i = 0 ; i < Bar.getInstance().getClients().size() ; i++){                
-                JLabel label = new JLabel(Bar.getInstance().getClients().get(i).getPrenom()+" "+Bar.getInstance().getClients().get(i).getSurnom());
+                JLabel label = new JLabel(Bar.getInstance().getClients().get(i).toString());
                 Box hbox = Box.createHorizontalBox();
                 hbox.add(label);
                 vbox1.add(hbox);
@@ -202,7 +212,7 @@ public class PersosActuels extends JFrame{
             retour.addActionListener(new RetourListener());           
             Box vbox1 = Box.createVerticalBox();          
             for(int i = 0 ; i < Bar.getInstance().getClientes().size() ; i++){                
-                JLabel label = new JLabel(Bar.getInstance().getClientes().get(i).getPrenom()+" "+Bar.getInstance().getClientes().get(i).getSurnom());
+                JLabel label = new JLabel(Bar.getInstance().getClientes().get(i).toString());
                 Box hbox = Box.createHorizontalBox();
                 hbox.add(label);
                 vbox1.add(hbox);
@@ -230,7 +240,7 @@ public class PersosActuels extends JFrame{
             retour.addActionListener(new RetourListener());           
             Box vbox1 = Box.createVerticalBox();          
             for(int i = 0 ; i < Bar.getInstance().getServeurs().size() ; i++){                
-                JLabel label = new JLabel(Bar.getInstance().getServeurs().get(i).getPrenom()+" "+Bar.getInstance().getServeurs().get(i).getSurnom());
+                JLabel label = new JLabel(Bar.getInstance().getServeurs().get(i).toString());
                 Box hbox = Box.createHorizontalBox();
                 hbox.add(label);
                 vbox1.add(hbox);
@@ -258,11 +268,64 @@ public class PersosActuels extends JFrame{
             retour.addActionListener(new RetourListener());           
             Box vbox1 = Box.createVerticalBox();          
             for(int i = 0 ; i < Bar.getInstance().getServeuses().size() ; i++){                
-                JLabel label = new JLabel(Bar.getInstance().getServeuses().get(i).getPrenom()+" "+Bar.getInstance().getServeuses().get(i).getSurnom());
+                JLabel label = new JLabel(Bar.getInstance().getServeuses().get(i).toString());
                 Box hbox = Box.createHorizontalBox();
                 hbox.add(label);
                 vbox1.add(hbox);
             }         
+            Box hbox2 = Box.createHorizontalBox();
+            hbox2.add(retour);
+            vbox1.add(hbox2);
+            pan.add(vbox1);
+            setContentPane(pan);
+            pan.setBackground(Color.ORANGE);           
+            setVisible(true); 
+        }
+        class RetourListener implements ActionListener{
+            public void actionPerformed(ActionEvent ae) {
+                dispose();
+                PersosActuels fen = new PersosActuels();
+            }
+        } 
+    }
+    class StockListener implements ActionListener{
+        
+        JPanel pan = new JPanel();
+        JButton retour = new JButton("Retour");        
+        public void actionPerformed(ActionEvent ae) {               
+            retour.addActionListener(new RetourListener());           
+            Box vbox1 = Box.createVerticalBox();          
+            for(int i = 0 ; i < Bar.getInstance().getStock().getBoissons().size() ; i++){                
+                JLabel label = new JLabel(Bar.getInstance().getStock().getBoissons().get(i).getName()+" : "+Bar.getInstance().getStock().getQuantites().get(i));
+                Box hbox = Box.createHorizontalBox();
+                hbox.add(label);
+                vbox1.add(hbox);
+            }         
+            Box hbox2 = Box.createHorizontalBox();
+            hbox2.add(retour);
+            vbox1.add(hbox2);
+            pan.add(vbox1);
+            setContentPane(pan);
+            pan.setBackground(Color.ORANGE);           
+            setVisible(true); 
+        }
+        class RetourListener implements ActionListener{
+            public void actionPerformed(ActionEvent ae) {
+                dispose();
+                PersosActuels fen = new PersosActuels();
+            }
+        } 
+    }
+    class CaisseListener implements ActionListener{
+        JPanel pan = new JPanel();
+        JButton retour = new JButton("Retour");        
+        public void actionPerformed(ActionEvent ae) {               
+            retour.addActionListener(new RetourListener());           
+            Box vbox1 = Box.createVerticalBox();                     
+            JLabel label = new JLabel(Float.toString(Bar.getInstance().getCaisse().getCaisse()));
+            Box hbox = Box.createHorizontalBox();
+            hbox.add(label);
+            vbox1.add(hbox);     
             Box hbox2 = Box.createHorizontalBox();
             hbox2.add(retour);
             vbox1.add(hbox2);

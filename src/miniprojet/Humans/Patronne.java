@@ -19,8 +19,8 @@ import miniprojet.Functions.Random;
  */
 public class Patronne extends Cliente {
 
-    public Patronne(String prenom, String surnom, double porte_monnaie, int popularite, String cri, Boissons boisson_fav_1, Boissons boisson_fav_2, float niveau_alcool, int nb_bijoux) {
-        super(prenom, surnom, porte_monnaie, popularite, cri, boisson_fav_1, boisson_fav_2, niveau_alcool, nb_bijoux);
+    public Patronne(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool, int nb_bijoux) {
+        super(prenom, nom, porte_monnaie, popularite, cri, boisson_fav_1, boisson_fav_2, niveau_alcool, nb_bijoux);
         
     }
     
@@ -37,7 +37,7 @@ public class Patronne extends Cliente {
                 file.createNewFile();
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-            bw.write(this.getPrenom()+separator+this.getSurnom()+separator+this.getPorte_monnaie()+separator
+            bw.write(this.getPrenom()+separator+this.getNom()+separator+this.getPorte_monnaie()+separator
             +this.getPopularite()+separator+this.getCri()+separator+this.getBoisson_fav_1()+separator
             +this.getBoisson_fav_2()+separator+this.getNiveau_alcool()+separator+this.nb_bijoux);  
             // écrire une ligne dans le fichier clients.txt
@@ -49,8 +49,9 @@ public class Patronne extends Cliente {
 
     @Override
     public String toString() {
-        return "Patronne{ Prenom: "+this.getPrenom()+", Surnom : "+this.getSurnom()+", Porte Monnaie : "+this.getPorte_monnaie()
-        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri()+", boisson_fav_1="+ this.getBoisson_fav_1() + ", boisson_fav_2=" + this.getBoisson_fav_2() + ", niveau_alcool=" + this.getNiveau_alcool() + '}';
+        return "Patronne{ Prenom: "+this.getPrenom()+" , Surnom : "+this.getNom()+" , Porte Monnaie : "+this.getPorte_monnaie()
+        +" , Popularité : "+this.getPopularite()+" , Cri : "+this.getCri()+" , boisson_fav_1 : "+ this.getBoisson_fav_1() + " , boisson_fav_2 : " 
+                + this.getBoisson_fav_2() + " , niveau_alcool : " + this.getNiveau_alcool() + " , nombre_bijoux : " + this.getNb_bijoux() + '}';
     }
     
     

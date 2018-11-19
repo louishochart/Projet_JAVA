@@ -13,6 +13,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import miniprojet.Humans.*;
@@ -27,7 +29,7 @@ import miniprojet.GUI.*;
  */
 public class TestClass {
     
-    public void test() throws FileNotFoundException, IOException{
+    public void test(){
        /*
         Client client1 = new Client("bière","pisse",10,"Samuel","Lefebvre",0.01f,0,"ooooooh");
         Client client2 = new Client("bière","pisse",10,"SAM","Lefebvre",0.01f,0,"ooooooh");
@@ -60,7 +62,7 @@ public class TestClass {
         new Files().checkIfEmpty("clients");
         System.out.println(new Files().checkIfEmpty("clients"));
         */
-        Interface1 gui  = new Interface1();
+        
         
         /*
         Client c = new Client();
@@ -77,5 +79,17 @@ public class TestClass {
         System.out.println(t.getClients().get(1));
         System.out.println(t.getNbClients());
         */
+        //Interface1 gui  = new Interface1();
+        /*
+        Bar.getInstance();
+        System.out.println(Bar.getInstance().getStock().getStock(Boisson.BIERE));
+        Bar.getInstance().setStock(Bar.getInstance().getStock().modifyStock(Boisson.BIERE, 5));
+        System.out.println(Bar.getInstance().getStock().getStock(Boisson.BIERE));
+        */
+        Humain humain = new Humain("Louis","Hochart",0.45,5,"oh");
+        Client c1 = new Client();
+        c1.se_presenter();
+        
+        
     }
 }

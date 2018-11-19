@@ -18,13 +18,13 @@ import miniprojet.Functions.Random;
  *
  * @author Louis
  */
-public class Serveuse extends Human{
+public class Serveuse extends Humain{
     
-    private final Boissons boisson = Boissons.EAU;
+    private final Boisson boisson = Boisson.EAU;
     private int coeff_charme;
     
-    public Serveuse(String prenom, String surnom, double porte_monnaie, int popularite, String cri, int taille_biceps) {
-        super(prenom, surnom, porte_monnaie, popularite, cri);
+    public Serveuse(String prenom, String nom, double porte_monnaie, int popularite, String cri, int taille_biceps) {
+        super(prenom, nom, porte_monnaie, popularite, cri);
         this.coeff_charme = taille_biceps;
     }
     
@@ -42,7 +42,7 @@ public class Serveuse extends Human{
                 file.createNewFile();
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
-            bw.write(this.getPrenom()+separator+this.getSurnom()+separator+this.getPorte_monnaie()
+            bw.write(this.getPrenom()+separator+this.getNom()+separator+this.getPorte_monnaie()
             +separator+this.getPopularite()+separator+this.getCri()+separator+this.boisson+separator+this.coeff_charme);  
                         // écrire une ligne dans le fichier clients.txt
             bw.write("\n"); // forcer le passage à la ligne
@@ -53,11 +53,11 @@ public class Serveuse extends Human{
     
     @Override
     public String toString() {
-        return "Serveuse{ Prenom: "+this.getPrenom()+", Surnom : "+this.getSurnom()+", Porte Monnaie : "+this.getPorte_monnaie()
-        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri() + '}';
+        return "Serveuse{ Prenom: "+this.getPrenom()+", Surnom : "+this.getNom()+", Porte Monnaie : "+this.getPorte_monnaie()
+        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri() + " , coeff_charme : "+ coeff_charme +'}';
     }
 
-    public Boissons getBoisson() {
+    public Boisson getBoisson() {
         return boisson;
     }
 
