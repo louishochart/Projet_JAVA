@@ -54,6 +54,11 @@ public class Bar {
     }    
     private Bar() 
     {
+        this.patronne = new Patronne();
+        this.name = "Chez " + this.patronne.getPrenom();
+        this.barman = new Barman();
+        this.fournisseur = new Fournisseur();
+        this.stock=new Stock(50);
     }
 
     public void addTable(Table t){

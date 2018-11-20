@@ -345,7 +345,7 @@ public class PersosActuels extends JFrame{
     class RetourListener implements ActionListener{
         public void actionPerformed(ActionEvent ae) {
             dispose();
-            BarActuel fen = new BarActuel();
+            BarActuelVerif fen = new BarActuelVerif();
         }
     }
 }

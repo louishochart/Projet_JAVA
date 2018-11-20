@@ -42,6 +42,18 @@ public class Barman extends Humain{
         Save();
     }
     
+    
+    public void boire(){
+        
+    }
+    public void recevoir_paiement(float paiement){
+    }
+    
+    
+    
+    
+    
+    
     public void Save(){
         try{
             char separator= ';';
@@ -65,6 +77,9 @@ public class Barman extends Humain{
         return "Barman{ Prenom: "+this.getPrenom()+" , Surnom : "+this.getNom()+" , Porte Monnaie : "+this.getPorte_monnaie()
         +" , Popularité : "+this.getPopularite()+" , Cri : "+this.getCri()+" , boisson_fav_1 : "+ boisson_fav_1 + " , boisson_fav_2 : " + boisson_fav_2 + '}';
     }
+    
+    
+    
     
     
     
@@ -96,10 +111,6 @@ public class Barman extends Humain{
 
     
     
-    public void boire(){
-        
-    }
-    public void gestion_caisse(){
-    }
+    
 
 }

@@ -79,16 +79,23 @@ public class TestClass {
         System.out.println(t.getClients().get(1));
         System.out.println(t.getNbClients());
         */
-        //Interface1 gui  = new Interface1();
+        
         /*
         Bar.getInstance();
         System.out.println(Bar.getInstance().getStock().getStock(Boisson.BIERE));
         Bar.getInstance().setStock(Bar.getInstance().getStock().modifyStock(Boisson.BIERE, 5));
         System.out.println(Bar.getInstance().getStock().getStock(Boisson.BIERE));
         */
-        Humain humain = new Humain("Louis","Hochart",0.45,5,"oh");
-        Client c1 = new Client();
-        c1.se_presenter();
+        
+        Humain h = new Humain();
+        Client c = new Client();
+        Client c2 = new Client();
+        Serveur s = new Serveur();
+        Fournisseur f = new Fournisseur();
+        System.out.println(Bar.getInstance().getStock().getStock(Boisson.BIERE));
+        c.boire(Boisson.BIERE);
+        System.out.println(Bar.getInstance().getStock().getStock(Boisson.BIERE));
+        
         
         
     }

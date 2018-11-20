@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import static java.lang.Boolean.parseBoolean;
 import static java.lang.Double.parseDouble;
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
@@ -191,7 +192,10 @@ public class Initialize {
                         couleur_tshirt=couleurs[i];
                     }
                 }
-                liste.add(new Client(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,couleur_tshirt));
+                boolean exclu = parseBoolean(valeurs[9]);
+                Client c = new Client(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,couleur_tshirt);
+                c.setExclu(exclu);
+                liste.add(c);
             }   
             return(liste);
         } catch (FileNotFoundException ex) {
@@ -236,9 +240,11 @@ public class Initialize {
                     }
                 }
                 float niveau_alcool = parseFloat(valeurs[7]);
-                Color couleur_tshirt = null;
                 int nb_bijoux = parseInt(valeurs[8]);
-                liste.add(new Cliente(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,nb_bijoux));
+                boolean exclu = parseBoolean(valeurs[9]);
+                Cliente c = new Cliente(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,nb_bijoux);
+                c.setExclu(exclu);
+                liste.add(c);
             }   
             return(liste);
         } catch (FileNotFoundException ex) {

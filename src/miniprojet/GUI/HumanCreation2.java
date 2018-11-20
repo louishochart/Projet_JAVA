@@ -48,7 +48,7 @@ public class HumanCreation2 extends JFrame {
         serveuses.addActionListener(new ServeusesListener());
         retour.addActionListener(new RetourListener());
         
-        this.setTitle("Bar actuel");
+        this.setTitle("Human Creation 2");
         this.setSize(610, 150);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
@@ -102,14 +102,14 @@ public class HumanCreation2 extends JFrame {
                     }
                     Bar.getInstance().setClients(clients);
                     dispose();
-                    HumanCreation fen = new HumanCreation();
+                    NvPerso fen = new NvPerso();
                 }
             }
         }   
         class RetourListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 dispose();
-                HumanCreation fen = new HumanCreation();
+                NvPerso fen = new NvPerso();
             }
         } 
     }
@@ -142,14 +142,14 @@ public class HumanCreation2 extends JFrame {
                     }
                     Bar.getInstance().setClientes(clientes);
                     dispose();
-                    HumanCreation fen = new HumanCreation();
+                    NvPerso fen = new NvPerso();
                 }
             }
         }   
         class RetourListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 dispose();
-                HumanCreation fen = new HumanCreation();
+                NvPerso fen = new NvPerso();
             }
         } 
     }
@@ -182,14 +182,14 @@ public class HumanCreation2 extends JFrame {
                     }
                     Bar.getInstance().setServeurs(serveurs);
                     dispose();
-                    HumanCreation fen = new HumanCreation();
+                    NvPerso fen = new NvPerso();
                 }
             }
         }   
         class RetourListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 dispose();
-                HumanCreation fen = new HumanCreation();
+                NvPerso fen = new NvPerso();
             }
         } 
     }
@@ -222,14 +222,14 @@ public class HumanCreation2 extends JFrame {
                     }
                     Bar.getInstance().setServeuses(serveuses);
                     dispose();
-                    HumanCreation fen = new HumanCreation();
+                    NvPerso fen = new NvPerso();
                 }
             }
         }   
         class RetourListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 dispose();
-                HumanCreation fen = new HumanCreation();
+                NvPerso fen = new NvPerso();
             }
         } 
     }
@@ -237,7 +237,7 @@ public class HumanCreation2 extends JFrame {
     class RetourListener implements ActionListener{
         public void actionPerformed(ActionEvent ae) {
             dispose();
-            BarActuel fen = new BarActuel();
+            BarActuelVerif fen = new BarActuelVerif();
         }
     }    
     

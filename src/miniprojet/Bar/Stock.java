@@ -51,14 +51,14 @@ public class Stock {
         catch (Exception e){}  
     } 
     
-    public Stock modifyStock(Boisson boisson,int quantite){
+    public void removeFromStock(Boisson boisson,int quantite_a_enlever){
         for(int i = 0 ; i < this.boissons.size() ; i++){
             if(boissons.get(i).getName().equals(boisson.getName())){
-                this.quantites.set(i, quantite);
+                
+                this.quantites.set(i,(this.quantites.get(i)-quantite_a_enlever));
             }
         }
         Save();
-        return(this);
     }
     public int getStock(Boisson boisson){
         for(int i = 0 ; i < this.boissons.size() ; i++){

@@ -27,6 +27,7 @@ public class Client extends Humain {
     private Boisson boisson_fav_2;
     private float niveau_alcool;
     private Color couleur_tshirt;
+    private boolean exclu = false;
 
     public Client(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool, Color couleur_tshirt) {
         super(prenom, nom, porte_monnaie, popularite, cri);
@@ -56,7 +57,9 @@ public class Client extends Humain {
     }
     
     public void boire(Boisson boisson){
-        System.out.println("client");
+        this.payer(boisson.getPrix_vente());
+        Bar.getInstance().getStock().removeFromStock(boisson, 1);
+        this.parler("Je bois un verre de "+boisson.getName());
     }
     
     
@@ -70,7 +73,7 @@ public class Client extends Humain {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             bw.write(this.getPrenom()+separator+this.getNom()+separator+this.getPorte_monnaie()+separator
                             +this.getPopularite()+separator+this.getCri()+separator+this.getBoisson_fav_1()+separator
-                        +this.boisson_fav_2+separator+this.niveau_alcool+separator+this.couleur_tshirt.getName());  
+                        +this.boisson_fav_2+separator+this.niveau_alcool+separator+this.couleur_tshirt.getName()+separator+this.isExclu());  
                         // écrire une ligne dans le fichier clients.txt
             bw.write("\n"); // forcer le passage à la ligne
             bw.close(); // fermer le fichier à la fin des traitements
@@ -92,6 +95,10 @@ public class Client extends Humain {
     public Color getCouleur_tshirt() {
         return couleur_tshirt;
     }
+
+    public boolean isExclu() {
+        return exclu;
+    }
     
 
     public void setBoisson_fav_1(Boisson boisson_fav_1) {
@@ -109,12 +116,24 @@ public class Client extends Humain {
     public void setCouleur_tshirt(Color couleur_tshirt) {
         this.couleur_tshirt = couleur_tshirt;
     }
+    public void setExclu(boolean exclu) {
+        this.exclu = exclu;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    
+    
     
     @Override
     public String toString() {
         return "Client{ Prenom : "+this.getPrenom()+" , Surnom : "+this.getNom()+" , Porte Monnaie : "+this.getPorte_monnaie()
         +" , Popularité : "+this.getPopularite()+" , Cri : "+this.getCri()+" , boisson_fav_1 : "+ boisson_fav_1 + " , boisson_fav_2 : " 
-                + boisson_fav_2 + " , niveau_alcool : " + niveau_alcool +" , couleur_tshirt : "+couleur_tshirt+ '}';
+                + boisson_fav_2 + " , niveau_alcool : " + niveau_alcool +" , couleur_tshirt : "+couleur_tshirt+" , exclu? = "+this.isExclu()+ '}';
     } 
     
     public void verre_gratuit(){

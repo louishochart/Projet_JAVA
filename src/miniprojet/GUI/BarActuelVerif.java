@@ -23,15 +23,15 @@ import miniprojet.Functions.*;
  *
  * @author Louis
  */
-public class BarActuel extends JFrame {
+public class BarActuelVerif extends JFrame {
     
     private JButton nvperso = new JButton("Créer nouveau personnage");
     private JButton persosactuels = new JButton("Voir personnages existants");
     private JButton retour = new JButton("Retour");
     
-    public BarActuel() {
+    public BarActuelVerif() {
         
-        this.setTitle("Bar actuel");
+        this.setTitle("Bar actuel Verification");
         this.setSize(500, 200);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
@@ -95,7 +95,7 @@ public class BarActuel extends JFrame {
     class RetourListener implements ActionListener{
         public void actionPerformed(ActionEvent ae) {
             dispose();
-            Interface1 fen = new Interface1();
+            PageAccueil fen = new PageAccueil();
         }
     }
     

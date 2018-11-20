@@ -25,26 +25,26 @@ import java.awt.event.ActionListener;
  * @author Louis
  */
 
-public class Interface1 extends JFrame {
+public class PageAccueil extends JFrame {
    
-    private JButton bouton1 = new JButton("Gerer Bar actuel");
-    private JButton bouton2 = new JButton("Nouveau Bar");
+    private JButton baractuel = new JButton("Gerer Bar actuel");
+    private JButton nvbar = new JButton("Nouveau Bar");
     private JButton quitter = new JButton("Fermer");
     
-    public Interface1(){
+    public PageAccueil(){
         
-        this.setTitle("Gestion du Bar");
+        this.setTitle("Page d'Accueil");
         this.setSize(400, 100);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
-        bouton1.addActionListener(new Bouton1Listener());
-        bouton2.addActionListener(new Bouton2Listener());
+        baractuel.addActionListener(new BarActuelListener());
+        nvbar.addActionListener(new NvBarListener());
         quitter.addActionListener(new QuitterListener());
         
         Box box1 = Box.createHorizontalBox(); 
-        box1.add(bouton1);
-        box1.add(bouton2);
+        box1.add(baractuel);
+        box1.add(nvbar);
         Box box2 = Box.createHorizontalBox(); 
         box2.add(quitter);
         Box box = Box.createVerticalBox();
@@ -55,18 +55,18 @@ public class Interface1 extends JFrame {
         this.setVisible(true);
     }
 
-    class Bouton1Listener implements ActionListener{
+    class BarActuelListener implements ActionListener{
         public void actionPerformed(ActionEvent ae) {
             dispose();
-            BarActuel baractuel = new BarActuel();    
+            BarActuelVerif baractuel = new BarActuelVerif();    
         }
     }
     //Classe écoutant notre second bouton
-    class Bouton2Listener implements ActionListener{
+    class NvBarListener implements ActionListener{
     //Redéfinition de la méthode actionPerformed()
         public void actionPerformed(ActionEvent ae) {
             dispose();
-            NouveauBar nvbar = new NouveauBar();
+            NouveauBarConfirmation nvbar = new NouveauBarConfirmation();
         }
     }
     class QuitterListener implements ActionListener{

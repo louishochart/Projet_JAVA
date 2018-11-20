@@ -26,6 +26,7 @@ public class Cliente extends Humain {
     private Boisson boisson_fav_2;
     private float niveau_alcool;
     int nb_bijoux;
+    private boolean exclu = false;
 
     public Cliente(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool, int nb_bijoux) {
         super(prenom, nom, porte_monnaie, popularite, cri);
@@ -64,7 +65,7 @@ public class Cliente extends Humain {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             bw.write(this.getPrenom()+separator+this.getNom()+separator+this.getPorte_monnaie()+separator
                             +this.getPopularite()+separator+this.getCri()+separator+this.getBoisson_fav_1()+separator
-                        +this.boisson_fav_2+separator+this.niveau_alcool+separator+this.nb_bijoux);  
+                        +this.boisson_fav_2+separator+this.niveau_alcool+separator+this.nb_bijoux+separator+this.isExclu());  
                         // écrire une ligne dans le fichier clients.txt
             bw.write("\n"); // forcer le passage à la ligne
             bw.close(); // fermer le fichier à la fin des traitements
@@ -86,6 +87,10 @@ public class Cliente extends Humain {
     public int getNb_bijoux() {
         return nb_bijoux;
     }
+
+    public boolean isExclu() {
+        return exclu;
+    }
     
 
     public void setBoisson_fav_1(Boisson boisson_fav_1) {
@@ -103,13 +108,17 @@ public class Cliente extends Humain {
     public void setNb_bijoux(int nb_bijoux) {
         this.nb_bijoux = nb_bijoux;
     }
+
+    public void setExclu(boolean exclu) {
+        this.exclu = exclu;
+    }
     
 
     @Override
     public String toString() {
         return "Cliente{ Prenom: "+this.getPrenom()+" , Surnom : "+this.getNom()+" , Porte Monnaie : "+this.getPorte_monnaie()
         +" , Popularité : "+this.getPopularite()+" , Cri : "+this.getCri()+" , boisson_fav_1 : "+ boisson_fav_1 + " , boisson_fav_2 : " 
-                + boisson_fav_2 + " , niveau_alcool : " + niveau_alcool + " ,nombre_bijoux : "+nb_bijoux+'}';
+                + boisson_fav_2 + " , niveau_alcool : " + niveau_alcool + " ,nombre_bijoux : "+nb_bijoux+" , exclu? = "+this.isExclu()+" }";
     } 
     
     public void verre_gratuit(){

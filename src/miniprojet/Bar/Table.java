@@ -15,6 +15,7 @@ import miniprojet.Humans.*;
 public class Table {
     private List<Client> clients = new ArrayList<Client>();
     private List<Cliente> clientes = new ArrayList<Cliente>();
+    private Serveur serveur;
     
 
     public List<Client> getClients() {
@@ -23,12 +24,19 @@ public class Table {
     public List<Cliente> getClientes() {
         return clientes;
     }
+    public Serveur getServeur() {
+        return serveur;
+    }
+    
 
     public void setClients(List<Client> clients) {
         this.clients = clients;
     }
     public void setClientes(List<Cliente> clientes) {
         this.clientes = clientes;
+    }
+    public void setServeur(Serveur serveur) {
+        this.serveur = serveur;
     }
     
     
