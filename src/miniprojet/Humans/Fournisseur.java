@@ -25,10 +25,10 @@ public class Fournisseur extends Humain {
     }
     public Fournisseur(){
         super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
-        Save();
+        save();
     }
     
-    public void Save(){
+    public void save(){
         try{
             char separator= ';';
             File file=new File(".\\db\\fournisseur.txt"); // définir l'arborescence

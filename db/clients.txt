@@ -51,3 +51,9 @@ Adrien;Huyghe;49.02;17;OOOH;VODKA;CAFE;0.0;BLEU;false
 Kilian;Dujardin;12.0;5;YES;GIN;JUSDEFRUIT;0.0;VIOLET;false
 Pascal;Huyghe;87.44;33;AAAAH;RHUM;CAFE;0.0;GRIS;false
 Henri;Bernard;13.83;52;Cool;BIERE;SODA;0.0;MARRON;false
+Luc;Corre;7.71;0;OOOH;CAFE;RHUM;0.0;VIOLET;false
+Jules;Beirnaert;40.86;46;Ca c'est sympa;TEQUILA;CIDRE;0.0;GRIS;false
+Henri;Vandaele;59.09;8;Cool;SODA;CAFE;0.0;ORANGE;false
+Leo;Savard;34.39;46;Cool;JUSDEFRUIT;EAU;0.0;ROUGE;false
+Gilles;Fourni;64.25;78;YES;VODKA;EAU;0.0;MARRON;false
+Louis;Delezenne;36.8;4;AAAAH;RHUM;WHISKY;0.0;BLEU;false

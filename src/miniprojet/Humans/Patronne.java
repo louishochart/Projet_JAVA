@@ -26,10 +26,18 @@ public class Patronne extends Cliente {
     
     public Patronne() {
         super(new Random().getRandomPrenom_f(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri(),new Random().getRandomBoisson(),new Random().getRandomBoisson(),0f,(int)Math.random()*10);
-        Save();
+        save();
     }
     
-    public void Save(){
+    public void exclure(Client client){
+        client.setExclu(true);
+    }
+    public void exclure(Cliente cliente){
+        cliente.setExclu(true);
+    }
+    
+    
+    public void save(){
         try{
             char separator= ';';
             File file=new File(".\\db\\patronne.txt"); // définir l'arborescence

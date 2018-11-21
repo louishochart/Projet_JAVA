@@ -31,10 +31,10 @@ public class Serveuse extends Humain{
     public Serveuse(){
         super(new Random().getRandomPrenom_f(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
         this.coeff_charme=(int)(Math.random()*10);
-        Save();
+        save();
     }
     
-    public void Save(){
+    public void save(){
         try{
             char separator= ';';
             File file=new File(".\\db\\serveuses.txt"); // définir l'arborescence

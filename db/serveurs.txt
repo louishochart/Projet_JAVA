@@ -37,3 +37,8 @@ Brice;Malbranque;91.03;0;YES;EAU;8
 Quentin;Vion;47.94;4;Cool;EAU;5
 Alexandre;Delarue;39.54;27;AAAAH;EAU;3
 Valentin;Leclercq;25.29;25;YES;EAU;6
+Matthieu;Barres;10.59;13;YES;EAU;3
+Kilian;Renault;66.42;31;OOOH;EAU;4
+Cesar;Engale;49.32;17;Cool;EAU;7
+Hugo;Barres;11.2;30;Ca c'est sympa;EAU;8
+Martin;Bernard;95.74;7;AAAAH;EAU;2

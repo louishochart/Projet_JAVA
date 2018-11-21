@@ -89,14 +89,13 @@ public class TestClass {
         
         Humain h = new Humain();
         Client c = new Client();
-        Client c2 = new Client();
+        Cliente c2 = new Cliente();
         Serveur s = new Serveur();
-        Fournisseur f = new Fournisseur();
-        System.out.println(Bar.getInstance().getStock().getStock(Boisson.BIERE));
-        c.boire(Boisson.BIERE);
-        System.out.println(Bar.getInstance().getStock().getStock(Boisson.BIERE));
+        Serveuse s2 = new Serveuse();
+        Barman b = new Barman();
         
-        
-        
+        c.parlerdestinataire(s2,"salut");
+        c2.parlerdestinataire(s,"salut");
+        b.parler("salut");
     }
 }

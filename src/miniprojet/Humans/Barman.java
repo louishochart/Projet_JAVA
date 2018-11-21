@@ -39,9 +39,15 @@ public class Barman extends Humain{
             b = new Random().getRandomSoft();
         }
         this.boisson_fav_2=b;
-        Save();
+        save();
     }
     
+    public void parler(String phrase){
+        System.out.println(this.getPrenom()+" "+this.getNom()+" : "+phrase);
+    }
+    public void parlerdestinataire(Humain destinataire, String phrase){     
+        System.out.println(this.getPrenom()+" "+this.getNom()+" à "+destinataire.getPrenom()+" "+destinataire.getNom()+" : "+phrase+" coco !");
+    }
     
     public void boire(){
         
@@ -54,7 +60,7 @@ public class Barman extends Humain{
     
     
     
-    public void Save(){
+    public void save(){
         try{
             char separator= ';';
             File file=new File(".\\db\\barman.txt"); // définir l'arborescence

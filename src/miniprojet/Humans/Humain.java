@@ -41,6 +41,9 @@ public class Humain {
     public void parler(String phrase){
         System.out.println(this.getPrenom()+" "+this.getNom()+" : "+phrase);
     }
+    public void parlerdestinataire(Humain destinataire, String phrase){     
+        System.out.println(this.getPrenom()+" "+this.getNom()+" à "+destinataire.getPrenom()+" "+destinataire.getNom()+" : "+phrase);
+    }
     
     public void boire(Boisson boisson){
         System.out.println(this.getPrenom()+" "+this.getNom()+" : Je ne peux pas boire !");

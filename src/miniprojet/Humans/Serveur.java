@@ -31,10 +31,10 @@ public class Serveur extends Humain{
     public Serveur(){
         super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
         this.taille_biceps=(int)(Math.random()*10);
-        Save();
+        save();
     }
     
-    public void Save(){
+    public void save(){
         try{
             char separator= ';';
             File file=new File(".\\db\\serveurs.txt"); // définir l'arborescence

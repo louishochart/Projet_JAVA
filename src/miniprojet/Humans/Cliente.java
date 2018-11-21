@@ -52,10 +52,20 @@ public class Cliente extends Humain {
         this.boisson_fav_2=b;
         this.niveau_alcool=0;
         this.nb_bijoux=(int)Math.random()*10;
-        Save();
+        save();
+    }
+  
+    public void parlerdestinataire(Humain destinataire, String phrase){     
+        if(destinataire.getClass().getSimpleName().equals("Serveur")&&this.getNiveau_alcool()>1){
+            System.out.println(this.getPrenom()+" "+this.getNom()+" à "+destinataire.getPrenom()+" "+destinataire.getNom()+" : "+phrase+" beau gosse !");
+        }
+        else{
+            System.out.println(this.getPrenom()+" "+this.getNom()+" à "+destinataire.getPrenom()+" "+destinataire.getNom()+" : "+phrase);
+        }
     }
     
-    public void Save(){     
+    
+    public void save(){     
         try{
             char separator= ';';
             File file=new File(".\\db\\clientes.txt"); // définir l'arborescence
