@@ -31,7 +31,7 @@ public class BarActuelVerif extends JFrame {
     
     public BarActuelVerif() {
         
-        this.setTitle("Bar actuel Verification");
+        this.setTitle("Bar actuel");
         this.setSize(500, 200);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);

@@ -36,6 +36,8 @@ public class Initialize {
         Bar.getInstance().setServeurs(getServeurs());
         Bar.getInstance().setStock(stock());
         Bar.getInstance().setCaisse(caisse());
+        Bar.getInstance().setTables(tables());
+        
     }
     public Patronne patronne(){
         BufferedReader br=null;
@@ -392,7 +394,7 @@ public class Initialize {
             File file=new File(".\\db\\bar.txt"); // définir l'arborescence
             br = new BufferedReader(new FileReader(file));
             String st;
-            while((st = br.readLine()) != null){
+            if((st = br.readLine()) != null){
                 caisse=parseFloat(st);
             }   
             return(new Caisse(caisse));
@@ -402,6 +404,36 @@ public class Initialize {
         } catch (IOException ex) {
             Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
             return(new Caisse(caisse));
+        } finally {
+            
+            try {
+                br.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    public List<Table> tables(){
+        BufferedReader br=null;
+        List<Table> liste = new ArrayList<Table>();
+        try {
+            
+            File file=new File(".\\db\\bar.txt"); // définir l'arborescence
+            br = new BufferedReader(new FileReader(file));
+            String st;
+            if((st = br.readLine()) != null){
+                st=br.readLine();
+            }   
+            for(int i = 0 ; i <parseInt(st) ;i++){
+                liste.add(new Table());
+            }
+            return(liste);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            return(liste);
+        } catch (IOException ex) {
+            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            return(liste);
         } finally {
             
             try {

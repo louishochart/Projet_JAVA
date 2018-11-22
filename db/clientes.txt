@@ -1,0 +1,2 @@
+Christine;Lefebvre;81.65;65;Ca c'est sympa;EAU;VODKA;0.0;0;false
+Maud;Bernard;63.9;51;YES;RHUM;JUSDEFRUIT;0.0;0;false

@@ -245,7 +245,7 @@ public class NvPerso extends JFrame {
             public void actionPerformed(ActionEvent ae) {
                 List<ServeurNeutre> total = new ArrayList<ServeurNeutre>();
                 if(jtf.getText().matches("\\d+")){ 
-                    if(parseInt(jtf.getText())>10){
+                    if(parseInt(jtf.getText())<11){
                         for(int i = 0 ; i < parseInt(jtf.getText()) ; i++){
                             Bar.getInstance().addTable(new Table());
                         }

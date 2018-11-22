@@ -361,12 +361,14 @@ public class PersosActuels extends JFrame{
             Box vbox1 = Box.createVerticalBox();    
             Box hbox1 = Box.createHorizontalBox();
             for(int i = 0 ; i < Bar.getInstance().getTables().size() ; i++){
-                JButton table = new JButton("Table n°"+i);
+                int ind=i+1;
+                JButton table = new JButton("Table n°"+ind);
                 hbox1.add(table);
             }
             Box hbox2 = Box.createHorizontalBox();
             hbox2.add(retour);
             vbox1.add(hbox1);
+            vbox1.add(hbox2);
             
             pan.add(vbox1);
             setContentPane(pan);

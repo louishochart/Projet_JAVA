@@ -1,2 +1,2 @@
-Anthony;Beirnaert;0.94;21;Cool;JUSDEFRUIT;SODA;0.0;CYAN;false
-David;Vion;89.86;31;Ca c'est sympa;WHISKY;VIN;0.0;NOIR;false
+Enguerrand;Dumser;32.02;16;YES;CAFE;SODA;0.0;VIOLET;false
+Benjamin;Deroo;32.33;34;Cool;VODKA;JUSDEFRUIT;0.0;NOIR;false

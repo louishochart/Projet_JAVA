@@ -106,7 +106,6 @@ public class Save {
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
             for (int i = 0; i < Bar.getInstance().getClients_m().size(); i++) {
-                System.out.println(Bar.getInstance().getClients_m().get(i).getPrenom());
                 bw.write(Bar.getInstance().getClients_m().get(i).getPrenom() + separator + Bar.getInstance().getClients_m().get(i).getNom()
                         + separator + Bar.getInstance().getClients_m().get(i).getPorte_monnaie() + separator
                         + Bar.getInstance().getClients_m().get(i).getPopularite() + separator + Bar.getInstance().getClients_m().get(i).getCri()

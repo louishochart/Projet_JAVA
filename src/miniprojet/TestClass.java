@@ -5,11 +5,9 @@
  */
 package miniprojet;
 
-<<<<<<< HEAD
 
-=======
 import miniprojet.president.*;
->>>>>>> master
+
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.File;
@@ -93,47 +91,14 @@ public class TestClass {
         */
 //        Patronne patronne = new Patronne();
 //        Humain humain = new Humain();
-        Client client = new Client();
+//        Client client = new Client();
 //        Cliente cliente = new Cliente();
 //        Serveur serveur = new Serveur();
 //        Serveuse serveuse = new Serveuse();
 //        Barman barman = new Barman();
 //        Fournisseur fournisseur = new Fournisseur();
-        
-<<<<<<< HEAD
-          
-        
-          Bar.getInstance().addClient(new Client());
-          Bar.getInstance().addClient(new Client());
-          Bar.getInstance().addClient(new Cliente());
-          Bar.getInstance().addServeur(new Serveur());
-          Bar.getInstance().addServeur(new Serveuse());
-          Bar.getInstance().addClient(new Cliente());
-          Bar.getInstance().addTable(new Table());
-          System.out.println(Bar.getInstance().getCaisse().getCaisse());
-          
-          new Save();
+
           
           PageAccueil NvPerso = new PageAccueil();
-=======
-        /*
-        Humain h = new Humain();
-        Client c = new Client();
-        Cliente c2 = new Cliente();
-        Serveur s = new Serveur();
-        Serveuse s2 = new Serveuse();
-        Barman b = new Barman();
-
-        c.parlerdestinataire(s2,"salut");
-        c2.parlerdestinataire(s,"salut");
-        b.parler("salut");
-        */
-        Paquet cartes = new Paquet();
-        System.out.println(cartes.getCartes());
-        cartes.coupe(10);
-        System.out.println(cartes.getCartes());
-        
-        
->>>>>>> master
     }
 }
