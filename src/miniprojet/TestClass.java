@@ -5,6 +5,7 @@
  */
 package miniprojet;
 
+
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.File;
@@ -17,11 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import miniprojet.Humans.*;
 import miniprojet.Bar.*;
-import miniprojet.Functions.*;
 import miniprojet.*;
 import miniprojet.GUI.*;
+import miniprojet.Humains.*;
+import miniprojet.Fonctions.*;
 
 /**
  *
@@ -86,16 +87,28 @@ public class TestClass {
         Bar.getInstance().setStock(Bar.getInstance().getStock().modifyStock(Boisson.BIERE, 5));
         System.out.println(Bar.getInstance().getStock().getStock(Boisson.BIERE));
         */
+//        Patronne patronne = new Patronne();
+//        Humain humain = new Humain();
+        Client client = new Client();
+//        Cliente cliente = new Cliente();
+//        Serveur serveur = new Serveur();
+//        Serveuse serveuse = new Serveuse();
+//        Barman barman = new Barman();
+//        Fournisseur fournisseur = new Fournisseur();
         
-        Humain h = new Humain();
-        Client c = new Client();
-        Cliente c2 = new Cliente();
-        Serveur s = new Serveur();
-        Serveuse s2 = new Serveuse();
-        Barman b = new Barman();
+          
         
-        c.parlerdestinataire(s2,"salut");
-        c2.parlerdestinataire(s,"salut");
-        b.parler("salut");
+          Bar.getInstance().addClient(new Client());
+          Bar.getInstance().addClient(new Client());
+          Bar.getInstance().addClient(new Cliente());
+          Bar.getInstance().addServeur(new Serveur());
+          Bar.getInstance().addServeur(new Serveuse());
+          Bar.getInstance().addClient(new Cliente());
+          Bar.getInstance().addTable(new Table());
+          System.out.println(Bar.getInstance().getCaisse().getCaisse());
+          
+          new Save();
+          
+          PageAccueil NvPerso = new PageAccueil();
     }
 }

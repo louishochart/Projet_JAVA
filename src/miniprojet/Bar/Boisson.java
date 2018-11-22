@@ -6,7 +6,6 @@
 package miniprojet.Bar;
 
 
-import miniprojet.Humans.*;
 import miniprojet.Bar.*;
 import miniprojet.*;
 /**

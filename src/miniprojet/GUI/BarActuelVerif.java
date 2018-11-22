@@ -5,6 +5,7 @@
  */
 package miniprojet.GUI;
 
+import miniprojet.Fonctions.Files;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +17,6 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import miniprojet.Functions.*;
 
 
 /**
@@ -81,7 +81,7 @@ public class BarActuelVerif extends JFrame {
     class NvPersoListener implements ActionListener{
         public void actionPerformed(ActionEvent ae) {
             dispose();
-            HumanCreation2 fen = new HumanCreation2();
+            NvPerso fen = new NvPerso();
        }
     }
     

@@ -23,7 +23,6 @@ public class Stock {
         for(int i = 0 ; i < Boisson.values().length ; i++ ){
             boissons.add(Boisson.values()[i]);
             quantites.add(qte);
-            Save();
         }
     }
     private Stock(){}
@@ -32,25 +31,6 @@ public class Stock {
         this.setBoissons(boissons);
         this.setQuantites(quantites);
     }
-    public void Save(){     
-        try{
-            char separator= ';';
-            File file=new File(".\\db\\stocks.txt"); // définir l'arborescence
-            if(!file.exists()){
-                file.createNewFile();
-            }
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-            for(int i = 0 ; i < this.boissons.size() ; i ++ ){
-                bw.write(this.boissons.get(i).getName()+separator+this.quantites.get(i));  
-                        // écrire une ligne dans le fichier clients.txt
-                bw.write("\n"); // forcer le passage à la ligne
-            }  
-                        // écrire une ligne dans le fichier clients.txt
-            bw.close(); // fermer le fichier à la fin des traitements
-        } 
-        catch (Exception e){}  
-    } 
-    
     public void removeFromStock(Boisson boisson,int quantite_a_enlever){
         for(int i = 0 ; i < this.boissons.size() ; i++){
             if(boissons.get(i).getName().equals(boisson.getName())){
@@ -58,7 +38,6 @@ public class Stock {
                 this.quantites.set(i,(this.quantites.get(i)-quantite_a_enlever));
             }
         }
-        Save();
     }
     public int getStock(Boisson boisson){
         for(int i = 0 ; i < this.boissons.size() ; i++){

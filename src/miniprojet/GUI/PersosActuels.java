@@ -5,6 +5,7 @@
  */
 package miniprojet.GUI;
 
+import miniprojet.Fonctions.Initialize;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,7 +26,6 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import miniprojet.Bar.*;
-import miniprojet.Functions.*;
 
 /**
  *
@@ -41,6 +41,7 @@ public class PersosActuels extends JFrame{
     private JButton serveuses = new JButton("Serveuses");
     private JButton stock = new JButton("Stock");
     private JButton caisse = new JButton("Caisse");
+    private JButton tables = new JButton("Tables");
     private JButton retour = new JButton("Retour");
     
     public PersosActuels(){
@@ -59,6 +60,7 @@ public class PersosActuels extends JFrame{
         serveuses.addActionListener(new ServeusesListener());
         stock.addActionListener(new StockListener());
         caisse.addActionListener(new CaisseListener());
+        tables.addActionListener(new TablesListener());
         retour.addActionListener(new RetourListener());
         
         Box vbox1 = Box.createVerticalBox();
@@ -74,6 +76,7 @@ public class PersosActuels extends JFrame{
         Box hbox2 = Box.createHorizontalBox(); 
         hbox2.add(stock);
         hbox2.add(caisse);
+        hbox2.add(tables);
         
         vbox1.add(hbox1);
         vbox1.add(hbox2);
@@ -183,11 +186,13 @@ public class PersosActuels extends JFrame{
         public void actionPerformed(ActionEvent ae) {               
             retour.addActionListener(new RetourListener());           
             Box vbox1 = Box.createVerticalBox();          
-            for(int i = 0 ; i < Bar.getInstance().getClients().size() ; i++){                
-                JLabel label = new JLabel(Bar.getInstance().getClients().get(i).toString());
-                Box hbox = Box.createHorizontalBox();
-                hbox.add(label);
-                vbox1.add(hbox);
+            for(int i = 0 ; i < Bar.getInstance().getClients().size() ; i++){    
+                if(Bar.getInstance().getClients().get(i).getClass().getSimpleName().equals("Client")){
+                    JLabel label = new JLabel(Bar.getInstance().getClients().get(i).toString());
+                    Box hbox = Box.createHorizontalBox();
+                    hbox.add(label);
+                    vbox1.add(hbox);
+                }
             }         
             Box hbox2 = Box.createHorizontalBox();
             hbox2.add(retour);
@@ -211,11 +216,13 @@ public class PersosActuels extends JFrame{
         public void actionPerformed(ActionEvent ae) {               
             retour.addActionListener(new RetourListener());           
             Box vbox1 = Box.createVerticalBox();          
-            for(int i = 0 ; i < Bar.getInstance().getClientes().size() ; i++){                
-                JLabel label = new JLabel(Bar.getInstance().getClientes().get(i).toString());
-                Box hbox = Box.createHorizontalBox();
-                hbox.add(label);
-                vbox1.add(hbox);
+            for(int i = 0 ; i < Bar.getInstance().getClients().size() ; i++){                
+                if(Bar.getInstance().getClients().get(i).getClass().getSimpleName().equals("Cliente")){
+                    JLabel label = new JLabel(Bar.getInstance().getClients().get(i).toString());
+                    Box hbox = Box.createHorizontalBox();
+                    hbox.add(label);
+                    vbox1.add(hbox);
+                }
             }         
             Box hbox2 = Box.createHorizontalBox();
             hbox2.add(retour);
@@ -240,10 +247,12 @@ public class PersosActuels extends JFrame{
             retour.addActionListener(new RetourListener());           
             Box vbox1 = Box.createVerticalBox();          
             for(int i = 0 ; i < Bar.getInstance().getServeurs().size() ; i++){                
-                JLabel label = new JLabel(Bar.getInstance().getServeurs().get(i).toString());
-                Box hbox = Box.createHorizontalBox();
-                hbox.add(label);
-                vbox1.add(hbox);
+                if(Bar.getInstance().getServeurs().get(i).getClass().getSimpleName().equals("Serveur")){
+                    JLabel label = new JLabel(Bar.getInstance().getServeurs().get(i).toString());
+                    Box hbox = Box.createHorizontalBox();
+                    hbox.add(label);
+                    vbox1.add(hbox);
+                }
             }         
             Box hbox2 = Box.createHorizontalBox();
             hbox2.add(retour);
@@ -267,11 +276,13 @@ public class PersosActuels extends JFrame{
         public void actionPerformed(ActionEvent ae) {               
             retour.addActionListener(new RetourListener());           
             Box vbox1 = Box.createVerticalBox();          
-            for(int i = 0 ; i < Bar.getInstance().getServeuses().size() ; i++){                
-                JLabel label = new JLabel(Bar.getInstance().getServeuses().get(i).toString());
-                Box hbox = Box.createHorizontalBox();
-                hbox.add(label);
-                vbox1.add(hbox);
+            for(int i = 0 ; i < Bar.getInstance().getServeurs().size() ; i++){                
+                if(Bar.getInstance().getServeurs().get(i).getClass().getSimpleName().equals("Serveuse")){
+                    JLabel label = new JLabel(Bar.getInstance().getServeurs().get(i).toString());
+                    Box hbox = Box.createHorizontalBox();
+                    hbox.add(label);
+                    vbox1.add(hbox);
+                }
             }         
             Box hbox2 = Box.createHorizontalBox();
             hbox2.add(retour);
@@ -329,6 +340,34 @@ public class PersosActuels extends JFrame{
             Box hbox2 = Box.createHorizontalBox();
             hbox2.add(retour);
             vbox1.add(hbox2);
+            pan.add(vbox1);
+            setContentPane(pan);
+            pan.setBackground(Color.ORANGE);           
+            setVisible(true); 
+        }
+        class RetourListener implements ActionListener{
+            public void actionPerformed(ActionEvent ae) {
+                dispose();
+                PersosActuels fen = new PersosActuels();
+            }
+        } 
+    }
+    class TablesListener implements ActionListener{
+        JPanel pan = new JPanel();
+        JButton retour = new JButton("Retour");        
+        public void actionPerformed(ActionEvent ae) {               
+            retour.addActionListener(new RetourListener());           
+            
+            Box vbox1 = Box.createVerticalBox();    
+            Box hbox1 = Box.createHorizontalBox();
+            for(int i = 0 ; i < Bar.getInstance().getTables().size() ; i++){
+                JButton table = new JButton("Table n°"+i);
+                hbox1.add(table);
+            }
+            Box hbox2 = Box.createHorizontalBox();
+            hbox2.add(retour);
+            vbox1.add(hbox1);
+            
             pan.add(vbox1);
             setContentPane(pan);
             pan.setBackground(Color.ORANGE);           

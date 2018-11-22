@@ -63,7 +63,7 @@ public class NouveauBarConfirmation extends JFrame {
         
         public void actionPerformed(ActionEvent ae) {
             dispose();
-            new NouveauBar();
+            NouveauBar fen = new NouveauBar();
        }
     }
     

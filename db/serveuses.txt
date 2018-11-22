@@ -1,5 +1,1 @@
-Audrey;Herault;10.41;34;YES;EAU;7
-Sixtine;Delezenne;41.01;9;Ca c'est sympa;EAU;7
-Christine;Lebrun;74.41;81;Ca c'est sympa;EAU;8
-Christine;Renault;6.72;23;Ca c'est sympa;EAU;4
-Aurélie;Legendre;65.48;12;AAAAH;EAU;1
+Clemence;Savard;99.88;85;YES;EAU;8

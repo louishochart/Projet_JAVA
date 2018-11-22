@@ -1,4 +1,0 @@
-Salomé;Hermel;99.07;6;OOOH;TEQUILA;WHISKY;0.0;0;false
-Eugénie;Dujardin;59.67;44;YES;BIERE;GIN;0.0;0;false
-Rose;Hermel;60.3;4;OOOH;SODA;BIERE;0.0;0;false
-Clemence;Thouvenin;9.03;59;Cool;CAFE;CIDRE;0.0;0;false

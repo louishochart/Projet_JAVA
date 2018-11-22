@@ -9,7 +9,6 @@ package miniprojet;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import miniprojet.Humans.*;
 import miniprojet.Bar.*;
 import miniprojet.*;
 

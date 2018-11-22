@@ -5,6 +5,10 @@
  */
 package miniprojet.GUI;
 
+import miniprojet.Fonctions.Files;
+import miniprojet.Humains.Fournisseur;
+import miniprojet.Humains.Patronne;
+import miniprojet.Humains.Barman;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,8 +24,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import miniprojet.Bar.*;
-import miniprojet.Humans.*;
-import miniprojet.Functions.*;
 
 
 /**
@@ -46,7 +48,7 @@ public class NouveauBar extends JFrame {
         
         new Files().emptyFiles();
         
-        
+        Bar.getInstance();
         Bar.getInstance().setStock(new Stock(50));
         Bar.getInstance().setCaisse(new Caisse(500f));
         Bar.getInstance().setPatronne(new Patronne());
