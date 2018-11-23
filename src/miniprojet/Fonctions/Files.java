@@ -72,6 +72,20 @@ public class Files {
             writer = new PrintWriter(serveuses);
             writer.print("");
             writer.close();
+            File stocks=new File(".\\db\\stocks.txt");
+            if(!stocks.exists()){
+                stocks.createNewFile();
+            }
+            writer = new PrintWriter(stocks);
+            writer.print("");
+            writer.close();
+            File bar=new File(".\\db\\bar.txt");
+            if(!bar.exists()){
+                bar.createNewFile();
+            }
+            writer = new PrintWriter(bar);
+            writer.print("");
+            writer.close();
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Files.class.getName()).log(Level.SEVERE, null, ex);

@@ -1,2 +1,1 @@
-Enguerrand;Dumser;32.02;16;YES;CAFE;SODA;0.0;VIOLET;false
-Benjamin;Deroo;32.33;34;Cool;VODKA;JUSDEFRUIT;0.0;NOIR;false
+Rodolphe;Ducroo;88.73;32;AAAAH;WHISKY;SODA;0.0;GRIS;false

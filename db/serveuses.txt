@@ -1,1 +1,2 @@
-Elodie;Roubaud;91.58;14;YES;EAU;0
+Solène;Gautier;37.61;1;Cool;EAU;3
+Elise;Tordeux;35.96;95;OOOH;EAU;8

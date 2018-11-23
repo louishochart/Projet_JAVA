@@ -111,7 +111,7 @@ public class Save {
                         + Bar.getInstance().getClients_m().get(i).getPopularite() + separator + Bar.getInstance().getClients_m().get(i).getCri()
                         + separator + Bar.getInstance().getClients_m().get(i).getBoisson_fav_1() + separator
                         + Bar.getInstance().getClients_m().get(i).getBoisson_fav_2() + separator + Bar.getInstance().getClients_m().get(i).getNiveau_alcool()
-                        + separator + Bar.getInstance().getClients_m().get(i).getCouleur_tshirt().getName() + separator + Bar.getInstance().getClients_m().get(i).isExclu());
+                        + separator + Bar.getInstance().getClients_m().get(i).getCouleur_tshirt().getName());
                 // écrire une ligne dans le fichier clients.txt
                 bw.write("\n"); // forcer le passage à la ligne
             }
@@ -137,7 +137,7 @@ public class Save {
                         + Bar.getInstance().getClientes_f().get(i).getPopularite() + separator + Bar.getInstance().getClientes_f().get(i).getCri()
                         + separator + Bar.getInstance().getClientes_f().get(i).getBoisson_fav_1() + separator
                         + Bar.getInstance().getClientes_f().get(i).getBoisson_fav_2() + separator + Bar.getInstance().getClientes_f().get(i).getNiveau_alcool()
-                        + separator + Bar.getInstance().getClientes_f().get(i).getNb_bijoux() + separator + Bar.getInstance().getClientes_f().get(i).isExclu());
+                        + separator + Bar.getInstance().getClientes_f().get(i).getNb_bijoux());
                 // écrire une ligne dans le fichier clients.txt
                 bw.write("\n"); // forcer le passage à la ligne
             }
@@ -161,8 +161,9 @@ public class Save {
                         + separator + Bar.getInstance().getServeurs_m().get(i).getPopularite() + separator + Bar.getInstance().getServeurs_m().get(i).getCri()
                         + separator + Bar.getInstance().getServeurs_m().get(i).getBoisson().getName() + separator + Bar.getInstance().getServeurs_m().get(i).getTaille_biceps());
                 // écrire une ligne dans le fichier clients.txt
+                bw.write("\n"); // forcer le passage à la ligne
             }
-            bw.write("\n"); // forcer le passage à la ligne
+            
             bw.close(); // fermer le fichier à la fin des traitements
         } catch (Exception e) {
         }
@@ -182,8 +183,8 @@ public class Save {
                         + separator + Bar.getInstance().getServeuses_f().get(i).getPopularite() + separator + Bar.getInstance().getServeuses_f().get(i).getCri()
                         + separator + Bar.getInstance().getServeuses_f().get(i).getBoisson().getName() + separator + Bar.getInstance().getServeuses_f().get(i).getCoeff_charme());
                 // écrire une ligne dans le fichier clients.txt
+                bw.write("\n"); // forcer le passage à la ligne
             }
-            bw.write("\n"); // forcer le passage à la ligne
             bw.close(); // fermer le fichier à la fin des traitements
         } catch (Exception e) {
         }

@@ -17,6 +17,8 @@ public abstract class ClientNeutre extends Humain {
     private Boisson boisson_fav_2;
     private float niveau_alcool;
     private boolean exclu = false;
+    private Table table;
+    boolean player = false;
 
     protected ClientNeutre(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool) {
         super(prenom, nom, porte_monnaie, popularite, cri);
@@ -84,6 +86,11 @@ public abstract class ClientNeutre extends Humain {
     public void setExclu(boolean exclu) {
         this.exclu = exclu;
     }
+
+    public void setTable(Table table) {
+        this.table = table;
+    }
+    
     
     
 }

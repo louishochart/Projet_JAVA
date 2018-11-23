@@ -99,6 +99,10 @@ public class TestClass {
 //        Fournisseur fournisseur = new Fournisseur();
 
           
-          PageAccueil NvPerso = new PageAccueil();
+//          PageAccueil NvPerso = new PageAccueil();
+        new RecupererDatabase();
+        new Simulation().entrerClients();
+
+        
     }
 }

@@ -28,8 +28,8 @@ public class Bar {
     List<ServeurNeutre> serveurs = new ArrayList<ServeurNeutre>();
     List<ClientNeutre> clients = new ArrayList<ClientNeutre>();
     private List<Boisson> boissons = new ArrayList<Boisson>();
-    private Stock stock = new Stock(50);
-    private Caisse caisse = new Caisse(200);
+    private Stock stock = new Stock();
+    private Caisse caisse = new Caisse();
       
     /** Holder */
     private static class BarHolder
@@ -57,10 +57,6 @@ public class Bar {
     }    
     private Bar() 
     {
-        this.patronne = new Patronne();
-        this.name = "Chez " + this.patronne.getPrenom();
-        this.barman = new Barman();
-        this.fournisseur = new Fournisseur();
     }
 
     public void addTable(Table t){
@@ -162,7 +158,12 @@ public class Bar {
 
     public void setPatronne(Patronne patronne) {
         this.patronne = patronne;
-        this.name = "Chez " + patronne.getPrenom();
+        if(this.patronne==null){
+            this.name=null;
+        }
+        else{
+            this.name = "Chez " + patronne.getPrenom();
+        }
     }
     public void setTables(List<Table> tables) {
         this.tables = tables;
@@ -187,6 +188,16 @@ public class Bar {
     }
     public void setCaisse(Caisse caisse) {
         this.caisse = caisse;
+    }
+    
+    public List<Table> getFreeTables(){
+        List<Table> freeTables = new ArrayList<Table>();
+        for(int i = 0 ; i < this.getTables().size() ; i++){
+            if(this.getTables().get(i).isFree()){
+                freeTables.add(this.getTables().get(i));
+            }
+        }
+        return(freeTables);
     }
     
     

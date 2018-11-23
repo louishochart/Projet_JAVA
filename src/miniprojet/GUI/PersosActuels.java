@@ -5,7 +5,7 @@
  */
 package miniprojet.GUI;
 
-import miniprojet.Fonctions.Initialize;
+import miniprojet.Fonctions.RecupererDatabase;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -45,7 +45,7 @@ public class PersosActuels extends JFrame{
     private JButton retour = new JButton("Retour");
     
     public PersosActuels(){
-        new Initialize();
+        
         this.setTitle("Personnages Actuels");
         this.setSize(1300, 600);
         this.setLocationRelativeTo(null);
@@ -360,11 +360,9 @@ public class PersosActuels extends JFrame{
             
             Box vbox1 = Box.createVerticalBox();    
             Box hbox1 = Box.createHorizontalBox();
-            for(int i = 0 ; i < Bar.getInstance().getTables().size() ; i++){
-                int ind=i+1;
-                JButton table = new JButton("Table n°"+ind);
-                hbox1.add(table);
-            }
+            JLabel label = new  JLabel("Il y a actuellement "+Bar.getInstance().getTables().size()
+                    +" tables dans ce bar. "+Bar.getInstance().getTables().size()*4+" personnes peuvent donc accéder au bar");
+            hbox1.add(label);
             Box hbox2 = Box.createHorizontalBox();
             hbox2.add(retour);
             vbox1.add(hbox1);

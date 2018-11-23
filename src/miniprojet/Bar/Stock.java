@@ -25,7 +25,7 @@ public class Stock {
             quantites.add(qte);
         }
     }
-    private Stock(){}
+    public Stock(){}
 
     public Stock(ArrayList<Boisson> boissons,ArrayList<Integer> quantites) {
         this.setBoissons(boissons);

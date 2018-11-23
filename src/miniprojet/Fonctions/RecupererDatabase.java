@@ -26,9 +26,11 @@ import miniprojet.*;
  *
  * @author Louis
  */
-public class Initialize {
+public class RecupererDatabase {
         
-    public Initialize(){
+    public RecupererDatabase(){
+        
+        
         Bar.getInstance().setPatronne(patronne());
         Bar.getInstance().setBarman(barman());
         Bar.getInstance().setFournisseur(fournisseur());
@@ -43,6 +45,9 @@ public class Initialize {
         BufferedReader br=null;
         try {
             File file=new File(".\\db\\patronne.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             while((st = br.readLine()) != null){
@@ -68,19 +73,19 @@ public class Initialize {
                 int nb_bijoux = parseInt(valeurs[8]);
                 return(new Patronne(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,nb_bijoux));
             }   
-            return(new Patronne());
+            return(null);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
-            return(new Patronne());
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            return(null);
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
-            return(new Patronne());
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            return(null);
         } finally {
             
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -89,6 +94,9 @@ public class Initialize {
         BufferedReader br=null;
         try {
             File file=new File(".\\db\\barman.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             while((st = br.readLine()) != null){
@@ -111,18 +119,18 @@ public class Initialize {
                 }
                 return(new Barman(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2));
             }   
-            return(new Barman());
+            return(null);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
-            return(new Barman());
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            return(null);
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
-            return(new Barman());
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            return(null);
         } finally {
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -131,6 +139,9 @@ public class Initialize {
         BufferedReader br=null;
         try {
             File file=new File(".\\db\\fournisseur.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             while((st = br.readLine()) != null){
@@ -142,21 +153,22 @@ public class Initialize {
                 String cri = valeurs[4];
                 return(new Fournisseur(prenom,nom,porte_monnaie,popularite,cri));
             }   
-            return(new Fournisseur());
+            return(null);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
-            return(new Fournisseur());
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            return(null);
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
-            return(new Fournisseur());
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            return(null);
         } finally {
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
+    
     public List<ClientNeutre> getClients(){
         List<ClientNeutre> total = new ArrayList<ClientNeutre>();
         List<Client> clients = clients();
@@ -176,6 +188,9 @@ public class Initialize {
         try {
             
             File file=new File(".\\db\\clients.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             while((st = br.readLine()) != null){
@@ -204,23 +219,21 @@ public class Initialize {
                         couleur_tshirt=couleurs[i];
                     }
                 }
-                boolean exclu = parseBoolean(valeurs[9]);
                 Client c = new Client(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,couleur_tshirt);
-                c.setExclu(exclu);
                 liste.add(c);
             }   
             return(liste);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } finally {
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
                 
             }
         }
@@ -231,6 +244,9 @@ public class Initialize {
         try {
             
             File file=new File(".\\db\\clientes.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             while((st = br.readLine()) != null){
@@ -253,23 +269,21 @@ public class Initialize {
                 }
                 float niveau_alcool = parseFloat(valeurs[7]);
                 int nb_bijoux = parseInt(valeurs[8]);
-                boolean exclu = parseBoolean(valeurs[9]);
                 Cliente c = new Cliente(prenom,nom,porte_monnaie,popularite,cri,boisson_fav_1,boisson_fav_2,niveau_alcool,nb_bijoux);
-                c.setExclu(exclu);
                 liste.add(c);
             }   
             return(liste);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } finally {
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -292,6 +306,9 @@ public class Initialize {
         List<Serveur>liste = new ArrayList<Serveur>();
         try {          
             File file=new File(".\\db\\serveurs.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             while((st = br.readLine()) != null){
@@ -306,16 +323,16 @@ public class Initialize {
             }   
             return(liste);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } finally {
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -324,6 +341,9 @@ public class Initialize {
         List<Serveuse>liste = new ArrayList<Serveuse>();
         try {
             File file=new File(".\\db\\serveuses.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             while((st = br.readLine()) != null){
@@ -338,16 +358,16 @@ public class Initialize {
             }   
             return(liste);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } finally {
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -356,6 +376,9 @@ public class Initialize {
         BufferedReader br=null;
         try {
             File file=new File(".\\db\\stocks.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             ArrayList <Boisson> boissons = new ArrayList <Boisson>();
@@ -369,21 +392,21 @@ public class Initialize {
                     }
                 }
                 boissons.add(boisson);
-                quantites.add(parseInt(valeurs[1]));
+                quantites.add(parseInt(valeurs[1]));              
             }   
             return(new Stock(boissons,quantites));
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
-            return(new Stock(0));
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            return(null);
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
-            return(new Stock(0));
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            return(null);
         } finally {
             
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -392,6 +415,9 @@ public class Initialize {
         float caisse=0f;
         try {
             File file=new File(".\\db\\bar.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             if((st = br.readLine()) != null){
@@ -399,17 +425,17 @@ public class Initialize {
             }   
             return(new Caisse(caisse));
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(new Caisse(caisse));
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(new Caisse(caisse));
         } finally {
             
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -419,27 +445,31 @@ public class Initialize {
         try {
             
             File file=new File(".\\db\\bar.txt"); // définir l'arborescence
+            if (!file.exists()) {
+                file.createNewFile();
+            }
             br = new BufferedReader(new FileReader(file));
             String st;
             if((st = br.readLine()) != null){
                 st=br.readLine();
+                for(int i = 0 ; i <parseInt(st) ;i++){
+                    liste.add(new Table());
+                }
             }   
-            for(int i = 0 ; i <parseInt(st) ;i++){
-                liste.add(new Table());
-            }
+            
             return(liste);
         } catch (FileNotFoundException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } catch (IOException ex) {
-            Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             return(liste);
         } finally {
             
             try {
                 br.close();
             } catch (IOException ex) {
-                Logger.getLogger(Initialize.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RecupererDatabase.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

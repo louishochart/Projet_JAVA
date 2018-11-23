@@ -20,6 +20,7 @@ import miniprojet.Fonctions.Random;
 public class Serveur extends ServeurNeutre{
     
     private int taille_biceps;
+    private Table table;
 
     public Serveur(String prenom, String nom, double porte_monnaie, int popularite, String cri, int taille_biceps) {
         super(prenom, nom, porte_monnaie, popularite, cri);
@@ -47,5 +48,11 @@ public class Serveur extends ServeurNeutre{
     public void setTaille_biceps(int taille_biceps) {
         this.taille_biceps = taille_biceps;
     }
+
+    public void setTable(Table table) {
+        this.table = table;
+    }
+    
+    
    
 }

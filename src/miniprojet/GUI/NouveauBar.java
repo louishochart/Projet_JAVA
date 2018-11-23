@@ -50,7 +50,7 @@ public class NouveauBar extends JFrame {
         
         Bar.getInstance();
         Bar.getInstance().setStock(new Stock(50));
-        Bar.getInstance().setCaisse(new Caisse(500f));
+        Bar.getInstance().getCaisse().setCaisse(500f);
         Bar.getInstance().setPatronne(new Patronne());
         Bar.getInstance().setFournisseur(new Fournisseur());
         Bar.getInstance().setBarman(new Barman());

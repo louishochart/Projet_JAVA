@@ -1,1 +1,2 @@
-Adrien;Ducroo;85.21;26;AAAAH;EAU;1
+Corentin;Thouvenin;32.51;78;YES;EAU;5
+Quentin;Fourni;13.58;3;YES;EAU;6

@@ -39,12 +39,7 @@ public class Table {
     }
     
     
-    public void addClient(Client c){
-        if (this.isFree()){
-            this.clients.add(c);
-        }
-    }
-    public void addClient(Cliente c){
+    public void addClient(ClientNeutre c){
         if (this.isFree()){
             this.clients.add(c);
         }
