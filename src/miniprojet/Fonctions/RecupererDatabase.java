@@ -5,6 +5,7 @@
  */
 package miniprojet.Fonctions;
 
+import miniprojet.Humains.Color;
 import miniprojet.Humains.*;
 import java.io.BufferedReader;
 import java.io.File;

@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import miniprojet.Bar.Bar;
 import miniprojet.Fonctions.*;
-import miniprojet.Simulation;
+import miniprojet.Bar.Simulation;
 
 
 
@@ -115,7 +115,10 @@ public class BarActuelVerif extends JFrame {
     class SimulationListener implements ActionListener{
         public void actionPerformed(ActionEvent ae){
             dispose();
-            new Simulation().entrerClients();
+            Bar.getInstance().getSimulation().reinitialiser();
+            Bar.getInstance().getSimulation().affecterClients();
+            Bar.getInstance().getSimulation().affecterServeurs();
+            
             Simuler fen = new Simuler();
         }
     }

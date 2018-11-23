@@ -4,10 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/Simuler.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/PersosActuels.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Simulation.java</file>
             <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/TestClass.java</file>
+            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Bar/Simulation.java</file>
             <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/BarActuelVerif.java</file>
+            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Bar/Bar.java</file>
         </group>
     </open-files>
 </project-private>

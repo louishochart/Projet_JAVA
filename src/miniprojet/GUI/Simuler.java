@@ -27,11 +27,12 @@ public class Simuler extends JFrame{
     public Simuler(){
         
         
+        
         tables.addActionListener(new TablesListener());
         retour.addActionListener(new RetourListener());
         
         this.setTitle("Simulation");
-        this.setSize(500, 200);
+        this.setSize(1500, 400);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
@@ -54,7 +55,7 @@ public class Simuler extends JFrame{
     class TablesListener implements ActionListener{
         JPanel pan = new JPanel();
         JButton retour = new JButton("Retour");        
-        public void actionPerformed(ActionEvent ae) {               
+        public void actionPerformed(ActionEvent ae) {   
             retour.addActionListener(new RetourListener());           
             
             Box vbox1 = Box.createVerticalBox();    
@@ -62,7 +63,7 @@ public class Simuler extends JFrame{
             vbox1.add(hbox0);
             
             Box hbox1 = Box.createHorizontalBox();
-            for(int i = 0 ; i < Bar.getInstance().getTables().size();i++){
+            for(int i = 0 ; i < Bar.getInstance().getSimulation().getTables().size();i++){
                 JButton table = new JButton("Table n° "+i);
                 table.addActionListener(new TableListener());
                 hbox1.add(table);
@@ -78,10 +79,48 @@ public class Simuler extends JFrame{
             pan.setBackground(java.awt.Color.ORANGE);           
             setVisible(true); 
         }
-        class TableListener implements ActionListener{
-            public void actionPerformed(ActionEvent ae){
+        class TableListener implements ActionListener {
+
+            JPanel pan = new JPanel();
+            JButton retour = new JButton("Retour");
+
+            public void actionPerformed(ActionEvent ae) {
+                retour.addActionListener(new RetourListener());
                 int numero = Integer.parseInt(String.valueOf(ae.getSource().toString().charAt(ae.getSource().toString().lastIndexOf("Table")+9)));
-                System.out.println(numero);
+                Box vbox1 = Box.createVerticalBox();
+                Box hbox0 = Box.createHorizontalBox();
+                hbox0.add(new JLabel("Il y a "+Bar.getInstance().getSimulation().getTables().get(numero).getClients().size()+" clients assis à cette table."));
+                vbox1.add(hbox0);
+                vbox1.add(new JLabel(" "));
+                
+                for (int i = 0; i < Bar.getInstance().getSimulation().getTables().get(numero).getClients().size(); i++) {
+                    Box hbox1 = Box.createHorizontalBox();
+                    JLabel label = new JLabel(Bar.getInstance().getSimulation().getTables().get(numero).getClients().get(i).toString());
+                    hbox1.add(label);
+                    vbox1.add(hbox1);
+                }
+                vbox1.add(new JLabel(" "));
+                Box hbox2 = Box.createHorizontalBox();
+                hbox2.add(new JLabel(Bar.getInstance().getSimulation().getTables().get(numero).getServeur().toString()));
+                vbox1.add(hbox2);
+                vbox1.add(new JLabel(" "));
+                Box hbox3 = Box.createHorizontalBox();
+                hbox3.add(retour);
+                
+                vbox1.add(hbox3);
+
+                pan.add(vbox1);
+                setContentPane(pan);
+                pan.setBackground(java.awt.Color.ORANGE);
+                setVisible(true);
+            }
+            class RetourListener implements ActionListener {
+
+                public void actionPerformed(ActionEvent ae) {
+                    
+                    dispose();
+                    Simuler fen = new Simuler();
+                }
             }
         }
         class RetourListener implements ActionListener{

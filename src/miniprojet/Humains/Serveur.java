@@ -17,8 +17,8 @@ import miniprojet.Fonctions.Random;
  *
  * @author Louis
  */
-public class Serveur extends ServeurNeutre{
-    
+public class Serveur extends ServeurNeutre {
+
     private int taille_biceps;
     private Table table;
 
@@ -26,20 +26,18 @@ public class Serveur extends ServeurNeutre{
         super(prenom, nom, porte_monnaie, popularite, cri);
         this.taille_biceps = taille_biceps;
     }
-    
-    public Serveur(){
-        super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
-        this.taille_biceps=(int)(Math.random()*10);
+
+    public Serveur() {
+        super(new Random().getRandomPrenom_m(), new Random().getRandomNom(), new Random().getRandomPorteMonnaie(), new Random().getRandomPopularite(), new Random().getRandomCri());
+        this.taille_biceps = (int) (Math.random() * 10);
 
     }
-    
 
     @Override
     public String toString() {
-        return "Serveur{ Prenom: "+this.getPrenom()+", Surnom : "+this.getNom()+", Porte Monnaie : "+this.getPorte_monnaie()
-        +", Popularité : "+this.getPopularite()+", Cri : "+this.getCri() + " , taille_biceps : "+taille_biceps + '}';
+        return "Serveur{ Prenom: " + this.getPrenom() + ", Surnom : " + this.getNom() + ", Porte Monnaie : " + this.getPorte_monnaie()
+                + ", Popularité : " + this.getPopularite() + ", Cri : " + this.getCri() + " , taille_biceps : " + taille_biceps + '}';
     }
-
 
     public int getTaille_biceps() {
         return taille_biceps;
@@ -49,10 +47,4 @@ public class Serveur extends ServeurNeutre{
         this.taille_biceps = taille_biceps;
     }
 
-    public void setTable(Table table) {
-        this.table = table;
-    }
-    
-    
-   
 }

@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Table { 
     List<ClientNeutre> clients = new ArrayList<ClientNeutre>();
-    private Serveur serveur;
+    private ServeurNeutre serveur;
 
     public Table() {
     }
@@ -26,7 +26,7 @@ public class Table {
         return clients;
     }
     
-    public Serveur getServeur() {
+    public ServeurNeutre getServeur() {
         return serveur;
     }
     
@@ -34,7 +34,7 @@ public class Table {
     public void setClients(List<ClientNeutre> clients) {
         this.clients = clients;
     }
-    public void setServeur(Serveur serveur) {
+    public void setServeur(ServeurNeutre serveur) {
         this.serveur = serveur;
     }
     
@@ -45,11 +45,8 @@ public class Table {
         }
     }
     
-    public int getNbClients(){
-        return(this.getClients().size());
-    }  
     public boolean isFree(){
-        if(this.getNbClients()<4){
+        if(this.getClients().size()<4){
             return true;
         }
         else{
