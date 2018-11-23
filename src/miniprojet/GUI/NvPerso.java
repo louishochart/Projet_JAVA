@@ -51,7 +51,7 @@ public class NvPerso extends JFrame {
         retour.addActionListener(new RetourListener());
         
         this.setTitle("NvPerso");
-        this.setSize(610, 150);
+        this.setSize(800, 300);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
@@ -100,6 +100,10 @@ public class NvPerso extends JFrame {
             
             Box vbox1 = Box.createVerticalBox();
             
+            Box hbox = Box.createHorizontalBox();
+            hbox.add(new JLabel("Il y a actuellement "+Bar.getInstance().getClients().size()+" clients. Le nombre maximum de clients est actuellement de "
+                    +Bar.getInstance().getTables().size()*4+". Ajoutez des tables pour en avoir plus"));
+            
             Box hbox1 = Box.createHorizontalBox();                    
             hbox1.add(label); hbox1.add(jtf);
             
@@ -110,7 +114,7 @@ public class NvPerso extends JFrame {
             hbox3.add(retour);
             hbox3.add(valider);
             
-            vbox1.add(hbox1); vbox1.add(hbox2); vbox1.add(hbox3);
+            vbox1.add(hbox); vbox1.add(hbox1); vbox1.add(hbox2); vbox1.add(hbox3);
             
             pan.add(vbox1);        
             pan.setBackground(Color.ORANGE);
@@ -130,7 +134,7 @@ public class NvPerso extends JFrame {
                         total.add(new Cliente());
                     }
                 }
-                if(total.size()>0){
+                if(total.size()>0&&!((Bar.getInstance().getClients().size()+total.size())>Bar.getInstance().getTables().size()*4)){
                     Bar.getInstance().setClients(total);
                     dispose();
                     NvPerso fen = new NvPerso();
@@ -165,6 +169,10 @@ public class NvPerso extends JFrame {
             
             Box vbox1 = Box.createVerticalBox();
             
+            Box hbox = Box.createHorizontalBox();
+            hbox.add(new JLabel("Il y a actuellement "+Bar.getInstance().getServeurs().size()+" serveurs. Le nombre maximum de serveurs est actuellement de "
+                    +Bar.getInstance().getTables().size()+". Ajoutez des tables pour en avoir plus"));
+            
             Box hbox1 = Box.createHorizontalBox();                    
             hbox1.add(label); hbox1.add(jtf);
             
@@ -175,7 +183,7 @@ public class NvPerso extends JFrame {
             hbox3.add(retour);
             hbox3.add(valider);
             
-            vbox1.add(hbox1); vbox1.add(hbox2); vbox1.add(hbox3);
+            vbox1.add(hbox); vbox1.add(hbox1); vbox1.add(hbox2); vbox1.add(hbox3);
             
             pan.add(vbox1);        
             pan.setBackground(Color.ORANGE);
@@ -195,7 +203,7 @@ public class NvPerso extends JFrame {
                         total.add(new Serveuse());
                     }
                 }
-                if(total.size()>0){
+                if(total.size()>0&&!((Bar.getInstance().getServeurs().size()+total.size())>Bar.getInstance().getTables().size())){
                     Bar.getInstance().setServeurs(total);
                     dispose();
                     NvPerso fen = new NvPerso();
@@ -216,6 +224,9 @@ public class NvPerso extends JFrame {
         private JButton valider = new JButton("Valider");
         private JButton retour = new JButton("Retour");
         private JLabel label  = new JLabel("Nombre de tables créées        ");
+        private JLabel label2 = new JLabel("Il y a actuellement "+Bar.getInstance().getTables().size()
+                +" tables. Le maximum est de 10 tables. Vous pouvez donc ajouter "+(int)(10-Bar.getInstance().getTables().size())+" tables.");
+        private JLabel label3 = new JLabel("Le nombre maximal de 10 tables est déjà atteint. Vous ne pouvez pas ajouter de tables.");
         private JTextField jtf = new JTextField();
         
         public void actionPerformed(ActionEvent ae) {
@@ -226,15 +237,34 @@ public class NvPerso extends JFrame {
             
             Box vbox1 = Box.createVerticalBox();
             
-            Box hbox1 = Box.createHorizontalBox();                    
-            hbox1.add(label); hbox1.add(jtf);
+            if (Bar.getInstance().getTables().size() < 10) {
+                Box hbox = Box.createHorizontalBox();
+                hbox.add(label2);
+                Box hbox1 = Box.createHorizontalBox();
+                hbox1.add(label);
+                hbox1.add(jtf);
+                vbox1.add(hbox);
+                vbox1.add(hbox1);
+                Box space = Box.createHorizontalBox();
+                space.add(new JLabel(" "));
+                vbox1.add(space);
+                Box hbox2 = Box.createHorizontalBox();
+                hbox2.add(retour);
+                hbox2.add(valider);
+                vbox1.add(hbox2);
+            }
+            else{
+                Box hbox = Box.createHorizontalBox();
+                hbox.add(label3);
+                vbox1.add(hbox);
+                Box space = Box.createHorizontalBox();
+                space.add(new JLabel(" "));
+                vbox1.add(space);
+                Box hbox2 = Box.createHorizontalBox();
+                hbox2.add(retour);
+                vbox1.add(hbox2);
+            }
             
-            
-            Box hbox2 = Box.createHorizontalBox();
-            hbox2.add(retour);
-            hbox2.add(valider);
-            
-            vbox1.add(hbox1);  vbox1.add(hbox2);
             
             pan.add(vbox1);        
             pan.setBackground(Color.ORANGE);
@@ -251,9 +281,6 @@ public class NvPerso extends JFrame {
                         }
                         dispose();
                         NvPerso fen = new NvPerso();
-                    }
-                    else{
-                        System.out.println("Veuillez entrer un entier inférieur à 11");
                     }
                     
                 }

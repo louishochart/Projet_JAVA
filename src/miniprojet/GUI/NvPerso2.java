@@ -51,7 +51,7 @@ public class NvPerso2 extends JFrame {
         retour.addActionListener(new RetourListener());
         
         this.setTitle("NvPerso");
-        this.setSize(610, 150);
+        this.setSize(800, 300);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
         
@@ -100,6 +100,10 @@ public class NvPerso2 extends JFrame {
             
             Box vbox1 = Box.createVerticalBox();
             
+            Box hbox = Box.createHorizontalBox();
+            hbox.add(new JLabel("Il y a actuellement "+Bar.getInstance().getClients().size()+" clients. Le nombre maximum de clients est actuellement de "
+                    +Bar.getInstance().getTables().size()*4+". Ajoutez des tables pour en avoir plus"));
+            
             Box hbox1 = Box.createHorizontalBox();                    
             hbox1.add(label); hbox1.add(jtf);
             
@@ -110,7 +114,7 @@ public class NvPerso2 extends JFrame {
             hbox3.add(retour);
             hbox3.add(valider);
             
-            vbox1.add(hbox1); vbox1.add(hbox2); vbox1.add(hbox3);
+            vbox1.add(hbox); vbox1.add(hbox1); vbox1.add(hbox2); vbox1.add(hbox3);
             
             pan.add(vbox1);        
             pan.setBackground(Color.ORANGE);
@@ -130,17 +134,17 @@ public class NvPerso2 extends JFrame {
                         total.add(new Cliente());
                     }
                 }
-                if(total.size()>0){
+                if(total.size()>0&&!((Bar.getInstance().getClients().size()+total.size())>Bar.getInstance().getTables().size()*4)){
                     Bar.getInstance().setClients(total);
                     dispose();
-                    NvPerso fen = new NvPerso();
+                    NvPerso2 fen = new NvPerso2();
                 }                
             }
         }   
         class RetourListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 dispose();
-                NvPerso fen = new NvPerso();
+                NvPerso2 fen = new NvPerso2();
             }
         } 
     }
@@ -165,6 +169,10 @@ public class NvPerso2 extends JFrame {
             
             Box vbox1 = Box.createVerticalBox();
             
+            Box hbox = Box.createHorizontalBox();
+            hbox.add(new JLabel("Il y a actuellement "+Bar.getInstance().getServeurs().size()+" serveurs. Le nombre maximum de serveurs est actuellement de "
+                    +Bar.getInstance().getTables().size()+". Ajoutez des tables pour en avoir plus"));
+            
             Box hbox1 = Box.createHorizontalBox();                    
             hbox1.add(label); hbox1.add(jtf);
             
@@ -175,7 +183,7 @@ public class NvPerso2 extends JFrame {
             hbox3.add(retour);
             hbox3.add(valider);
             
-            vbox1.add(hbox1); vbox1.add(hbox2); vbox1.add(hbox3);
+            vbox1.add(hbox); vbox1.add(hbox1); vbox1.add(hbox2); vbox1.add(hbox3);
             
             pan.add(vbox1);        
             pan.setBackground(Color.ORANGE);
@@ -195,17 +203,17 @@ public class NvPerso2 extends JFrame {
                         total.add(new Serveuse());
                     }
                 }
-                if(total.size()>0){
+                if(total.size()>0&&!((Bar.getInstance().getServeurs().size()+total.size())>Bar.getInstance().getTables().size())){
                     Bar.getInstance().setServeurs(total);
                     dispose();
-                    NvPerso fen = new NvPerso();
+                    NvPerso2 fen = new NvPerso2();
                 }                
             }
         }   
         class RetourListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 dispose();
-                NvPerso fen = new NvPerso();
+                NvPerso2 fen = new NvPerso2();
             }
         }
     }
@@ -272,10 +280,7 @@ public class NvPerso2 extends JFrame {
                             Bar.getInstance().addTable(new Table());
                         }
                         dispose();
-                        NvPerso fen = new NvPerso();
-                    }
-                    else{
-                        System.out.println("Veuillez entrer un entier inférieur à 11");
+                        NvPerso2 fen = new NvPerso2();
                     }
                     
                 }
@@ -287,7 +292,7 @@ public class NvPerso2 extends JFrame {
         class RetourListener implements ActionListener{
             public void actionPerformed(ActionEvent ae) {
                 dispose();
-                NvPerso fen = new NvPerso();
+                NvPerso2 fen = new NvPerso2();
             }
         }
     }

@@ -1,2 +1,5 @@
-Corentin;Thouvenin;32.51;78;YES;EAU;5
-Quentin;Fourni;13.58;3;YES;EAU;6
+Sebastien;Derousseaux;37.26;10;Ca c'est sympa;EAU;8
+Anatole;Sauvage;32.55;1;Ca c'est sympa;EAU;4
+Hector;Lefebvre;95.06;30;Cool;EAU;6
+Nicolas;Corre;97.42;34;YES;EAU;0
+Justin;Paresys;35.92;21;Cool;EAU;5

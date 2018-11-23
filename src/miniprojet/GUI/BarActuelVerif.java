@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import miniprojet.Bar.Bar;
 import miniprojet.Fonctions.*;
+import miniprojet.Simulation;
 
 
 
@@ -29,7 +30,7 @@ public class BarActuelVerif extends JFrame {
     
     private JButton nvperso = new JButton("Créer nouveau personnage");
     private JButton persosactuels = new JButton("Voir personnages existants");
-    private JButton simulation = new JButton("Simuler une soirée");
+    private JButton simulation = new JButton("Entrer dans la simulation");
     private JButton retour = new JButton("Retour");
     
     public BarActuelVerif() {
@@ -44,6 +45,7 @@ public class BarActuelVerif extends JFrame {
         nvperso.addActionListener(new NvPersoListener());
         retour.addActionListener(new RetourListener());
         persosactuels.addActionListener(new PersosActuelsListener());
+        simulation.addActionListener(new SimulationListener());
         
         Box vbox1 = Box.createVerticalBox();
         Box hbox1 = Box.createHorizontalBox(); 
@@ -63,8 +65,11 @@ public class BarActuelVerif extends JFrame {
         hbox4.add(new JLabel(" "));
         Box hbox5 = Box.createHorizontalBox();
         
-        
-        if(Bar.getInstance().getPatronne()==null||Bar.getInstance().getFournisseur()==null||Bar.getInstance().getBarman()==null){
+        if(Bar.getInstance().getTables().size()<1){
+            JLabel label = new JLabel("Il faut aujouter des tables");
+            hbox3.add(label);
+        }
+        else if(Bar.getInstance().getPatronne()==null||Bar.getInstance().getFournisseur()==null||Bar.getInstance().getBarman()==null){
             JLabel label = new JLabel("Vous devez créer un nouveau bar");
             hbox3.add(label);
         }
@@ -76,10 +81,7 @@ public class BarActuelVerif extends JFrame {
             JLabel label = new JLabel("Il faut aujouter des serveu(r)s(es)");
             hbox3.add(label);
         }
-        else if(Bar.getInstance().getTables().size()<1){
-            JLabel label = new JLabel("Il faut aujouter des tables");
-            hbox3.add(label);
-        }
+        
         
         else{
             hbox3.add(persosactuels);
@@ -108,6 +110,14 @@ public class BarActuelVerif extends JFrame {
             dispose();
             PersosActuels fen = new PersosActuels();
        }
+    }
+    
+    class SimulationListener implements ActionListener{
+        public void actionPerformed(ActionEvent ae){
+            dispose();
+            new Simulation().entrerClients();
+            Simuler fen = new Simuler();
+        }
     }
     
     class RetourListener implements ActionListener{

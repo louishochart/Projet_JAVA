@@ -361,7 +361,8 @@ public class PersosActuels extends JFrame{
             Box vbox1 = Box.createVerticalBox();    
             Box hbox1 = Box.createHorizontalBox();
             JLabel label = new  JLabel("Il y a actuellement "+Bar.getInstance().getTables().size()
-                    +" tables dans ce bar. "+Bar.getInstance().getTables().size()*4+" personnes peuvent donc accéder au bar");
+                    +" tables dans ce bar et "+Bar.getInstance().getClients().size()
+                    +" clients potentiels. Ce bar peut accueillir "+Bar.getInstance().getTables().size()*4+" clients au maximum. Ajoutez des tables pour en avoir plus");
             hbox1.add(label);
             Box hbox2 = Box.createHorizontalBox();
             hbox2.add(retour);
