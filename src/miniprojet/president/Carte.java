@@ -13,21 +13,22 @@ import java.util.ArrayList;
  */
 public class Carte {   
     ArrayList carte_unique = new ArrayList();
-    int value;
     
-    /**Constructeur d'une carte*/
-    public Carte(CouleurCarte couleur, FigureCarte figure, int value) {
+    /**
+     * Constructeur d'une carte
+     * @param couleur Pique, Carreau, Trefle, Coeur
+     * @param figure figure des cartes allant de 2 à l'As 
+     */
+    public Carte(CouleurCarte couleur, FigureCarte figure) {
         this.carte_unique.add(figure);
         this.carte_unique.add(couleur);
-        this.value=value;
     }
 
+    /**
+     * Getter d'une carte
+     * @return une carte
+     */
     public ArrayList getCarteUnique() {
         return this.carte_unique;
     } 
-    
-    public int getValueCarte() {
-        return value;
-    }
-    
 }
