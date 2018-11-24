@@ -20,67 +20,68 @@ import java.util.logging.Logger;
  * @author Louis
  */
 public class Files {
-    public void emptyFiles(){
-        PrintWriter writer=null;
+
+    public void emptyFiles() {
+        PrintWriter writer = null;
         try {
-            File clients=new File(".\\db\\clients.txt");
-            if(!clients.exists()){
+            File clients = new File(".\\db\\clients.txt");
+            if (!clients.exists()) {
                 clients.createNewFile();
             }
             writer = new PrintWriter(clients);
             writer.print("");
             writer.close();
-            File clientes=new File(".\\db\\clientes.txt");
-            if(!clientes.exists()){
+            File clientes = new File(".\\db\\clientes.txt");
+            if (!clientes.exists()) {
                 clientes.createNewFile();
             }
             writer = new PrintWriter(clientes);
             writer.print("");
             writer.close();
-            File barman=new File(".\\db\\barman.txt");
-            if(!barman.exists()){
+            File barman = new File(".\\db\\barman.txt");
+            if (!barman.exists()) {
                 barman.createNewFile();
             }
             writer = new PrintWriter(barman);
             writer.print("");
             writer.close();
-            File patronne=new File(".\\db\\patronne.txt");
-            if(!patronne.exists()){
+            File patronne = new File(".\\db\\patronne.txt");
+            if (!patronne.exists()) {
                 patronne.createNewFile();
             }
             writer = new PrintWriter(patronne);
             writer.print("");
             writer.close();
-            File fournisseur=new File(".\\db\\fournisseur.txt");
-            if(!fournisseur.exists()){
+            File fournisseur = new File(".\\db\\fournisseur.txt");
+            if (!fournisseur.exists()) {
                 fournisseur.createNewFile();
             }
             writer = new PrintWriter(fournisseur);
             writer.print("");
             writer.close();
-            File serveurs=new File(".\\db\\serveurs.txt");
-            if(!serveurs.exists()){
+            File serveurs = new File(".\\db\\serveurs.txt");
+            if (!serveurs.exists()) {
                 serveurs.createNewFile();
             }
             writer = new PrintWriter(serveurs);
             writer.print("");
             writer.close();
-            File serveuses=new File(".\\db\\serveuses.txt");
-            if(!serveuses.exists()){
+            File serveuses = new File(".\\db\\serveuses.txt");
+            if (!serveuses.exists()) {
                 serveuses.createNewFile();
             }
             writer = new PrintWriter(serveuses);
             writer.print("");
             writer.close();
-            File stocks=new File(".\\db\\stocks.txt");
-            if(!stocks.exists()){
+            File stocks = new File(".\\db\\stocks.txt");
+            if (!stocks.exists()) {
                 stocks.createNewFile();
             }
             writer = new PrintWriter(stocks);
             writer.print("");
             writer.close();
-            File bar=new File(".\\db\\bar.txt");
-            if(!bar.exists()){
+            File bar = new File(".\\db\\bar.txt");
+            if (!bar.exists()) {
                 bar.createNewFile();
             }
             writer = new PrintWriter(bar);
@@ -95,21 +96,20 @@ public class Files {
             writer.close();
         }
     }
-    
-    public boolean checkIfEmpty(String name){
+
+    public boolean checkIfEmpty(String name) {
         try {
-            File file=new File(".\\db\\"+name+".txt"); // définir l'arborescence
+            File file = new File(".\\db\\" + name + ".txt"); // définir l'arborescence
             BufferedReader br = new BufferedReader(new FileReader(file));
             String st;
-            while((st = br.readLine()) != null){
-                return(false);
+            while ((st = br.readLine()) != null) {
+                return (false);
             }
-            return(true);
+            return (true);
         } catch (IOException ex) {
             Logger.getLogger(Files.class.getName()).log(Level.SEVERE, null, ex);
-            return(false);
+            return (false);
         }
     }
-    
-    
+
 }

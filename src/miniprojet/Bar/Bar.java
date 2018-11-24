@@ -22,10 +22,10 @@ public class Bar {
     private String name;
     private Barman barman;
     private Fournisseur fournisseur;
-    private List<Table> tables = new ArrayList<Table>();
-    List<ServeurNeutre> serveurs = new ArrayList<ServeurNeutre>();
-    List<ClientNeutre> clients = new ArrayList<ClientNeutre>();
-    private List<Boisson> boissons = new ArrayList<Boisson>();
+    private List<Table> tables = new ArrayList();
+    List<ServeurNeutre> serveurs = new ArrayList();
+    List<ClientNeutre> clients = new ArrayList();
+    private List<Boisson> boissons = new ArrayList();
     private Stock stock = new Stock();
     private Caisse caisse = new Caisse();
 
@@ -44,6 +44,8 @@ public class Bar {
 
     /**
      * Point d'accès pour l'instance unique du singleton
+     *
+     * @return
      */
     public static Bar getInstance() {
         try {
@@ -125,43 +127,43 @@ public class Bar {
     }
 
     public List<Client> getClients_m() {
-        ArrayList clients = new ArrayList();
+        ArrayList clients_m = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getClients().size(); i++) {
             if (Bar.getInstance().getClients().get(i).getClass().getSimpleName().equals("Client")) {
-                clients.add(Bar.getInstance().getClients().get(i));
+                clients_m.add(Bar.getInstance().getClients().get(i));
             }
         }
-        return clients;
+        return clients_m;
     }
 
     public List<Cliente> getClientes_f() {
-        ArrayList clientes = new ArrayList();
+        ArrayList clientes_f = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getClients().size(); i++) {
             if (Bar.getInstance().getClients().get(i).getClass().getSimpleName().equals("Cliente")) {
-                clientes.add(Bar.getInstance().getClients().get(i));
+                clientes_f.add(Bar.getInstance().getClients().get(i));
             }
         }
-        return clientes;
+        return clientes_f;
     }
 
     public List<Serveur> getServeurs_m() {
-        ArrayList serveurs = new ArrayList();
+        ArrayList serveurs_m = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getServeurs().size(); i++) {
             if (Bar.getInstance().getServeurs().get(i).getClass().getSimpleName().equals("Serveur")) {
-                serveurs.add(Bar.getInstance().getServeurs().get(i));
+                serveurs_m.add(Bar.getInstance().getServeurs().get(i));
             }
         }
-        return serveurs;
+        return serveurs_m;
     }
 
     public List<Serveuse> getServeuses_f() {
-        ArrayList serveuses = new ArrayList();
+        ArrayList serveuses_f = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getServeurs().size(); i++) {
             if (Bar.getInstance().getServeurs().get(i).getClass().getSimpleName().equals("Serveuse")) {
-                serveuses.add(Bar.getInstance().getServeurs().get(i));
+                serveuses_f.add(Bar.getInstance().getServeurs().get(i));
             }
         }
-        return serveuses;
+        return serveuses_f;
     }
 
     public List<Boisson> getBoissons() {

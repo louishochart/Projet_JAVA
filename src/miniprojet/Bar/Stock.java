@@ -5,9 +5,6 @@
  */
 package miniprojet.Bar;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,36 +13,41 @@ import java.util.List;
  * @author Louis
  */
 public class Stock {
-    private List <Boisson> boissons = new ArrayList <Boisson>();
-    private List <Integer> quantites = new ArrayList <Integer>();
-    
-    public Stock(int qte){
-        for(int i = 0 ; i < Boisson.values().length ; i++ ){
-            boissons.add(Boisson.values()[i]);
+
+    private List<Boisson> boissons = new ArrayList();
+    private List<Integer> quantites = new ArrayList();
+
+    public Stock(int qte) {
+        for (Boisson value : Boisson.values()) {
+            boissons.add(value);
             quantites.add(qte);
         }
     }
-    public Stock(){}
 
-    public Stock(ArrayList<Boisson> boissons,ArrayList<Integer> quantites) {
+    public Stock() {
+    }
+
+    public Stock(ArrayList<Boisson> boissons, ArrayList<Integer> quantites) {
         this.setBoissons(boissons);
         this.setQuantites(quantites);
     }
-    public void removeFromStock(Boisson boisson,int quantite_a_enlever){
-        for(int i = 0 ; i < this.boissons.size() ; i++){
-            if(boissons.get(i).getName().equals(boisson.getName())){
-                
-                this.quantites.set(i,(this.quantites.get(i)-quantite_a_enlever));
+
+    public void removeFromStock(Boisson boisson, int quantite_a_enlever) {
+        for (int i = 0; i < this.boissons.size(); i++) {
+            if (boissons.get(i).getName().equals(boisson.getName())) {
+
+                this.quantites.set(i, (this.quantites.get(i) - quantite_a_enlever));
             }
         }
     }
-    public int getStock(Boisson boisson){
-        for(int i = 0 ; i < this.boissons.size() ; i++){
-            if(boissons.get(i).getName().equals(boisson.getName())){
-                return(this.quantites.get(i));
+
+    public int getStock(Boisson boisson) {
+        for (int i = 0; i < this.boissons.size(); i++) {
+            if (boissons.get(i).getName().equals(boisson.getName())) {
+                return (this.quantites.get(i));
             }
         }
-        return(0);       
+        return (0);
     }
 
     public List<Boisson> getBoissons() {
@@ -63,6 +65,5 @@ public class Stock {
     private void setQuantites(List<Integer> quantites) {
         this.quantites = quantites;
     }
-    
-    
+
 }

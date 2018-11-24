@@ -1,6 +1,8 @@
 package miniprojet.Humains;
 
+import java.util.List;
 import miniprojet.Bar.*;
+import miniprojet.president.*;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,11 +27,12 @@ public abstract class ClientNeutre extends Humain {
         this.boisson_fav_1 = boisson_fav_1;
         this.boisson_fav_2 = boisson_fav_2;
         this.niveau_alcool = niveau_alcool;
+        List<Carte> main = new ArrayList();
     }
     
     public void boire(Boisson boisson){
         if (this.canPay(boisson)){
-            this.payer(boisson.getPrix_vente());
+            this.payer(boisson.getPrixVente());
             Bar.getInstance().getStock().removeFromStock(boisson, 1);
             this.setNiveau_alcool(this.getNiveau_alcool()+boisson.getDegree());
             this.parler("Je bois un verre de "+boisson.getName());
@@ -49,7 +52,7 @@ public abstract class ClientNeutre extends Humain {
     }
     
     public void recevoir_verre(Humain expediteur, Boisson boisson){
-        expediteur.payer(boisson.getPrix_vente());
+        expediteur.payer(boisson.getPrixVente());
         Bar.getInstance().getStock().removeFromStock(boisson, 1);
         this.setNiveau_alcool(this.getNiveau_alcool()+boisson.getDegree());
         this.parlerdestinataire(expediteur,"Merci beaucoup !");

@@ -68,7 +68,7 @@ public abstract class Humain {
     }
     
     public boolean canPay(Boisson boisson){
-        if (this.getPorte_monnaie()<boisson.getPrix_vente()){
+        if (this.getPorte_monnaie()<boisson.getPrixVente()){
             return false;
         }
         else{
