@@ -1,5 +1,6 @@
 package miniprojet.Humains;
 
+import java.util.ArrayList;
 import java.util.List;
 import miniprojet.Bar.*;
 import miniprojet.president.*;
@@ -21,13 +22,14 @@ public abstract class ClientNeutre extends Humain {
     private boolean exclu = false;
     private Table table;
     boolean player = false;
+    List<Carte> main = new ArrayList();
 
     protected ClientNeutre(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool) {
         super(prenom, nom, porte_monnaie, popularite, cri);
         this.boisson_fav_1 = boisson_fav_1;
         this.boisson_fav_2 = boisson_fav_2;
         this.niveau_alcool = niveau_alcool;
-        List<Carte> main = new ArrayList();
+        
     }
     
     public void boire(Boisson boisson){
@@ -69,6 +71,11 @@ public abstract class ClientNeutre extends Humain {
     public float getNiveau_alcool() {
         return niveau_alcool;
     }
+
+    public List<Carte> getMain() {
+        return main;
+    }
+    
 
     public boolean isExclu() {
         return exclu;
