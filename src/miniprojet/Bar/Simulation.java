@@ -19,38 +19,37 @@ import miniprojet.Humains.*;
  * @author Louis
  */
 public class Simulation {
-    
-    private List<ClientNeutre> clients = new ArrayList<ClientNeutre>();
-    private List<ServeurNeutre> serveurs = new ArrayList<ServeurNeutre>();
-    private List<Table> tables = new ArrayList<Table>();
-    private ClientNeutre joueur ;
+
+    private List<ClientNeutre> clients = new ArrayList();
+    private List<ServeurNeutre> serveurs = new ArrayList();
+    private List<Table> tables = new ArrayList();
+    private ClientNeutre joueur;
+    private int compteur = 0;
 
     public Simulation() {
     }
-    
-    
-    
-    public void affecterClients(){
-        int nbClientsAleatoire = (int)(Bar.getInstance().getClientsDispos().size()*(0.5)) + (int)(Math.random() * ((Bar.getInstance().getClientsDispos().size() - Bar.getInstance().getClientsDispos().size()*(0.5) + 1)));
+
+    public void affecterClients() {
+        int nbClientsAleatoire = (int) (Bar.getInstance().getClientsDispos().size() * (0.5)) + (int) (Math.random() * ((Bar.getInstance().getClientsDispos().size() - Bar.getInstance().getClientsDispos().size() * (0.5) + 1)));
         for (int i = 0; i < nbClientsAleatoire; i++) {
-            int numeroTable = (int) (Math.random() * (Bar.getInstance().getFreeTables().size()));          
+            int numeroTable = (int) (Math.random() * (Bar.getInstance().getFreeTables().size()));
             Bar.getInstance().getClientsDispos().get(i).setTable(Bar.getInstance().getFreeTables().get(numeroTable));
             Bar.getInstance().getFreeTables().get(numeroTable).addClient(Bar.getInstance().getClientsDispos().get(i));
             Bar.getInstance().getSimulation().getClients().add(Bar.getInstance().getClientsDispos().get(i));
         }
-        for(int i = 0 ; i < Bar.getInstance().getTables().size();i++){
-            if(Bar.getInstance().getTables().get(i).getClients().size()>0){
+        for (int i = 0; i < Bar.getInstance().getTables().size(); i++) {
+            if (Bar.getInstance().getTables().get(i).getClients().size() > 0) {
                 this.getTables().add(Bar.getInstance().getTables().get(i));
             }
         }
-        
     }
+
     public void affecterServeurs() {
-        int nbServeurs = (int) (Bar.getInstance().getServeurs().size() * (0.6)) + (int) (Math.random() * ((Bar.getInstance().getServeurs().size() - Bar.getInstance().getServeurs().size() * (0.6) )));
-        int compteur = 1;
-        while (compteur < nbServeurs+1) {
-            this.getServeurs().add(Bar.getInstance().getServeurs().get(compteur));
-            compteur++;
+        int nbServeurs = (int) (Bar.getInstance().getServeurs().size() * (0.6)) + (int) (Math.random() * ((Bar.getInstance().getServeurs().size() - Bar.getInstance().getServeurs().size() * (0.6))));
+        int temp = 1;
+        while (temp < nbServeurs + 1) {
+            this.getServeurs().add(Bar.getInstance().getServeurs().get(temp));
+            temp++;
         }
 
         int indice = 0;
@@ -63,7 +62,16 @@ public class Simulation {
             }
         }
     }
-    public void reinitialiser(){
+
+    public void simulerHeure() {
+
+    }
+
+    public void incrementCompteur() {
+        this.compteur++;
+    }
+
+    public void reinitialiser() {
         Bar.getInstance().setSimulation(new Simulation());
     }
 
@@ -78,7 +86,6 @@ public class Simulation {
     public List<Table> getTables() {
         return tables;
     }
-    
 
     public void setClients(List<ClientNeutre> clients) {
         this.clients = clients;
@@ -91,7 +98,5 @@ public class Simulation {
     public void setTables(List<Table> tables) {
         this.tables = tables;
     }
-    
-    
-    
+
 }

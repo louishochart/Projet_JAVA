@@ -10,26 +10,28 @@ import java.io.File;
 import java.io.FileWriter;
 import miniprojet.Bar.*;
 import miniprojet.*;
+
 /**
  *
  * @author Louis
  */
 public class Caisse {
+
     float caisse;
-    
-    public Caisse(float caisse){
-        this.caisse=caisse;
+
+    public Caisse(float caisse) {
+        this.caisse = caisse;
     }
-    public Caisse(){}
+
+    public Caisse() {
+    }
 
     public float getCaisse() {
         return caisse;
     }
-    
 
     public void setCaisse(float caisse) {
         this.caisse = caisse;
     }
-    
-    
+
 }
