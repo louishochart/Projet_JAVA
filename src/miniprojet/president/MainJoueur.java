@@ -9,6 +9,6 @@ package miniprojet.president;
  *
  * @author ISEN
  */
-public class Pli {
+public class MainJoueur {
     
 }

@@ -13,14 +13,21 @@ import java.util.ArrayList;
  */
 public class Carte {   
     ArrayList carte_unique = new ArrayList();
+    int value;
     
     /**Constructeur d'une carte*/
-    public Carte(Couleur_carte couleur, Figure_carte figure) {
+    public Carte(CouleurCarte couleur, FigureCarte figure, int value) {
         this.carte_unique.add(figure);
         this.carte_unique.add(couleur);
+        this.value=value;
     }
 
-    public ArrayList getCarte_unique() {
+    public ArrayList getCarteUnique() {
         return this.carte_unique;
     } 
+    
+    public int getValueCarte() {
+        return value;
+    }
+    
 }

@@ -9,7 +9,7 @@ package miniprojet.president;
  *
  * @author ISEN
  */
-public enum Figure_carte {
+public enum FigureCarte {
     
     DEUX("DEUX"),
     TROIS("TROIS"),
@@ -27,7 +27,7 @@ public enum Figure_carte {
     
     String figure;
 
-    private Figure_carte(String figure) {
+    private FigureCarte(String figure) {
         this.figure = figure;
     }
     

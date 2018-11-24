@@ -15,18 +15,18 @@ import java.util.*;
 
 public class Paquet {
     /** Paquet de carte*/
-    List<ArrayList> cartes = new ArrayList<ArrayList>();
+    List<ArrayList> cartes = new ArrayList<>();
 
     
     /**Constructeur du paquet*/
     public Paquet()
    {
-      for(int i = 0; i < Couleur_carte.values().length; i++)
+      for(int i = 0; i < CouleurCarte.values().length; i++)
       {
-            for(int j = 0; j < Figure_carte.values().length; j++)
+            for(int j = 0; j < FigureCarte.values().length; j++)
             {
-                Carte carte = new Carte(Couleur_carte.values()[i],Figure_carte.values()[j]);
-                this.cartes.add(carte.getCarte_unique());
+                Carte carte = new Carte(CouleurCarte.values()[i],FigureCarte.values()[j],j);
+                this.cartes.add(carte.getCarteUnique());
             }
       }
     }
@@ -59,9 +59,12 @@ public class Paquet {
         
     }
     /**Distribue les cartes du paquet aux 4 joueurs de la table*/
-    public void distribue()
-    {
-        
-    }
-    
+//    public void distribue(ArrayList joueur)
+//    {
+//        int i=51;
+//        while(this.cartes.isEmpty()==false){
+//            joueur.main.add(this.cartes.get(i));
+//            
+//        }
+//    }    
 }

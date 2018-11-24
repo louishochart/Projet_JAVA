@@ -9,7 +9,7 @@ package miniprojet.president;
  *
  * @author ISEN
  */
-public enum Couleur_carte {
+public enum CouleurCarte {
     
     COEUR("COEUR"),
     TREFLE("TREFLE"),
@@ -18,7 +18,7 @@ public enum Couleur_carte {
     
     String couleur;
 
-    private Couleur_carte(String couleur) {
+    private CouleurCarte(String couleur) {
         this.couleur = couleur;
     }
     

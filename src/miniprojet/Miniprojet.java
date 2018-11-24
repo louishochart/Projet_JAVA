@@ -27,8 +27,8 @@ public class Miniprojet {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        TestClass test = new TestClass();
-        test.test();
+        TestClass2 test = new TestClass2();
+        test.test2();
     }
     
 }
