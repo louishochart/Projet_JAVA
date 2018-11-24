@@ -88,13 +88,15 @@ public class TestClass {
 //        Fournisseur fournisseur = new Fournisseur();
 
           
-         PageAccueil NvPerso = new PageAccueil();
-
-//        new RecupererDatabase();
+//        PageAccueil NvPerso = new PageAccueil();
+        
 //        Bar.getInstance().getSimulation().affecterClients();
 //        Bar.getInstance().getSimulation().affecterServeurs();
 //        
 //        Bar.getInstance().getSimulation().reinitialiser();
+//        new RecupererDatabase();
+
+        
         
     }
 }

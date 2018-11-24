@@ -35,8 +35,8 @@ public class Stock {
     public void removeFromStock(Boisson boisson, int quantite_a_enlever) {
         for (int i = 0; i < this.boissons.size(); i++) {
             if (boissons.get(i).getName().equals(boisson.getName())) {
-
                 this.quantites.set(i, (this.quantites.get(i) - quantite_a_enlever));
+                Bar.getInstance().getBarman().verifierStocks();
             }
         }
     }
@@ -48,6 +48,15 @@ public class Stock {
             }
         }
         return (0);
+    }
+    
+    public void addStock(Boisson boisson, int quantite){
+        for(int i = 0 ; i < this.getBoissons().size() ; i++){
+            if (boisson.equals(this.getBoissons().get(i))){
+                int temp=Bar.getInstance().getStock().getStock(boisson);
+                Bar.getInstance().getStock().getQuantites().set(i, (quantite+temp));
+            }
+        }
     }
 
     public List<Boisson> getBoissons() {

@@ -81,7 +81,7 @@ public class Paquet {
         while(this.cartes.isEmpty()==false){
             for(int j = 0; i < 4 ; i++)
             {
-                joueurs.add(e)
+                
             }
             
         }

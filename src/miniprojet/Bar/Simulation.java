@@ -19,12 +19,12 @@ import miniprojet.Humains.*;
  * @author Louis
  */
 public class Simulation {
-
+    
     private List<ClientNeutre> clients = new ArrayList();
     private List<ServeurNeutre> serveurs = new ArrayList();
     private List<Table> tables = new ArrayList();
     private ClientNeutre joueur;
-    private int compteur = 0;
+    private int nbHeures = 0;
 
     public Simulation() {
     }
@@ -45,13 +45,10 @@ public class Simulation {
     }
 
     public void affecterServeurs() {
-        int nbServeurs = (int) (Bar.getInstance().getServeurs().size() * (0.6)) + (int) (Math.random() * ((Bar.getInstance().getServeurs().size() - Bar.getInstance().getServeurs().size() * (0.6))));
-        int temp = 1;
-        while (temp < nbServeurs + 1) {
-            this.getServeurs().add(Bar.getInstance().getServeurs().get(temp));
-            temp++;
+        int nbServeurs = (int) (Bar.getInstance().getServeurs().size() * (0.6)) + (int) (Math.random() * ((Bar.getInstance().getServeurs().size()+1 - Bar.getInstance().getServeurs().size() * (0.6))));
+        for(int i = 0 ; i < nbServeurs ; i++){
+            this.getServeurs().add(Bar.getInstance().getServeurs().get(i));
         }
-
         int indice = 0;
         for (int i = 0; i < this.getTables().size(); i++) {
             this.getTables().get(i).setServeur(this.getServeurs().get(indice));
@@ -64,11 +61,15 @@ public class Simulation {
     }
 
     public void simulerHeure() {
-
+        
+        if(Bar.getInstance().getClients().get(0).getTable().getServeur() instanceof Serveur){
+            Serveur s = (Serveur) Bar.getInstance().getClients().get(0).getTable().getServeur();
+        }
+        this.incrementNbHeures();
     }
 
-    public void incrementCompteur() {
-        this.compteur++;
+    public void incrementNbHeures() {
+        this.nbHeures++;
     }
 
     public void reinitialiser() {
@@ -86,6 +87,11 @@ public class Simulation {
     public List<Table> getTables() {
         return tables;
     }
+
+    public int getNbHeures() {
+        return nbHeures;
+    }
+    
 
     public void setClients(List<ClientNeutre> clients) {
         this.clients = clients;

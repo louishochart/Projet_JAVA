@@ -6,10 +6,6 @@
 
 package miniprojet;
 
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import miniprojet.Bar.*;
 import miniprojet.*;
 
 /**
@@ -27,8 +23,8 @@ public class Miniprojet {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        TestClass2 test = new TestClass2();
-        test.test2();
+        TestClass test = new TestClass();
+        test.test();
     }
     
 }

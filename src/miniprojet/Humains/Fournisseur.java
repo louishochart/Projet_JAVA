@@ -5,13 +5,9 @@
  */
 package miniprojet.Humains;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import miniprojet.Bar.*;
-import miniprojet.*;
 import miniprojet.Fonctions.Random;
+import miniprojet.Humains.*;
+import miniprojet.Bar.*;
 
 /**
  *
@@ -22,29 +18,22 @@ public class Fournisseur extends Humain {
     public Fournisseur(String prenom, String nom, double porte_monnaie, int popularite, String cri) {
         super(prenom, nom, porte_monnaie, popularite, cri);
     }
-    public Fournisseur(){
-        super(new Random().getRandomPrenom_m(),new Random().getRandomNom(),new Random().getRandomPorteMonnaie(),new Random().getRandomPopularite(),new Random().getRandomCri());
-        
+
+    public Fournisseur() {
+        super(new Random().getRandomPrenom_m(), new Random().getRandomNom(), new Random().getRandomPorteMonnaie(), new Random().getRandomPopularite(), new Random().getRandomCri());
+
     }
-    
 
     @Override
     public String toString() {
-        return "Fournisseur{ Prenom: "+this.getPrenom()+" , Surnom : "+this.getNom()+" , Porte Monnaie : "+this.getPorte_monnaie()
-        +" , Popularité : "+this.getPopularite()+" , Cri : "+this.getCri() + '}';
+        return "Fournisseur{ Prenom: " + this.getPrenom() + " , Surnom : " + this.getNom() + " , Porte Monnaie : " + this.getPorte_monnaie()
+                + " , Popularité : " + this.getPopularite() + " , Cri : " + this.getCri() + '}';
     }
-    
-    
-    
-    public void recevoir_commande(){
+
+    public void livrer(Boisson boisson, int quantite) {
+        Bar.getInstance().getBarman().recevoirLivraison(boisson,quantite);
+        Bar.getInstance().getPatronne().payer(this, (quantite*boisson.getPrixVente()));
         
     }
-    
-    public void livrer(){
-        
-    }
-    
-    public void recevoir_paiement(){
-        
-    }
+
 }

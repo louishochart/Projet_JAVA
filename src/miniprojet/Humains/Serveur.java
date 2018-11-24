@@ -5,12 +5,7 @@
  */
 package miniprojet.Humains;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import miniprojet.Bar.*;
-import miniprojet.*;
 import miniprojet.Fonctions.Random;
 
 /**

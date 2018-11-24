@@ -104,7 +104,7 @@ public class Save {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             for (int i = 0; i < Bar.getInstance().getClients_m().size(); i++) {
                 bw.write(Bar.getInstance().getClients_m().get(i).getPrenom() + separator + Bar.getInstance().getClients_m().get(i).getNom()
                         + separator + Bar.getInstance().getClients_m().get(i).getPorte_monnaie() + separator
@@ -116,7 +116,6 @@ public class Save {
                 bw.write("\n"); // forcer le passage à la ligne
             }
 
-            
             bw.close(); // fermer le fichier à la fin des traitements
         } catch (Exception e) {
             System.out.println(e);
@@ -130,7 +129,7 @@ public class Save {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             for (int i = 0; i < Bar.getInstance().getClientes_f().size(); i++) {
                 bw.write(Bar.getInstance().getClientes_f().get(i).getPrenom() + separator + Bar.getInstance().getClientes_f().get(i).getNom()
                         + separator + Bar.getInstance().getClientes_f().get(i).getPorte_monnaie() + separator
@@ -141,7 +140,7 @@ public class Save {
                 // écrire une ligne dans le fichier clients.txt
                 bw.write("\n"); // forcer le passage à la ligne
             }
-            
+
             bw.close(); // fermer le fichier à la fin des traitements
         } catch (Exception e) {
         }
@@ -154,7 +153,7 @@ public class Save {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             for (int i = 0; i < Bar.getInstance().getServeurs_m().size(); i++) {
                 bw.write(Bar.getInstance().getServeurs_m().get(i).getPrenom() + separator + Bar.getInstance().getServeurs_m().get(i).getNom()
                         + separator + Bar.getInstance().getServeurs_m().get(i).getPorte_monnaie()
@@ -163,7 +162,7 @@ public class Save {
                 // écrire une ligne dans le fichier clients.txt
                 bw.write("\n"); // forcer le passage à la ligne
             }
-            
+
             bw.close(); // fermer le fichier à la fin des traitements
         } catch (Exception e) {
         }
@@ -176,7 +175,7 @@ public class Save {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            BufferedWriter bw = new BufferedWriter(new FileWriter(file,true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file, true));
             for (int i = 0; i < Bar.getInstance().getServeuses_f().size(); i++) {
                 bw.write(Bar.getInstance().getServeuses_f().get(i).getPrenom() + separator + Bar.getInstance().getServeuses_f().get(i).getNom()
                         + separator + Bar.getInstance().getServeuses_f().get(i).getPorte_monnaie()
@@ -222,7 +221,7 @@ public class Save {
             bw.write(Integer.toString(Bar.getInstance().getTables().size()));
             // écrire une ligne dans le fichier clients.txt
             bw.close(); // fermer le fichier à la fin des traitements
-        } catch (Exception e) {
+        } catch (IOException e) {
         }
     }
 }

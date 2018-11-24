@@ -23,9 +23,8 @@ public class Bar {
     private Barman barman;
     private Fournisseur fournisseur;
     private List<Table> tables = new ArrayList();
-    List<ServeurNeutre> serveurs = new ArrayList();
-    List<ClientNeutre> clients = new ArrayList();
-    private List<Boisson> boissons = new ArrayList();
+    private List<ServeurNeutre> serveurs = new ArrayList();
+    private List<ClientNeutre> clients = new ArrayList();
     private Stock stock = new Stock();
     private Caisse caisse = new Caisse();
 
@@ -80,10 +79,6 @@ public class Bar {
         this.clients.add(c);
     }
 
-    public void addBoisson(Boisson b) {
-        this.boissons.add(b);
-    }
-
     public Patronne getPatronne() {
         return patronne;
     }
@@ -129,7 +124,7 @@ public class Bar {
     public List<Client> getClients_m() {
         ArrayList clients_m = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getClients().size(); i++) {
-            if (Bar.getInstance().getClients().get(i).getClass().getSimpleName().equals("Client")) {
+            if (Bar.getInstance().getClients().get(i) instanceof Client) {
                 clients_m.add(Bar.getInstance().getClients().get(i));
             }
         }
@@ -139,7 +134,7 @@ public class Bar {
     public List<Cliente> getClientes_f() {
         ArrayList clientes_f = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getClients().size(); i++) {
-            if (Bar.getInstance().getClients().get(i).getClass().getSimpleName().equals("Cliente")) {
+            if (Bar.getInstance().getClients().get(i) instanceof Cliente) {
                 clientes_f.add(Bar.getInstance().getClients().get(i));
             }
         }
@@ -149,7 +144,7 @@ public class Bar {
     public List<Serveur> getServeurs_m() {
         ArrayList serveurs_m = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getServeurs().size(); i++) {
-            if (Bar.getInstance().getServeurs().get(i).getClass().getSimpleName().equals("Serveur")) {
+            if (Bar.getInstance().getServeurs().get(i) instanceof Serveur) {
                 serveurs_m.add(Bar.getInstance().getServeurs().get(i));
             }
         }
@@ -159,15 +154,11 @@ public class Bar {
     public List<Serveuse> getServeuses_f() {
         ArrayList serveuses_f = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getServeurs().size(); i++) {
-            if (Bar.getInstance().getServeurs().get(i).getClass().getSimpleName().equals("Serveuse")) {
+            if (Bar.getInstance().getServeurs().get(i) instanceof Serveuse) {
                 serveuses_f.add(Bar.getInstance().getServeurs().get(i));
             }
         }
         return serveuses_f;
-    }
-
-    public List<Boisson> getBoissons() {
-        return boissons;
     }
 
     public Stock getStock() {
@@ -207,10 +198,6 @@ public class Bar {
         this.clients = clients;
     }
 
-    public void setBoissons(List<Boisson> boissons) {
-        this.boissons = boissons;
-    }
-
     public void setStock(Stock stock) {
         this.stock = stock;
     }
@@ -243,5 +230,4 @@ public class Bar {
         }
         return (freeServeurs);
     }
-
 }

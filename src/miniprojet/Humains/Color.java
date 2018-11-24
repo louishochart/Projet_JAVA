@@ -20,9 +20,8 @@ public enum Color {
     ORANGE("ORANGE"),
     VIOLET("VIOLET"),
     CYAN("CYAN"),
-    
     MARRON("MARRON");
-    
+
     String name;
 
     private Color(String name) {
@@ -32,6 +31,5 @@ public enum Color {
     public String getName() {
         return name;
     }
-    
-    
+
 }

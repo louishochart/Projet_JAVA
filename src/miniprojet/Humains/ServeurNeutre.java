@@ -21,7 +21,7 @@ public abstract class ServeurNeutre extends Humain {
     public ServeurNeutre(String prenom, String nom, double porte_monnaie, int popularite, String cri) {
         super(prenom, nom, porte_monnaie, popularite, cri);
     }
-
+    
     public Boisson getBoisson() {
         return boisson;
     }

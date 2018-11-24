@@ -5,7 +5,6 @@
  */
 package miniprojet.GUI;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Box;
@@ -13,7 +12,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import miniprojet.*;
 import miniprojet.Bar.Bar;
 
 /**
@@ -23,11 +21,13 @@ import miniprojet.Bar.Bar;
 public class Simuler extends JFrame {
 
     private JButton tables = new JButton("Clients présents dans le bar");
+    private JButton simuler = new JButton("Simuler l'heure suivante");
     private JButton retour = new JButton("Retour");
 
     public Simuler() {
 
         tables.addActionListener(new TablesListener());
+        simuler.addActionListener(new SimulerListener());
         retour.addActionListener(new RetourListener());
 
         this.setTitle("Simulation");
@@ -49,10 +49,23 @@ public class Simuler extends JFrame {
 
         vbox1.add(new JLabel(" "));
         vbox1.add(new JLabel(" "));
-
+        
         Box hbox4 = Box.createHorizontalBox();
-        hbox4.add(retour);
+        hbox4.add(new JLabel("Il est actuellement "+(Bar.getInstance().getSimulation().getNbHeures()+17)+" heures."));
         vbox1.add(hbox4);
+        
+        vbox1.add(new JLabel(" "));
+        vbox1.add(new JLabel(" "));
+        
+        Box hbox5 = Box.createHorizontalBox();
+        hbox5.add(simuler);
+        vbox1.add(hbox5);
+        
+        vbox1.add(new JLabel(" "));
+        vbox1.add(new JLabel(" "));
+        Box hbox = Box.createHorizontalBox();
+        hbox.add(retour);
+        vbox1.add(hbox);
         this.getContentPane().add(vbox1);
 
         this.getContentPane().setBackground(java.awt.Color.ORANGE);
@@ -144,7 +157,13 @@ public class Simuler extends JFrame {
             }
         }
     }
+    class SimulerListener implements ActionListener {
 
+        public void actionPerformed(ActionEvent ae) {
+            dispose();
+            new RapportHeure();
+        }
+    }
     class RetourListener implements ActionListener {
 
         public void actionPerformed(ActionEvent ae) {

@@ -50,4 +50,11 @@ public class Table {
             return false;
         }
     }
+    public boolean isFull(){
+        if (this.getClients().size() == 4) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

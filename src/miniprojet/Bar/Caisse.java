@@ -26,6 +26,16 @@ public class Caisse {
     public Caisse() {
     }
 
+    public void addCaisse(float paiement){
+        float temp=this.caisse;
+        this.setCaisse(temp+paiement);
+    }
+    public void removeCaisse(float cash){
+        float temp=this.caisse;
+        this.setCaisse(temp-cash);
+    }
+    
+        
     public float getCaisse() {
         return caisse;
     }
