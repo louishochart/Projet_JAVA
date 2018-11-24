@@ -18,6 +18,5 @@ public class TestClass2 {
         System.out.println(newpaquet.getCartes());
         newpaquet.bat();
         System.out.println(newpaquet.getCartes());
-        
     }
 }

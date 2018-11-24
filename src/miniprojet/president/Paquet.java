@@ -6,6 +6,7 @@
 package miniprojet.president;
 
 import java.util.*;
+import miniprojet.Humains.*;
 
 
 /**
@@ -59,12 +60,12 @@ public class Paquet {
         
     }
     /**Distribue les cartes du paquet aux 4 joueurs de la table*/
-//    public void distribue(ArrayList joueur)
-//    {
-//        int i=51;
-//        while(this.cartes.isEmpty()==false){
-//            joueur.main.add(this.cartes.get(i));
-//            
-//        }
-//    }    
+    public void distribue(List<ClientNeutre> joueurs)
+    {
+        int i=51;
+        while(this.cartes.isEmpty()==false){
+            joueur.main.add(this.cartes.get(i));
+            
+        }
+    }    
 }
