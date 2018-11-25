@@ -6,6 +6,7 @@
 package miniprojet.president;
 
 import java.util.*;
+import miniprojet.Bar.Bar;
 import miniprojet.Humains.*;
 
 
@@ -72,18 +73,21 @@ public class Paquet {
         }
         
     }
+
     /**
      * Distribue les cartes du paquet aux 4 joueurs de la table
+     * @param joueurs Liste des joueurs
+     * @param table Indice de la table des joueurs
      */
-    public void distribue(List<ClientNeutre> joueurs,int n)
+    public void distribue(ArrayList<ClientNeutre> joueurs,int table)
     {
-        int i=51;
-        while(this.cartes.isEmpty()==false){
-            for(int j = 0; i < 4 ; i++)
-            {
-                
+        for(int i = 0; i<52; i+=4){
+            for(int j = 0; j<4; j++){
+                ArrayList carteDistri= this.cartes.get(51-(i+j));
+                this.cartes.remove(51-(i+j));
+                joueurs.get(j).getMain().add(carteDistri);
+                //Bar.getInstance().getSimulation().getTables().get(table).getClients().get(j).getMain().add(carteDistri);
             }
-            
         }
     }    
 }

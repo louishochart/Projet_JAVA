@@ -85,7 +85,7 @@ public abstract class ClientNeutre extends Humain {
         return niveauAlcool;
     }
 
-    public List<ArrayList> getMainJoueur() {
+    public List<ArrayList> getMain() {
         return this.mainJoueur;
     }
 
