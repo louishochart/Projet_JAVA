@@ -17,17 +17,12 @@ import miniprojet.Bar.Bar;
 import miniprojet.Humains.*;
 
 /**
- *
- * @author Louis
+ * Permet d'accéder aux informations sur les évènements survenus pendant une heure précise
  */
 public class RapportHeure extends JFrame {
-
     private JButton quitter = new JButton("Fermer");
-
     public RapportHeure() {
         if (Bar.getInstance().getSimulation().getNbHeures() < 7) {
-            Bar.getInstance().getSimulation().simulerHeure();
-            Simuler fen = new Simuler();
             this.setTitle("Rapport Heure");
             this.setSize(1500, 600);
             this.setLocationRelativeTo(null);
@@ -77,8 +72,7 @@ public class RapportHeure extends JFrame {
             this.toFront();
             this.setVisible(true);
         } else {
-            Bar.getInstance().getSimulation().simulerHeure();
-            Simuler fen = new Simuler();
+            
             this.setTitle("Rapport Heure");
             this.setSize(1500, 600);
             this.setLocationRelativeTo(null);
@@ -135,6 +129,7 @@ public class RapportHeure extends JFrame {
 
         public void actionPerformed(ActionEvent ae) {
             dispose();
+            Simuler fen =  new Simuler();
         }
     }
 

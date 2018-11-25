@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package miniprojet.Tournoi;
 
 import java.util.ArrayList;
@@ -11,8 +7,7 @@ import miniprojet.Humains.*;
 import miniprojet.president.President;
 
 /**
- *
- * @author Louis
+ * L'objet Tournoi, permettant de simuler un tournoi
  */
 public class Tournoi {
     private ArrayList<Table> tables = new ArrayList();
@@ -23,16 +18,26 @@ public class Tournoi {
     private int tour = 0 ;
     private ArrayList<ArrayList<President>> tournoi = new ArrayList();
     private ArrayList<ClientNeutre> vainqueurs = new ArrayList();
+    private boolean joueur=false;
     
     
     public Tournoi() {
         
     }
+    
+    /**
+     * Annonce du tournoi, affectation des joueurs et préparation des matchs
+     */
     public void creation(){
         Bar.getInstance().getPatronne().parler("Il y a un tournoi en vue, le prix d'entrée est de 2 €, inscrivez vous sur l'affiche");
         this.affecterTournoi();
         this.preparerMatchs();
     }    
+    /**
+     * Choisit un nombre de clients parmis ceux présents dans la simulation de la soirée
+     * Les place sur les tables réservées au tournoi
+     * Vérifie que le nombre de joueur est une puissance de 4 
+     */
     private void affecterTournoi(){
                
         for(int i = 0 ; i < Bar.getInstance().getSimulation().getClients().size();i++){
@@ -72,12 +77,15 @@ public class Tournoi {
         }
         for (int i = 0; i < this.getTables().size(); i++) {
             for (int j = 0; j < 4; j++) {
-                this.getTables().get(i).addClient(this.getClients().get(j+i));
+                this.getTables().get(i).addClient(this.getClients().get((i*4)+j));
             }
         }
 
         this.setCree(true);        
     }
+    /**
+     * Ajoute les matchs à venir dans la liste des matchs du tournoi
+     */
     private void preparerMatchs(){
         if(this.getNbTours()==3){
             ArrayList<President> tour1 = new ArrayList();
@@ -113,18 +121,32 @@ public class Tournoi {
             tournoi.add(tour1);
         }
     }
-    
+    /**
+     * Permet de jouer un tour du tournoi 
+     * Si l'utilisateur a choisi de participer, il joue le premier match de chaque tour
+     */
     public void jouerTour(){
-        for(int i = 0 ; i < this.tournoi.get(this.getTour()).size();i++){
-            this.tournoi.get(this.getTour()).get(i).jeu();
-            vainqueurs.add(this.tournoi.get(this.getTour()).get(i).getVainqueur());
+        if(this.isJoueur()) {
+            this.tournoi.get(this.getTour()).get(0).JeuVsPlayer();
+            for (int i = 1; i < this.tournoi.get(this.getTour()).size(); i++) {
+                this.tournoi.get(this.getTour()).get(i).jeu();
+                vainqueurs.add(this.tournoi.get(this.getTour()).get(i).getVainqueur());
+            }
+        }
+        else{
+            for(int i = 0 ; i < this.tournoi.get(this.getTour()).size();i++){
+                this.tournoi.get(this.getTour()).get(i).jeu();
+                vainqueurs.add(this.tournoi.get(this.getTour()).get(i).getVainqueur());
+            }
         }
     }
+    /**
+     * Permet de passer au tour suivant
+     */
     public void tourSuivant(){
-        this.tour++;
         int nbTables = vainqueurs.size()/4;
         for(int i = 0 ; i < nbTables ; i ++ ) {
-            this.setTables(new ArrayList());
+            this.getTables().set(i, new Table());
             for(int j = 0 ; j < 4 ; j++){
                 this.getTables().get(i).addClient(vainqueurs.get(j+i));
             }
@@ -132,12 +154,21 @@ public class Tournoi {
         while(nbTables<this.getTables().size()){
             this.getTables().remove(this.getTables().size()-1);
         }
+        this.setVainqueurs(new ArrayList());
         this.incrementTour();
     }
     
     public void incrementTour(){
         this.tour++;
     }
+    
+    /**
+     * Le vainqueur reçoit sa récompense
+     */
+    public void finaliser(){
+        Bar.getInstance().getPatronne().payer(Bar.getInstance().getSimulation().getTournoi().getTournoi().get(Bar.getInstance().getSimulation().getTournoi().getTour()).get(0).getVainqueur(), recompense/2);
+    }
+    
     
     public ArrayList<Table> getTables() {
         return tables;
@@ -197,6 +228,21 @@ public class Tournoi {
     public ArrayList<ClientNeutre> getVainqueurs() {
         return vainqueurs;
     }
+
+    public void setVainqueurs(ArrayList<ClientNeutre> vainqueurs) {
+        this.vainqueurs = vainqueurs;
+    }
+
+    public void setJoueur(boolean joueur) {
+        this.joueur = joueur;
+    }
+
+    public boolean isJoueur() {
+        return joueur;
+    }
+    
+
+
     
     
     

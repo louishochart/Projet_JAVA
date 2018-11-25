@@ -11,16 +11,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author Louis
+ * la class Files permet de mener à bien des opérations sur les fichiers .txt
  */
 public class Files {
-
+    
+    /**
+     * emptyFiles() permet de vider les fichiers .txt utilisés pour la sauvegarde
+     */
     public void emptyFiles() {
         PrintWriter writer = null;
         try {
@@ -96,7 +97,11 @@ public class Files {
             writer.close();
         }
     }
-
+    
+    /**
+     * checkIfEmpty vérifie si un fichier txt donné est vide
+     * @param name
+     */
     public boolean checkIfEmpty(String name) {
         try {
             File file = new File(".\\db\\" + name + ".txt"); // définir l'arborescence

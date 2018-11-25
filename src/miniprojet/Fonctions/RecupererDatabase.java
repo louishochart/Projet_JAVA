@@ -16,14 +16,12 @@ import static java.lang.Double.parseDouble;
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import miniprojet.Bar.*;
 
 /**
- *
- * @author Louis
+ * Permet de récupérer les informations du Bar stockées dans les fichiers .txt
  */
 public class RecupererDatabase {
 

@@ -3,20 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/PageAccueil.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/president/FigureCarte.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/president/Paquet.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Bar/Boisson.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/TestClass2.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Humains/Patronne.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Humains/Humain.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/TestClass.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Bar/Simulation.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Humains/Client.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Humains/ClientNeutre.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/Miniprojet.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/BarActuelVerif.java</file>
-            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/NouveauBarConfirmation.java</file>
+            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/Simuler.java</file>
+            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/ResultatFin.java</file>
+            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/Resultat.java</file>
+            <file>file:/D:/ISEN/M1/S1/Java%201/Projet_JAVA/src/miniprojet/GUI/TournoiInterface.java</file>
         </group>
     </open-files>
 </project-private>

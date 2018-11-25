@@ -9,18 +9,30 @@ import miniprojet.Bar.*;
 import miniprojet.Fonctions.*;
 
 /**
- *
- * @author Louis
+ * L'objet Cliente hérité de l'objet ClientNeutre
  */
 public class Cliente extends ClientNeutre {
 
     int nb_bijoux;
-
+    /**
+     * Constructeur
+     * @param prenom
+     * @param nom
+     * @param porte_monnaie
+     * @param popularite
+     * @param cri
+     * @param boisson_fav_1
+     * @param boisson_fav_2
+     * @param niveau_alcool
+     * @param nb_bijoux 
+     */
     public Cliente(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool, int nb_bijoux) {
         super(prenom, nom, porte_monnaie, popularite, cri, boisson_fav_1, boisson_fav_2, niveau_alcool);
         this.nb_bijoux = nb_bijoux;
     }
-
+    /**
+     * Constructeur aléatoire
+     */
     public Cliente() {
         super(new Random().getRandomPrenom_f(), new Random().getRandomNom(), new Random().getRandomPorteMonnaie(), new Random().getRandomPopularite(),
                 new Random().getRandomCri(), new Random().getRandomBoisson(), new Random().getRandomBoisson(), 0f);

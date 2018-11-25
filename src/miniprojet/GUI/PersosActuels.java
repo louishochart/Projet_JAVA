@@ -19,8 +19,7 @@ import java.awt.event.ActionListener;
 import miniprojet.Bar.*;
 
 /**
- *
- * @author Louis
+ * Affiche les personages habitués du bar, ainsi que le personnel, les tables, le stock, la caisse...
  */
 public class PersosActuels extends JFrame {
 

@@ -15,8 +15,7 @@ import javax.swing.JPanel;
 import miniprojet.Bar.Bar;
 
 /**
- *
- * @author Louis
+ * Permet d'accéder aux résultats d'un tour du tournoi
  */
 public class Resultat extends JFrame {
 

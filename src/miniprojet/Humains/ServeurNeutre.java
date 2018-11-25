@@ -10,17 +10,30 @@ import java.util.List;
 import miniprojet.Bar.*;
 
 /**
- *
- * @author Louis
+ * L'objet Serveur hérité de l'objet Humain
  */
 public abstract class ServeurNeutre extends Humain {
 
     private final Boisson boisson = Boisson.EAU;
     private List<Table> table = new ArrayList();
-
+    
+    /**
+     * Constructeur
+     * @param prenom
+     * @param nom
+     * @param porte_monnaie
+     * @param popularite
+     * @param cri 
+     */
     public ServeurNeutre(String prenom, String nom, double porte_monnaie, int popularite, String cri) {
         super(prenom, nom, porte_monnaie, popularite, cri);
     }
+    
+    /**
+     * Permet à un serveur de recevoir un verre
+     * @param expediteur
+     * @param boisson 
+     */
     public void recevoirVerre(Humain expediteur, Boisson boisson) {
         System.out.println("Merci " + expediteur.getPrenom() + ", tu es vraiment un bon client !");
         Bar.getInstance().getSimulation().incrementVerresBus();

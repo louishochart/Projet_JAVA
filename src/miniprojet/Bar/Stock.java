@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Louis
+ *  l'objet Stock permet de stocker l'inventaire du Bar
+ * 
  */
 public class Stock {
 

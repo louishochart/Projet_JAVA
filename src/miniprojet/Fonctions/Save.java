@@ -5,29 +5,14 @@
  */
 package miniprojet.Fonctions;
 
-import miniprojet.Humains.*;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import static java.lang.Boolean.parseBoolean;
-import static java.lang.Double.parseDouble;
-import static java.lang.Float.parseFloat;
-import static java.lang.Integer.parseInt;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import miniprojet.Bar.*;
-import miniprojet.*;
 
 /**
- *
- * @author Louis
+ * la classe Save permet de stocker les informations sur le bar dans des  fichiers txt
  */
 public class Save {
 

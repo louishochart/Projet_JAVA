@@ -11,8 +11,8 @@ import miniprojet.president.*;
  * and open the template in the editor.
  */
 /**
- *
- * @author Louis
+ * l'objet ClientNeutre est la classe mère de l'objet Client et l'objet Cliente
+ * Il regroupe toutes les actions et variables communes
  */
 public abstract class ClientNeutre extends Humain {
 
@@ -24,6 +24,17 @@ public abstract class ClientNeutre extends Humain {
     boolean player = false;
     private List<ArrayList> mainJoueur = new ArrayList<>();
 
+    /**
+     * Constructeur de l'objet ClientNeutre
+     * @param prenom
+     * @param nom
+     * @param porte_monnaie
+     * @param popularite
+     * @param cri
+     * @param boisson_fav_1
+     * @param boisson_fav_2
+     * @param niveau_alcool 
+     */
     protected ClientNeutre(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool) {
         super(prenom, nom, porte_monnaie, popularite, cri);
         this.boissonFav1 = boisson_fav_1;
@@ -31,7 +42,10 @@ public abstract class ClientNeutre extends Humain {
         this.niveauAlcool = niveau_alcool;
 
     }
-
+    /**
+     * Permet à un client de boire un verre d'une boisson donnée
+     * @param boisson 
+     */
     public void boire(Boisson boisson) {
         if (this.canPay(boisson,1)) {
             this.payer(Bar.getInstance().getBarman(),boisson.getPrixVente());
@@ -46,7 +60,11 @@ public abstract class ClientNeutre extends Humain {
             this.parler("Je n'ai pas assez d'argent");
         }
     }
-
+    
+    /**
+     * Permet à un client de commander un verre d'une boisson donnée
+     * @param boisson 
+     */
     public void commander(Boisson boisson) {
         this.parler("Barman ! Sers moi un verre de "+boisson.getName());
         if(this.getNiveauAlcool()>1.1){
@@ -60,7 +78,11 @@ public abstract class ClientNeutre extends Humain {
             }
         }
     }
-
+    /**
+     * Permet à un client de recevoir un verre d'une boisson donnée
+     * @param expediteur
+     * @param boisson 
+     */
     public void recevoirVerre(Humain expediteur, Boisson boisson) {
         Bar.getInstance().getStock().removeFromStock(boisson, 1);
         this.setNiveauAlcool(this.getNiveauAlcool() + boisson.getDegree());
@@ -69,7 +91,10 @@ public abstract class ClientNeutre extends Humain {
         this.parlerDestinataire(expediteur, "Merci beaucoup !");
         
     }
-    
+    /**
+     * permet à un client d'offrir une tournée générale
+     * @param boisson 
+     */
     public void offrirTournee(Boisson boisson) {
         if (this.canPay(boisson,Bar.getInstance().getSimulation().getClients().size())) {
             this.parler("Un verre de "+boisson.getName()+" pour tout le monde ! ");

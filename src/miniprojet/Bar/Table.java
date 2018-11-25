@@ -7,11 +7,10 @@ package miniprojet.Bar;
 
 import miniprojet.Humains.*;
 import java.util.ArrayList;
-import java.util.List;
+
 
 /**
- *
- * @author Louis
+ * La classe Table permet de de stocker des Clients
  */
 public class Table {
 

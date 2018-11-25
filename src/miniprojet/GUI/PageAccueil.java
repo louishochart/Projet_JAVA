@@ -14,9 +14,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
- * @author Louis
- */
+ * Page d'accueil de l'interface, 
+ * permet de choisir de créer un nouveau bar -> objet NouveauBarConfirmation
+ * ou d'utiliser celui actuellement sauvegardé -> objet BarActuelVerif
+ * ou de quitter
+*/
 public class PageAccueil extends JFrame {
 
     private JButton baractuel = new JButton("Gerer Bar actuel");

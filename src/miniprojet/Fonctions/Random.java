@@ -18,8 +18,7 @@ import java.util.logging.Logger;
 import miniprojet.Bar.*;
 
 /**
- *
- * @author Louis
+ *  La classe random permet d'obtenir des informations aléatoires utiles à la création de nouveau personnages
  */
 public class Random {
 

@@ -16,14 +16,18 @@ import javax.swing.JPanel;
 import miniprojet.Bar.Bar;
 
 /**
- *
- * @author Louis
+ * Permet de voir qui participe au tournoi
+ * Choisir si l'utilisateur veut jouer ou non
+ * Et de jouer le tour pour accéder aux résultats de ce tour -> Resultat et ResultatFin
  */
 public class TournoiInterface extends JFrame {
 
     private JButton quitter = new JButton("Fermer");
     private JButton tour = new JButton("Tour Suivant");
     private JButton fin = new JButton("Fin du tournoi");
+    private JButton joueur = new JButton("Participer au tournoi");
+    private JButton sim = new JButton("Simuler le tournoi");
+    
 
     public TournoiInterface() {
         this.setTitle("Page d'Accueil");
@@ -34,6 +38,8 @@ public class TournoiInterface extends JFrame {
         tour.addActionListener(new tourListener());
         fin.addActionListener(new finListener());
         quitter.addActionListener(new QuitterListener());
+        sim.addActionListener(new simListener());
+        joueur.addActionListener(new joueurListener());
 
         Box vbox = Box.createVerticalBox();
 
@@ -47,7 +53,7 @@ public class TournoiInterface extends JFrame {
         vbox.add(hbox2);
         vbox.add(new JLabel("  "));
         vbox.add(new JLabel("  "));
-
+            
         Box hbox3 = Box.createHorizontalBox();
         for (int i = 0; i < Bar.getInstance().getSimulation().getTournoi().getTables().size(); i++) {
             JButton bouton = new JButton("Table n°" + i);
@@ -55,11 +61,25 @@ public class TournoiInterface extends JFrame {
             hbox3.add(bouton);
         }
         vbox.add(hbox3);
+        
+        
+        if(Bar.getInstance().getSimulation().getTournoi().getTour()==0){
+            vbox.add(new JLabel("  "));
+            vbox.add(new JLabel("  "));
+            Box hbox5 = Box.createHorizontalBox();
+            hbox5.add(sim);
+            hbox5.add(joueur);
+            vbox.add(hbox5);
+            Box hbox6 = Box.createHorizontalBox();
+            hbox6.add(new JLabel("Si vous participez au tournoi, vous jouerez la 4e personne de la premiere table à chaque tour"));
+            vbox.add(hbox6);
+        }
+        
         vbox.add(new JLabel("  "));
         vbox.add(new JLabel("  "));
 
         Box hbox4 = Box.createHorizontalBox();
-        if (Bar.getInstance().getSimulation().getTournoi().getTour() < Bar.getInstance().getSimulation().getTournoi().getNbTours()) {
+        if (Bar.getInstance().getSimulation().getTournoi().getTour() < Bar.getInstance().getSimulation().getTournoi().getNbTours()-1) {
             hbox4.add(tour);
         } else {
             hbox4.add(fin);
@@ -83,8 +103,6 @@ public class TournoiInterface extends JFrame {
             retour.addActionListener(new RetourListener());
 
             int numero = Integer.parseInt(String.valueOf(ae.getSource().toString().charAt(ae.getSource().toString().lastIndexOf("Table") + 8)));
-            System.out.println(numero);
-            System.out.println(Bar.getInstance().getSimulation().getTournoi().getTables().get(numero).getClients().size());
             Box vbox1 = Box.createVerticalBox();
             Box hbox0 = Box.createHorizontalBox();
             hbox0.add(new JLabel("Il y a " + Bar.getInstance().getSimulation().getTournoi().getTables().get(numero).getClients().size() + " clients assis à cette table."));
@@ -134,7 +152,22 @@ public class TournoiInterface extends JFrame {
         //Redéfinition de la méthode actionPerformed()
 
         public void actionPerformed(ActionEvent ae) {
+            Bar.getInstance().getSimulation().getTournoi().jouerTour();
             dispose();
+            ResultatFin fen = new ResultatFin();
+        }
+    }
+    class simListener implements ActionListener {
+        //Redéfinition de la méthode actionPerformed()
+        public void actionPerformed(ActionEvent ae) {
+            Bar.getInstance().getSimulation().getTournoi().setJoueur(false);
+        }
+    }
+    class joueurListener implements ActionListener {
+        //Redéfinition de la méthode actionPerformed()
+
+        public void actionPerformed(ActionEvent ae) {
+            Bar.getInstance().getSimulation().getTournoi().setJoueur(true);
         }
     }
 

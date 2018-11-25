@@ -183,6 +183,7 @@ public class President {
      * Simule une partie contre utilisateur (joueur numero 3)
      */
     public void JeuVsPlayer(){
+        this.joueurs = table.getClients();
         Paquet newpaquet = new Paquet();
         newpaquet.bat();
         newpaquet.coupe((int) (Math.random() * 51));    //Coupage du paquet       
@@ -211,8 +212,18 @@ public class President {
                 int nbCartesWanted = sc.nextInt();
                 List<ArrayList> choixpossibles = currentPlayerCards.ListesChoixJoueurPremierCoup(currentPlayerCards.RecupValeurMain(), joueurs, nbCartesWanted);
                 System.out.println(choixpossibles);
-                System.out.println("Choix ?");
-                sc.nextInt();
+                System.out.println("Choix ? Donnez l'indice de votre choix à partir de 0");
+                boolean check = false;
+                int str=0;
+                while (!check) {
+                    try {
+                        str = sc.nextInt();
+                        check=true;
+                    } 
+                    catch (InputMismatchException e) {
+                        System.out.println("Ecrire un entier");
+                    }
+                }
                 int choix = sc.nextInt();
                 newMove=currentPlayerCards.DecisionJoueur(nbCartesWanted, choix, choixpossibles);
                 System.out.println("Vous avez joué : ");
@@ -239,21 +250,25 @@ public class President {
             while(true){
                 if(joueurs.get(0).getMain().isEmpty()){
                     System.out.printf("\nVAINQUEUR DE LA PARTIE : Joueur numero %d\n",0);
+                    this.setVainqueur(joueurs.get(0));
                     finPartie=true;
                     break;
                 }
                 if(joueurs.get(1).getMain().isEmpty()){
                         System.out.printf("\nVAINQUEUR DE LA PARTIE : Joueur numero %d\n",1);
+                        this.setVainqueur(joueurs.get(1));
                         finPartie=true;
                         break;
                 }
                 if(joueurs.get(2).getMain().isEmpty()){
                         System.out.printf("\nVAINQUEUR DE LA PARTIE : Joueur numero %d\n",2);
+                        this.setVainqueur(joueurs.get(2));
                         finPartie=true;
                         break;
                 }
                 if(joueurs.get(3).getMain().isEmpty()){
                         System.out.printf("\nVAINQUEUR DE LA PARTIE : Joueur numero %d\n",3);
+                        this.setVainqueur(joueurs.get(3));
                         finPartie=true;
                         break;
                 }
@@ -278,8 +293,19 @@ public class President {
                         System.out.println("Vos possibilités :");
                         System.out.println(choixPossibles);
                         Scanner sc = new Scanner(System.in);//APPEL FONCTION LOUIS :: (nbCartes,choixPossibles)
-                        System.out.println("Votre décision ? :");
-                        int str = sc.nextInt();
+                        System.out.println("Votre décision ? : Donnez l'indice de votre choix à partir de 0");
+                        boolean check = false;
+                        int str=0;
+                        while(!check){
+                            try{
+                                str = sc.nextInt();
+                                check=true;
+                            }
+                            catch(InputMismatchException e){
+                                System.out.println("Ecrire un entier");
+                            }                        
+                        }
+                        
                         newMove = currentPlayerCards.DecisionJoueur(nbCartes, str, choixPossibles);   //Decision prise
                         
                         if(!newMove.get(0).isEmpty()){     //si le joueur décide de jouer

@@ -9,20 +9,36 @@ import miniprojet.Bar.*;
 import miniprojet.Fonctions.Random;
 
 /**
- *
- * @author Louis
+ * L'objet Patronne hérité de l'objet Cliente
  */
 public class Patronne extends Cliente {
-
+    
+    /**
+     * Constructeur
+     * @param prenom
+     * @param nom
+     * @param porte_monnaie
+     * @param popularite
+     * @param cri
+     * @param boisson_fav_1
+     * @param boisson_fav_2
+     * @param niveau_alcool
+     * @param nb_bijoux 
+     */
     public Patronne(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool, int nb_bijoux) {
         super(prenom, nom, porte_monnaie, popularite, cri, boisson_fav_1, boisson_fav_2, niveau_alcool, nb_bijoux);
 
     }
-
+    /**
+     * Constructeur aléatoire
+     */
     public Patronne() {
         super(new Random().getRandomPrenom_f(), new Random().getRandomNom(), new Random().getRandomPorteMonnaie(), new Random().getRandomPopularite(), new Random().getRandomCri(), new Random().getRandomBoisson(), new Random().getRandomBoisson(), 0f, (int) Math.random() * 10);
     }
-
+    /**
+     * Permet à la patronne d'exclure un client du bar s'il commande après s'être fait dire d'arrêter
+     * @param client 
+     */
     public void exclure(ClientNeutre client) {
         this.parlerDestinataire(Bar.getInstance().getBarman(),"Fous "+client.getPrenom()+" "+client.getNom()+" dehors !");
         Bar.getInstance().getBarman().parlerDestinataire(client,"Dehors ! Je ne veux plus te voir dans ce bar ce soir ");
@@ -43,6 +59,10 @@ public class Patronne extends Cliente {
             }
         }
     }
+    /**
+     * Permet à la patronne d'offrir une tournée générales
+     * @param boisson 
+     */
     public void offrirTournee(Boisson boisson) {       
         this.parler("Un verre de "+boisson.getName()+" pour tout le monde! Offert par la maison ! ");
         if(Bar.getInstance().getStock().getStock(boisson)>Bar.getInstance().getSimulation().getClients().size()){
@@ -59,7 +79,11 @@ public class Patronne extends Cliente {
             Bar.getInstance().getBarman().parler("Il n'y a pas assez de " + boisson.getName());
         }
     }
-    
+    /**
+     * Permet à la patronne d'offrir un verre
+     * @param destinataire
+     * @param boisson 
+     */
     public void offrirVerre(Humain destinataire, Boisson boisson) {        
         this.parlerDestinataire(destinataire, "Je t'offre un verre de " + boisson.getName());
         if(Bar.getInstance().getStock().getStock(boisson)>0){
@@ -71,7 +95,9 @@ public class Patronne extends Cliente {
         }
 
     }
-    
+    /**
+     * Permet à la patronne de vérifier la caisse à chaque fin d'heure et de récupérer le trop
+     */
     public void verifierCaisse(){
         if(Bar.getInstance().getCaisse().getCaisse()>100){
             System.out.println("je verifie la caisse");

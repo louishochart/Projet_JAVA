@@ -27,8 +27,9 @@ import java.util.List;
 import miniprojet.Bar.*;
 
 /**
- *
- * @author Louis
+ * Création de nouveaux personnages
+ * (Client, Serveur ou Table)
+ * Si validé, les infos sont sauvegardées et l'utilisateur arrive sur BarActuelVerif
  */
 public class NvPerso extends JFrame {
 

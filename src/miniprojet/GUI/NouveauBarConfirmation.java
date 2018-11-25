@@ -15,8 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
- * @author Louis
+ * Demande la Confirmation de la création d'un nouveau bar
  */
 public class NouveauBarConfirmation extends JFrame {
 

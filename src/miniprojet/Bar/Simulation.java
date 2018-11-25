@@ -7,20 +7,15 @@ package miniprojet.Bar;
 
 import miniprojet.Tournoi.Tournoi;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import miniprojet.Bar.*;
 import miniprojet.Humains.*;
 import miniprojet.Fonctions.*;
 import miniprojet.president.President;
 
 
 /**
- *
- * @author Louis
+ *  L'objet Simulation stock les données du bar qui ne sont vraies que pour une soirée
+ * 
  */
 public class Simulation {
 
@@ -43,7 +38,9 @@ public class Simulation {
     public Simulation() {
         
     }
-
+    /**
+     * affecterClients() prend un nombre aléatoire de clients habituels du bar et les choisit pour la soirée
+     */
     public void affecterClients() {
         int nbClientsAleatoire = (int) (Bar.getInstance().getClientsDispos().size() * (0.5)) + (int) (Math.random() * ((Bar.getInstance().getClientsDispos().size() - Bar.getInstance().getClientsDispos().size() * (0.5) + 1)));
         for (int i = 0; i < nbClientsAleatoire; i++) {
@@ -67,7 +64,9 @@ public class Simulation {
             }
         }
     }
-
+    /**
+     * affecterServeurs() prend un nombre aléatoire de serveurs habituels du bar et les choisit pour la soirée
+     */
     public void affecterServeurs() {
         int nbServeurs = (int) (Bar.getInstance().getServeurs().size() * (0.6)) + (int) (Math.random() * ((Bar.getInstance().getServeurs().size() + 1 - Bar.getInstance().getServeurs().size() * (0.6))));
         for (int i = 0; i < nbServeurs; i++) {
@@ -83,7 +82,10 @@ public class Simulation {
             }
         }
     }
-
+    
+    /**
+     * simulerHeure() permet de simuler les actions des personnages pendant une heure à l'aide de probabilités et de nombres aléatoires
+     */
     public void simulerHeure() {
         this.initialiserHeure();
         for (int i = 0; i < Bar.getInstance().getSimulation().getClients().size(); i++) {
@@ -230,29 +232,11 @@ public class Simulation {
         }
         Bar.getInstance().getPatronne().verifierCaisse();
         this.incrementNbHeures();
-    }
+    }   
     
-    
-    public void echangerPlace(ClientNeutre c1, ClientNeutre c2){
-        Table temp = c1.getTable();
-        
-        for(int i = 0 ; i < Bar.getInstance().getSimulation().getTables().size();i++){
-            for(int j = 0 ; j < Bar.getInstance().getSimulation().getTables().get(i).getClients().size();j++){
-                if(c1.equals(Bar.getInstance().getSimulation().getTables().get(i).getClients().get(j))){
-                    Bar.getInstance().getSimulation().getTables().get(i).getClients().set(j, c2);
-                }
-                else if(c2.equals(Bar.getInstance().getSimulation().getTables().get(i).getClients().get(j))){
-                    Bar.getInstance().getSimulation().getTables().get(i).getClients().set(j, c1);
-                }
-            }
-        }
-        
-        c1.setTable(c2.getTable());
-        c2.setTable(temp);
-        
-        
-    }
-    
+    /**
+     *  reinitialise les infos stockées pour chaque heure
+     */
     public void initialiserHeure(){
         this.tourneesh = new ArrayList();
         this.exclush = new ArrayList();
@@ -272,20 +256,26 @@ public class Simulation {
         this.verresBus ++;
         this.verresBush ++;
     }
-
+    
+    /**
+     *  reinitialise les infos de la soirée quand une nouvelle soirée est débutée
+     */
     public void reinitialiser() {
         Bar.getInstance().setSimulation(new Simulation());
         for(int i = 0 ; i < Bar.getInstance().getTables().size() ; i++ ){
-            for(int j = 0 ; j < Bar.getInstance().getTables().get(i).getClients().size() ; j++){
-                Bar.getInstance().getTables().get(i).getClients().remove(Bar.getInstance().getTables().get(i).getClients().get(j));
-            }
+            Bar.getInstance().getTables().set(i,new Table());
         }
         for(int i = 0 ; i < Bar.getInstance().getClients().size();i++){
+            Bar.getInstance().getClients().get(i).setPorte_monnaie(Bar.getInstance().getClients().get(i).getPorte_monnaie()+25);
             Bar.getInstance().getClients().get(i).setExclu(false);
         }
         this.setTournoi(new Tournoi());
     }
     
+    /**
+     * liste des tables pleines utile pour le jeu du Président
+     * @return la liste des tables pleines
+     */
     public ArrayList<Table> getFullTables() {
         ArrayList<Table> fullTables = new ArrayList<Table>();
         for (int i = 0; i < this.getTables().size(); i++) {

@@ -22,8 +22,9 @@ import miniprojet.Fonctions.*;
 import miniprojet.president.President;
 
 /**
- *
- * @author Louis
+ *  Récupère les infos des fichiers .txt
+ * S'il en manque, on demande à l'utilsateur d'en ajouter
+ * Sinon, on peut accéder aux personnages actuels -> PersosActuels, ou simuler une nouvelle soirée -> Simuler
  */
 public class BarActuelVerif extends JFrame {
 

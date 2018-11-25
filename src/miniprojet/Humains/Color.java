@@ -6,8 +6,7 @@
 package miniprojet.Humains;
 
 /**
- *
- * @author Louis
+ * Un enum des couleurs possibles de t-shirt, avec un nom
  */
 public enum Color {
     ROUGE("ROUGE"),

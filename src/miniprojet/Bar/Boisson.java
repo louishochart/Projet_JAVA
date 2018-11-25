@@ -5,12 +5,10 @@
  */
 package miniprojet.Bar;
 
-import miniprojet.Bar.*;
-import miniprojet.*;
 
 /**
- *
- * @author Louis
+ * Enumeration des boissons disponibles, avec un nom, un "points alcool", un prix d'achat, un prix de vente
+ * 
  */
 public enum Boisson {
     // nom('de cb va augmenter le taux avec un verre','prix achat','prix vente')

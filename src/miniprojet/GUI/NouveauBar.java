@@ -22,8 +22,9 @@ import java.util.ArrayList;
 import miniprojet.Bar.*;
 
 /**
- *
- * @author Louis
+ * Création d'un nouveau Bar, les fichiers .txt sont vidés
+ * La patronne, le barman et le fournisseur sont affichés
+ * L'utilisateur peut créer des nouveaus personnages -> NvPerso
  */
 public class NouveauBar extends JFrame {
 

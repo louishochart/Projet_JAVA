@@ -5,15 +5,11 @@
  */
 package miniprojet.Bar;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import miniprojet.Bar.*;
-import miniprojet.*;
+
 
 /**
- *
- * @author Louis
+ *  L'objet Caisse permet de stocker l'argent de l'objet Bar
+ * 
  */
 public class Caisse {
 

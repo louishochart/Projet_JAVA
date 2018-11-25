@@ -367,7 +367,7 @@ public class MainJoueur {
                     }
                 }   break;
             default:
-                choixPossibles.addAll(mainJoueur);                                          //On recupere la main en entier
+                choixPossibles.addAll(this.main);                                          //On recupere la main en entier
                 break;
         }
         return choixPossibles;

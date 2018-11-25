@@ -10,8 +10,7 @@ import java.util.Objects;
 import miniprojet.Bar.*;
 
 /**
- *
- * @author Louis
+ * Classe mère de tous les personnages
  */
 public abstract class Humain {
 
@@ -21,6 +20,14 @@ public abstract class Humain {
     int popularite;
     String cri;
 
+    /**
+     * Constructeur de l'objet humain, utilisé dans les classes filles
+     * @param prenom
+     * @param nom
+     * @param porte_monnaie
+     * @param popularite
+     * @param cri 
+     */
     public Humain(String prenom, String nom, double porte_monnaie, int popularite, String cri) {
         this.prenom = prenom;
         this.nom = nom;
@@ -29,37 +36,51 @@ public abstract class Humain {
         this.cri = cri;
     }
 
-    public Humain() {
-        this.prenom = new Random().getRandomPrenom_m();
-        this.nom = new Random().getRandomNom();
-        this.porte_monnaie = new Random().getRandomPorteMonnaie();
-        this.popularite = new Random().getRandomPopularite();
-        this.cri = new Random().getRandomCri();
-    }
-
+    
+    
+    /**
+     * Permet a un humain de parler
+     * @param phrase 
+     */
     public void parler(String phrase) {
         System.out.println(this.getClass().getSimpleName()+" : "+this.getPrenom() + " " + this.getNom() + " : " + phrase);
     }
-
+    /**
+     * permet à un humain de parler à une personne en particulier
+     * @param destinataire
+     * @param phrase 
+     */
     public void parlerDestinataire(Humain destinataire, String phrase) {
         System.out.println(this.getClass().getSimpleName()+" : "+this.getPrenom() + " " + this.getNom() + " à " + destinataire.getPrenom() + " " + destinataire.getNom() + " : " + phrase);
     }
-
-    public void boire(Boisson boisson) {
-        this.parler("Je ne peux pas boire !");
-    }
-
+    
+    
+    
+    /**
+     * Permet à un humain de payer un autre humain
+     * @param humain
+     * @param paiement 
+     */
     public void payer(Humain humain, float paiement) {
         this.porte_monnaie -= paiement;
         this.parlerDestinataire(humain,"Voila "+paiement+" €");
         humain.recevoirPaiement(this,paiement);       
     }
     
+    /**
+     * Permet à un humain de recevoir le paiement d'un autre humain
+     * @param expediteur
+     * @param paiement 
+     */
     public void recevoirPaiement(Humain expediteur,float paiement){
         this.porte_monnaie+=paiement;
         this.parlerDestinataire(expediteur,"Merci");
     }
-
+    /**
+     * Permet à un humain d'offrir un verre à un autre humain
+     * @param destinataire
+     * @param boisson 
+     */
     public void offrirVerre(Humain destinataire, Boisson boisson) {
         if (this.canPay(boisson,1)) {
             this.parlerDestinataire(destinataire, "Je t'offre un verre de " + boisson.getName());
@@ -74,12 +95,19 @@ public abstract class Humain {
             
         }
     }
+    public void sePresenter() {
+        System.out.println("Je m'appelle " + this.getPrenom() + " " + this.getNom());
+    }
     
-
+    /**
+     * Permet à un humain de recevoir un verre de la part d'un autre humain
+     * @param expediteur
+     * @param boisson 
+     */
     public void recevoirVerre(Humain expediteur, Boisson boisson) {
         System.out.println("Merci " + expediteur.getPrenom() + ", mais je n'ai pas soif !");
     }
-
+    
     public boolean canPay(Boisson boisson,int quantite) {
         if (this.getPorte_monnaie() < (quantite*boisson.getPrixVente())) {
             return false;
@@ -100,10 +128,6 @@ public abstract class Humain {
             temp=0;
         }
         this.setPopularite(temp);
-    }
-
-    public void sePresenter() {
-        System.out.println("Je m'appelle " + this.getPrenom() + " " + this.getNom());
     }
 
     public void setPrenom(String prenom) {
@@ -145,12 +169,16 @@ public abstract class Humain {
     public String getCri() {
         return cri;
     }
+    public void boire(Boisson boisson) {
+        this.parler("Je ne peux pas boire !");
+    }
 
     @Override
     public int hashCode() {
         int hash = 5;
         return hash;
     }
+    
 
     @Override
     public boolean equals(Object obj) {

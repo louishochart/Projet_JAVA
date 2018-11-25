@@ -6,15 +6,12 @@
 package miniprojet.Bar;
 
 import miniprojet.Humains.*;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import miniprojet.Bar.*;
-import miniprojet.*;
 
 /**
- *
- * @author Louis
+ * l'objet Bar permet d'accéder à toutes les informations sur le bar. 
+ * Il contient la totalité des données sauvegardées dans les fichier .txt
  */
 public class Bar {
 
@@ -55,6 +52,13 @@ public class Bar {
         }
     }
 
+    /**
+     * Constructor pour la classe Bar
+     *
+     * @param patronne
+     * @param barman
+     * @param fournisseur
+     */
     private Bar(Patronne patronne, Barman barman, Fournisseur fournisseur) {
         this.patronne = patronne;
         this.name = "Chez " + this.patronne.getPrenom();
@@ -65,8 +69,54 @@ public class Bar {
     private Bar() {
     }
 
+    /**
+     * liste des tables qui ne sont pas pleines
+     *
+     * @return la liste des tables qui ne sont pas pleines
+     */
+    public ArrayList<Table> getFreeTables() {
+        ArrayList<Table> freeTables = new ArrayList<Table>();
+        for (int i = 0; i < this.getTables().size(); i++) {
+            if (this.getTables().get(i).isFree()) {
+                freeTables.add(this.getTables().get(i));
+            }
+        }
+        return (freeTables);
+    }
+
+    /**
+     * liste des serveurs qui ne sont pas assignés à une table
+     *
+     * @return la liste des serveurs qui ne sont pas assignés à une table
+     */
+    public List<ServeurNeutre> getFreeServeurs() {
+        List<ServeurNeutre> freeServeurs = new ArrayList<ServeurNeutre>();
+        for (int i = 0; i < this.getServeurs().size(); i++) {
+            if (this.getServeurs().get(i).isFree()) {
+                freeServeurs.add(this.getServeurs().get(i));
+
+            }
+        }
+        return (freeServeurs);
+    }
+
+    /**
+     * liste des serveurs qui ne sont pas assignés à une table
+     *
+     * @return la liste des clients qui ne sont pas exclus
+     */
+    public List<ClientNeutre> getClientsDispos() {
+        List<ClientNeutre> dispos = new ArrayList();
+        for (int i = 0; i < Bar.getInstance().getClients().size(); i++) {
+            if (!Bar.getInstance().getClients().get(i).isExclu()) {
+                dispos.add(Bar.getInstance().getClients().get(i));
+            }
+        }
+        return dispos;
+    }
+
     public void addTable(Table t) {
-        if (this.tables.size() < 10) {
+        if (this.tables.size() < 20) {
             this.tables.add(t);
         }
     }
@@ -111,16 +161,11 @@ public class Bar {
         return simulation;
     }
 
-    public List<ClientNeutre> getClientsDispos() {
-        List<ClientNeutre> dispos = new ArrayList();
-        for (int i = 0; i < Bar.getInstance().getClients().size(); i++) {
-            if (!Bar.getInstance().getClients().get(i).isExclu()) {
-                dispos.add(Bar.getInstance().getClients().get(i));
-            }
-        }
-        return dispos;
-    }
-
+    /**
+     * liste de clients utilisée pour la sauvegarde
+     *
+     * @return une liste de clients utilisée pour la sauvegarde
+     */
     public List<Client> getClients_m() {
         ArrayList clients_m = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getClients().size(); i++) {
@@ -131,6 +176,11 @@ public class Bar {
         return clients_m;
     }
 
+    /**
+     * liste de serveurs utilisée pour la sauvegarde
+     *
+     * @return une liste de serveurs utilisée pour la sauvegarde
+     */
     public List<Cliente> getClientes_f() {
         ArrayList clientes_f = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getClients().size(); i++) {
@@ -141,6 +191,11 @@ public class Bar {
         return clientes_f;
     }
 
+    /**
+     * liste de serveurs utilisée pour la sauvegarde
+     *
+     * @return une liste de serveurs utilisée pour la sauvegarde
+     */
     public List<Serveur> getServeurs_m() {
         ArrayList serveurs_m = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getServeurs().size(); i++) {
@@ -151,6 +206,11 @@ public class Bar {
         return serveurs_m;
     }
 
+    /**
+     * liste de serveuses utilisée pour la sauvegarde
+     *
+     * @return une liste de serveuses utilisée pour la sauvegarde
+     */
     public List<Serveuse> getServeuses_f() {
         ArrayList serveuses_f = new ArrayList();
         for (int i = 0; i < Bar.getInstance().getServeurs().size(); i++) {
@@ -208,27 +268,5 @@ public class Bar {
 
     public void setSimulation(Simulation simulation) {
         this.simulation = simulation;
-    }
-
-    public ArrayList<Table> getFreeTables() {
-        ArrayList<Table> freeTables = new ArrayList<Table>();
-        for (int i = 0; i < this.getTables().size(); i++) {
-            if (this.getTables().get(i).isFree()) {
-                freeTables.add(this.getTables().get(i));
-            }
-        }
-        return (freeTables);
-    }
-    
-
-    public List<ServeurNeutre> getFreeServeurs() {
-        List<ServeurNeutre> freeServeurs = new ArrayList<ServeurNeutre>();
-        for (int i = 0; i < this.getServeurs().size(); i++) {
-            if (this.getServeurs().get(i).isFree()) {
-                freeServeurs.add(this.getServeurs().get(i));
-
-            }
-        }
-        return (freeServeurs);
     }
 }

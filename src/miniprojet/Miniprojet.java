@@ -6,25 +6,27 @@
 
 package miniprojet;
 
-import miniprojet.*;
+import miniprojet.GUI.PageAccueil;
+
+
 
 /**
- *
- * @author Louis
+ * La classe principale du projet, contenant le main
+ * 
  */
-
-
 public class Miniprojet {
     
     /**
      * @param args the command line arguments
      */
     
+    /**
+    * main method creates a new instance of classe PageAccueil
+    */
     public static void main(String[] args) {
         // TODO code application logic here
         
-        TestClass test = new TestClass();
-        test.test();
+        new PageAccueil();
     }
     
 }

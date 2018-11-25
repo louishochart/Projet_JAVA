@@ -9,18 +9,27 @@ package miniprojet.Humains;
 import miniprojet.Fonctions.Random;
 
 /**
- *
- * @author Louis
+ * l'objet Serveuse, hérité de l'objet ServeurNeutre
  */
 public class Serveuse extends ServeurNeutre {
 
     private int coeffCharme;
-
+    /**
+     * Constructeur
+     * @param prenom
+     * @param nom
+     * @param porte_monnaie
+     * @param popularite
+     * @param cri
+     * @param coeffCharme 
+     */
     public Serveuse(String prenom, String nom, double porte_monnaie, int popularite, String cri, int coeffCharme) {
         super(prenom, nom, porte_monnaie, popularite, cri);
         this.coeffCharme = coeffCharme;
     }
-
+    /**
+     * Constructeur Aléatoire
+     */
     public Serveuse() {
         super(new Random().getRandomPrenom_f(), new Random().getRandomNom(), new Random().getRandomPorteMonnaie(), new Random().getRandomPopularite(), new Random().getRandomCri());
         this.coeffCharme = (int) (Math.random() * 10);
