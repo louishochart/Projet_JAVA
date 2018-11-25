@@ -22,7 +22,7 @@ public abstract class ClientNeutre extends Humain {
     private boolean exclu = false;
     private Table table;
     boolean player = false;
-    private List<Carte> mainJoueur = new ArrayList();
+    private List<ArrayList> mainJoueur = new ArrayList<>();
 
     protected ClientNeutre(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool) {
         super(prenom, nom, porte_monnaie, popularite, cri);
@@ -85,7 +85,7 @@ public abstract class ClientNeutre extends Humain {
         return niveauAlcool;
     }
 
-    public List<Carte> getMainJoueur() {
+    public List<ArrayList> getMainJoueur() {
         return this.mainJoueur;
     }
 
