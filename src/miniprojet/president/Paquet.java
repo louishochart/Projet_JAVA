@@ -79,7 +79,7 @@ public class Paquet {
      * @param joueurs Liste des joueurs
      * @param table Indice de la table des joueurs
      */
-    public void distribue(List<ClientNeutre> joueurs,int table)
+    public void distribue(ArrayList<ClientNeutre> joueurs,int table)
     {
         for(int i = 0; i<52; i+=4){
             for(int j = 0; j<4; j++){

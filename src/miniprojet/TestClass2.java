@@ -5,7 +5,6 @@
  */
 package miniprojet;
 import java.util.ArrayList;
-import miniprojet.Bar.Table;
 import miniprojet.president.*;
 import miniprojet.Humains.*;
 
@@ -24,9 +23,8 @@ public class TestClass2 {
         joueurs.add(client2);
         joueurs.add(client3);
         joueurs.add(client4);
-        President lancementPartie = new President(new Table());
-        lancementPartie.jeu();
-        
+        President lancementPartie = new President(joueurs,1);
+        lancementPartie.JeuVsPlayer();
         
     }
 }

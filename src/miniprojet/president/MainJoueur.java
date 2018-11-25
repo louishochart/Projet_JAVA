@@ -108,10 +108,8 @@ public class MainJoueur {
         for(int j=0;j<listeValeurMainJoueur.size();j++){
             if(listeValeurMainJoueur.get(j)==value){
                 choixJoueur.add(this.main.get(j));                 //Recuperation de la ou les plus petites carte(s) du joueur
-            }
-            
+            }   
         }
-        
         return choixJoueur;
     }
     
@@ -202,6 +200,177 @@ public class MainJoueur {
             return choixJoueur;
         }
     }
-    //methode fin de plie
+    
+    /**
+     * Methode permettant de selectionner les différentes options du joueur en fonction du jeu en cours
+     * @param valueCardLastChoice Valeur des cartes du dernier choix effecuté sur le pli, correspond à un ArrayList contenant la ou les cartes joués au coup précedent
+     * @param listeValeurMainJoueur Contient un ArrayList contenant les valeurs en int correspondant aux figures des cartes du joueur
+     * @param mainJoueur ArrayListe contenant la main du joueur
+     * @return Une liste contenant les different choix possible
+     */
+    public List<ArrayList> CoupUtilisateurPossible(List<ArrayList> valueCardLastChoice,ArrayList<Integer> listeValeurMainJoueur,ArrayList mainJoueur){
+        List<ArrayList> choixPossibles = new ArrayList<>();
+        int valuePrevious=13;
+        Object figure;
+        figure=valueCardLastChoice.get(0).get(0);       //recuperation de la valeur reelle de la carte du coup precedent
+        if(figure.equals(FigureCarte.AS)){
+            valuePrevious=11;
+        }
+        if(figure.equals(FigureCarte.ROI)){
+            valuePrevious=10;
+        }
+        if(figure.equals(FigureCarte.DAME)){
+            valuePrevious=9;
+        }
+        if(figure.equals(FigureCarte.VALET)){
+            valuePrevious=8;
+        }
+        if(figure.equals(FigureCarte.DIX)){
+            valuePrevious=7;
+        }
+        if(figure.equals(FigureCarte.NEUF)){
+            valuePrevious=6;
+        }
+        if(figure.equals(FigureCarte.HUIT)){
+            valuePrevious=5;
+        }
+        if(figure.equals(FigureCarte.SEPT)){
+            valuePrevious=4;
+        }
+        if(figure.equals(FigureCarte.SIX)){
+            valuePrevious=3;
+        }
+        if(figure.equals(FigureCarte.CINQ)){
+            valuePrevious=2;
+        }
+        if(figure.equals(FigureCarte.QUATRE)){
+            valuePrevious=1;
+        }
+        if(figure.equals(FigureCarte.TROIS)){
+            valuePrevious=0;
+        }
+        if(figure.equals(FigureCarte.DEUX)){
+            valuePrevious=12;
+        }
+        int nbCards = valueCardLastChoice.size();
+        if(nbCards==2){     //Le joueur peut soit jouer deux cartes, soit ne pas jouer
+            for(int i=0;i<listeValeurMainJoueur.size();i++){
+                if(listeValeurMainJoueur.get(i)>=valuePrevious){
+                    for(int j =i+1; j<listeValeurMainJoueur.size();j++){
+                        if(listeValeurMainJoueur.get(i)==listeValeurMainJoueur.get(j)){     //On recupere tout les doubles possibles
+                            choixPossibles.add(this.main.get(i));
+                            choixPossibles.add(this.main.get(j));
+                        }
+                    }  
+                }
+            }
+            ArrayList choixVide = new ArrayList();      //Choix de ne pas jouer le coup
+            choixPossibles.add(choixVide);
+        }
+        else{               //Le joueur peut jouer une carte ou ne pas jouer
+            for(int i=0;i<listeValeurMainJoueur.size();i++){
+                if(listeValeurMainJoueur.get(i)>=valuePrevious){
+                    choixPossibles.add(this.main.get(i));
+                }
+            }
+            ArrayList choixVide = new ArrayList();      //Choix de ne pas jouer le coup
+            choixPossibles.add(choixVide);
+        }
+        return choixPossibles;
+    }
+    
+    /**
+     * Methode permettant de recuperer le choix de l'utilisateur et de retourner les cartes correspondantes
+     * @param nbCarte Nombre de carte joués au coup précedent
+     * @param choix Indice correspondant au choix de l'utilisateur parmi les coups possibles
+     * @param choixPossibles Liste des diférentes options de coup
+     * @return La liste des cartes jouées par l'utilisateur
+     */
+    public List<ArrayList> DecisionJoueur(int nbCarte, int choix, List<ArrayList> choixPossibles){
+        List<ArrayList> decisionJoueur = new ArrayList<>();
+        switch (nbCarte) {
+            case 1:
+                decisionJoueur.add(choixPossibles.get(choix));
+                break;
+            case 2:
+                decisionJoueur.add(choixPossibles.get(choix));
+                decisionJoueur.add(choixPossibles.get(choix+1));
+                break;
+            case 3:
+                decisionJoueur.add(choixPossibles.get(choix));
+                decisionJoueur.add(choixPossibles.get(choix+1));
+                decisionJoueur.add(choixPossibles.get(choix+2));
+                break;
+            default:
+                decisionJoueur.add(choixPossibles.get(choix));
+                decisionJoueur.add(choixPossibles.get(choix+1));
+                decisionJoueur.add(choixPossibles.get(choix+2));
+                decisionJoueur.add(choixPossibles.get(choix+3));
+                break;
+        }
+        if(choixPossibles.size()==choix){       //si le joueur ne veut pas jouer
+            decisionJoueur.removeAll(decisionJoueur);
+        }
+        return decisionJoueur;
+    }
+    
+    /**
+     * 
+     * @param listeValeurMainJoueur
+     * @param mainJoueur
+     * @param nbCartes
+     * @return 
+     */
+    public List<ArrayList> ListesChoixJoueurPremierCoup(ArrayList<Integer> listeValeurMainJoueur,ArrayList mainJoueur,int nbCartes){
+        List<ArrayList> choixPossibles = new ArrayList<>();
+        switch (nbCartes) {
+            case 4:
+                for(int i=0;i<listeValeurMainJoueur.size();i++){
+                    for(int j=i+1;j<listeValeurMainJoueur.size();j++){
+                        if(listeValeurMainJoueur.get(i) ==listeValeurMainJoueur.get(j)){
+                            for(int k = j+1;k<listeValeurMainJoueur.size();k++){
+                                if(listeValeurMainJoueur.get(i) ==listeValeurMainJoueur.get(k)){
+                                    for(int w = k+1;w<listeValeurMainJoueur.size();w++){
+                                        if(listeValeurMainJoueur.get(i) ==listeValeurMainJoueur.get(w)){    //on recupere les quadruplets
+                                            choixPossibles.add(this.main.get(i));
+                                            choixPossibles.add(this.main.get(j));
+                                            choixPossibles.add(this.main.get(k));
+                                            choixPossibles.add(this.main.get(w));
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }   break;
+            case 3:
+                for(int i=0;i<listeValeurMainJoueur.size();i++){
+                    for(int j=i+1;j<listeValeurMainJoueur.size();j++){
+                        if(listeValeurMainJoueur.get(i) ==listeValeurMainJoueur.get(j)){
+                            for(int k = j+1;k<listeValeurMainJoueur.size();k++){
+                                if(listeValeurMainJoueur.get(i) ==listeValeurMainJoueur.get(k)){    //on recupere les triplets
+                                    choixPossibles.add(this.main.get(i));
+                                    choixPossibles.add(this.main.get(j));
+                                    choixPossibles.add(this.main.get(k));
+                                }
+                            }
+                        }
+                    }
+                }   break;
+            case 2:
+                for(int i=0;i<listeValeurMainJoueur.size();i++){
+                    for(int j=i+1;j<listeValeurMainJoueur.size();j++){
+                        if(listeValeurMainJoueur.get(i) ==listeValeurMainJoueur.get(j)){    //on recupere les doublets
+                            choixPossibles.add(this.main.get(i));
+                            choixPossibles.add(this.main.get(j));
+                        }
+                    }
+                }   break;
+            default:
+                choixPossibles.addAll(mainJoueur);                                          //On recupere la main en entier
+                break;
+        }
+        return choixPossibles;
+    }
 
 }
