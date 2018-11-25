@@ -16,9 +16,9 @@ import miniprojet.president.*;
  */
 public abstract class ClientNeutre extends Humain {
 
-    private Boisson boisson_fav_1;
-    private Boisson boisson_fav_2;
-    private float niveau_alcool;
+    private Boisson boissonFav1;
+    private Boisson boissonFav2;
+    private float niveauAlcool;
     private boolean exclu = false;
     private Table table;
     boolean player = false;
@@ -26,9 +26,9 @@ public abstract class ClientNeutre extends Humain {
 
     protected ClientNeutre(String prenom, String nom, double porte_monnaie, int popularite, String cri, Boisson boisson_fav_1, Boisson boisson_fav_2, float niveau_alcool) {
         super(prenom, nom, porte_monnaie, popularite, cri);
-        this.boisson_fav_1 = boisson_fav_1;
-        this.boisson_fav_2 = boisson_fav_2;
-        this.niveau_alcool = niveau_alcool;
+        this.boissonFav1 = boisson_fav_1;
+        this.boissonFav2 = boisson_fav_2;
+        this.niveauAlcool = niveau_alcool;
 
     }
 
@@ -36,25 +36,33 @@ public abstract class ClientNeutre extends Humain {
         if (this.canPay(boisson,1)) {
             this.payer(Bar.getInstance().getBarman(),boisson.getPrixVente());
             Bar.getInstance().getStock().removeFromStock(boisson, 1);
-            this.setNiveau_alcool(this.getNiveau_alcool() + boisson.getDegree());
+            this.setNiveauAlcool(this.getNiveauAlcool() + boisson.getDegree());
             this.parler("Je bois un verre de " + boisson.getName());
+            if(this.getNiveauAlcool()>1){
+                Bar.getInstance().getPatronne().parlerDestinataire(Bar.getInstance().getBarman(),"Ne sers plus "+this.prenom+" "+this.getNom()+", il n'est plus en état");
+            }
         } else {
             this.parler("Je n'ai pas assez d'argent");
         }
     }
 
-    public void commander() {
-        if (Bar.getInstance().getStock().getStock(this.getBoisson_fav_1()) > 0) {
-            this.boire(this.getBoisson_fav_1());
-
-        } else if (Bar.getInstance().getStock().getStock(this.getBoisson_fav_2()) > 0) {
-            this.boire(getBoisson_fav_2());
+    public void commander(Boisson boisson) {
+        this.parler("Barman ! Sers moi un verre de "+boisson.getName());
+        if(this.getNiveauAlcool()>1.1){
+            Bar.getInstance().getPatronne().exclure(this);
+        }
+        else{
+            if (Bar.getInstance().getStock().getStock(this.getBoissonFav1()) > 0) {
+                this.boire(boisson);
+            } else {
+                Bar.getInstance().getBarman().parler("Il n'y a plus de " + boisson.getName());
+            }
         }
     }
 
     public void recevoirVerre(Humain expediteur, Boisson boisson) {
         Bar.getInstance().getStock().removeFromStock(boisson, 1);
-        this.setNiveau_alcool(this.getNiveau_alcool() + boisson.getDegree());
+        this.setNiveauAlcool(this.getNiveauAlcool() + boisson.getDegree());
         this.parlerDestinataire(expediteur, "Merci beaucoup !");
         
     }
@@ -65,16 +73,16 @@ public abstract class ClientNeutre extends Humain {
     }
     
     
-    public Boisson getBoisson_fav_1() {
-        return boisson_fav_1;
+    public Boisson getBoissonFav1() {
+        return boissonFav1;
     }
 
-    public Boisson getBoisson_fav_2() {
-        return boisson_fav_2;
+    public Boisson getBoissonFav2() {
+        return boissonFav2;
     }
 
-    public float getNiveau_alcool() {
-        return niveau_alcool;
+    public float getNiveauAlcool() {
+        return niveauAlcool;
     }
 
     public List<Carte> getMainJoueur() {
@@ -89,16 +97,16 @@ public abstract class ClientNeutre extends Humain {
         return exclu;
     }
 
-    public void setBoisson_fav_1(Boisson boisson_fav_1) {
-        this.boisson_fav_1 = boisson_fav_1;
+    public void setBoissonFav1(Boisson boissonFav1) {
+        this.boissonFav1 = boissonFav1;
     }
 
-    public void setBoisson_fav_2(Boisson boisson_fav_2) {
-        this.boisson_fav_2 = boisson_fav_2;
+    public void setBoissonFav2(Boisson boissonFav2) {
+        this.boissonFav2 = boissonFav2;
     }
-
-    public void setNiveau_alcool(float niveau_alcool) {
-        this.niveau_alcool = niveau_alcool;
+    
+    public void setNiveauAlcool(float niveauAlcool) {
+        this.niveauAlcool = niveauAlcool;
     }
 
     public void setExclu(boolean exclu) {

@@ -14,32 +14,32 @@ import miniprojet.Fonctions.Random;
  */
 public class Serveur extends ServeurNeutre {
 
-    private int taille_biceps;
+    private int tailleBiceps;
     private Table table;
 
-    public Serveur(String prenom, String nom, double porte_monnaie, int popularite, String cri, int taille_biceps) {
+    public Serveur(String prenom, String nom, double porte_monnaie, int popularite, String cri, int tailleBiceps) {
         super(prenom, nom, porte_monnaie, popularite, cri);
-        this.taille_biceps = taille_biceps;
+        this.tailleBiceps = tailleBiceps;
     }
 
     public Serveur() {
         super(new Random().getRandomPrenom_m(), new Random().getRandomNom(), new Random().getRandomPorteMonnaie(), new Random().getRandomPopularite(), new Random().getRandomCri());
-        this.taille_biceps = (int) (Math.random() * 10);
+        this.tailleBiceps = (int) (Math.random() * 10);
 
     }
 
     @Override
     public String toString() {
         return "Serveur{ Prenom: " + this.getPrenom() + ", Surnom : " + this.getNom() + ", Porte Monnaie : " + this.getPorte_monnaie()
-                + ", Popularité : " + this.getPopularite() + ", Cri : " + this.getCri() + " , taille_biceps : " + taille_biceps + '}';
+                + ", Popularité : " + this.getPopularite() + ", Cri : " + this.getCri() + " , taille_biceps : " + tailleBiceps + '}';
     }
 
-    public int getTaille_biceps() {
-        return taille_biceps;
+    public int getTailleBiceps() {
+        return tailleBiceps;
     }
 
-    public void setTaille_biceps(int taille_biceps) {
-        this.taille_biceps = taille_biceps;
+    public void setTailleBiceps(int tailleBiceps) {
+        this.tailleBiceps = tailleBiceps;
     }
 
 }

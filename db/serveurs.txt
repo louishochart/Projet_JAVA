@@ -1,5 +1,3 @@
-Sebastien;Derousseaux;37.26;10;Ca c'est sympa;EAU;8
-Anatole;Sauvage;32.55;1;Ca c'est sympa;EAU;4
-Hector;Lefebvre;95.06;30;Cool;EAU;6
-Nicolas;Corre;97.42;34;YES;EAU;0
-Justin;Paresys;35.92;21;Cool;EAU;5
+Valentin;Renault;41.18;34;Cool;EAU;5
+Germain;Boizard;49.72;46;YES;EAU;2
+Matthieu;Delarue;14.61;6;OOOH;EAU;1

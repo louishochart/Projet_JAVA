@@ -53,8 +53,8 @@ public class Save {
             }
             BufferedWriter bw = new BufferedWriter(new FileWriter(file));
             bw.write(Bar.getInstance().getPatronne().getPrenom() + separator + Bar.getInstance().getPatronne().getNom() + separator + Bar.getInstance().getPatronne().getPorte_monnaie() + separator
-                    + Bar.getInstance().getPatronne().getPopularite() + separator + Bar.getInstance().getPatronne().getCri() + separator + Bar.getInstance().getPatronne().getBoisson_fav_1() + separator
-                    + Bar.getInstance().getPatronne().getBoisson_fav_2() + separator + Bar.getInstance().getPatronne().getNiveau_alcool() + separator + Bar.getInstance().getPatronne().getNb_bijoux());
+                    + Bar.getInstance().getPatronne().getPopularite() + separator + Bar.getInstance().getPatronne().getCri() + separator + Bar.getInstance().getPatronne().getBoissonFav1() + separator
+                    + Bar.getInstance().getPatronne().getBoissonFav2() + separator + Bar.getInstance().getPatronne().getNiveauAlcool() + separator + Bar.getInstance().getPatronne().getNb_bijoux());
             // écrire une ligne dans le fichier clients.txt
             bw.write("\n"); // forcer le passage à la ligne
             bw.close(); // fermer le fichier à la fin des traitements
@@ -109,8 +109,8 @@ public class Save {
                 bw.write(Bar.getInstance().getClients_m().get(i).getPrenom() + separator + Bar.getInstance().getClients_m().get(i).getNom()
                         + separator + Bar.getInstance().getClients_m().get(i).getPorte_monnaie() + separator
                         + Bar.getInstance().getClients_m().get(i).getPopularite() + separator + Bar.getInstance().getClients_m().get(i).getCri()
-                        + separator + Bar.getInstance().getClients_m().get(i).getBoisson_fav_1() + separator
-                        + Bar.getInstance().getClients_m().get(i).getBoisson_fav_2() + separator + Bar.getInstance().getClients_m().get(i).getNiveau_alcool()
+                        + separator + Bar.getInstance().getClients_m().get(i).getBoissonFav1() + separator
+                        + Bar.getInstance().getClients_m().get(i).getBoissonFav2() + separator + Bar.getInstance().getClients_m().get(i).getNiveauAlcool()
                         + separator + Bar.getInstance().getClients_m().get(i).getCouleur_tshirt().getName());
                 // écrire une ligne dans le fichier clients.txt
                 bw.write("\n"); // forcer le passage à la ligne
@@ -134,8 +134,8 @@ public class Save {
                 bw.write(Bar.getInstance().getClientes_f().get(i).getPrenom() + separator + Bar.getInstance().getClientes_f().get(i).getNom()
                         + separator + Bar.getInstance().getClientes_f().get(i).getPorte_monnaie() + separator
                         + Bar.getInstance().getClientes_f().get(i).getPopularite() + separator + Bar.getInstance().getClientes_f().get(i).getCri()
-                        + separator + Bar.getInstance().getClientes_f().get(i).getBoisson_fav_1() + separator
-                        + Bar.getInstance().getClientes_f().get(i).getBoisson_fav_2() + separator + Bar.getInstance().getClientes_f().get(i).getNiveau_alcool()
+                        + separator + Bar.getInstance().getClientes_f().get(i).getBoissonFav1() + separator
+                        + Bar.getInstance().getClientes_f().get(i).getBoissonFav2() + separator + Bar.getInstance().getClientes_f().get(i).getNiveauAlcool()
                         + separator + Bar.getInstance().getClientes_f().get(i).getNb_bijoux());
                 // écrire une ligne dans le fichier clients.txt
                 bw.write("\n"); // forcer le passage à la ligne
@@ -158,7 +158,7 @@ public class Save {
                 bw.write(Bar.getInstance().getServeurs_m().get(i).getPrenom() + separator + Bar.getInstance().getServeurs_m().get(i).getNom()
                         + separator + Bar.getInstance().getServeurs_m().get(i).getPorte_monnaie()
                         + separator + Bar.getInstance().getServeurs_m().get(i).getPopularite() + separator + Bar.getInstance().getServeurs_m().get(i).getCri()
-                        + separator + Bar.getInstance().getServeurs_m().get(i).getBoisson().getName() + separator + Bar.getInstance().getServeurs_m().get(i).getTaille_biceps());
+                        + separator + Bar.getInstance().getServeurs_m().get(i).getBoisson().getName() + separator + Bar.getInstance().getServeurs_m().get(i).getTailleBiceps());
                 // écrire une ligne dans le fichier clients.txt
                 bw.write("\n"); // forcer le passage à la ligne
             }
@@ -180,7 +180,7 @@ public class Save {
                 bw.write(Bar.getInstance().getServeuses_f().get(i).getPrenom() + separator + Bar.getInstance().getServeuses_f().get(i).getNom()
                         + separator + Bar.getInstance().getServeuses_f().get(i).getPorte_monnaie()
                         + separator + Bar.getInstance().getServeuses_f().get(i).getPopularite() + separator + Bar.getInstance().getServeuses_f().get(i).getCri()
-                        + separator + Bar.getInstance().getServeuses_f().get(i).getBoisson().getName() + separator + Bar.getInstance().getServeuses_f().get(i).getCoeff_charme());
+                        + separator + Bar.getInstance().getServeuses_f().get(i).getBoisson().getName() + separator + Bar.getInstance().getServeuses_f().get(i).getCoeffCharme());
                 // écrire une ligne dans le fichier clients.txt
                 bw.write("\n"); // forcer le passage à la ligne
             }

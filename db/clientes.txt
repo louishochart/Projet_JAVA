@@ -1,0 +1,12 @@
+Zoé;Malbranque;33.53;4;AAAAH;RHUM;WHISKY;0.0;0
+Zoé;Vion;31.01;34;Cool;SODA;CAFE;0.0;0
+Justine;Boillot;34.17;47;YES;CAFE;RHUM;0.0;0
+Noémie;Huyghe;29.21;47;Cool;VODKA;JUSDEFRUIT;0.0;0
+Christelle;Boizard;43.49;17;Cool;JUSDEFRUIT;EAU;0.0;0
+Justine;Tordeux;44.96;24;OOOH;EAU;BIERE;0.0;0
+Mathilde;Boillot;37.96;5;YES;BIERE;WHISKY;0.0;0
+Zelie;Hemery;25.38;21;Ca c'est sympa;CAFE;JUSDEFRUIT;0.0;0
+Mathilde;Sauvage;42.37;4;YES;CIDRE;BIERE;0.0;0
+Karine;Dujardin;38.42;0;YES;VODKA;RHUM;0.0;0
+Zelie;Engale;17.27;46;Ca c'est sympa;GIN;VODKA;0.0;0
+Jeanne;Paresys;24.57;47;Cool;JUSDEFRUIT;GIN;0.0;0

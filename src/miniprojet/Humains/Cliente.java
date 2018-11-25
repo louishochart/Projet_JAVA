@@ -25,15 +25,15 @@ public class Cliente extends ClientNeutre {
         super(new Random().getRandomPrenom_f(), new Random().getRandomNom(), new Random().getRandomPorteMonnaie(), new Random().getRandomPopularite(),
                 new Random().getRandomCri(), new Random().getRandomBoisson(), new Random().getRandomBoisson(), 0f);
 
-        while (this.getBoisson_fav_1().getName().equals(this.getBoisson_fav_2().getName())) {
-            this.setBoisson_fav_2(new Random().getRandomBoisson());
+        while (this.getBoissonFav1().getName().equals(this.getBoissonFav2().getName())) {
+            this.setBoissonFav2(new Random().getRandomBoisson());
         }
         this.nb_bijoux = (int) Math.random() * 10;
 
     }
 
     public void parlerDestinataire(Humain destinataire, String phrase) {
-        if (destinataire.getClass().getSimpleName().equals("Serveur") && this.getNiveau_alcool() > 1) {
+        if (destinataire.getClass().getSimpleName().equals("Serveur") && this.getNiveauAlcool() > 1) {
             System.out.println(this.getPrenom() + " " + this.getNom() + " à " + destinataire.getPrenom() + " " + destinataire.getNom() + " : " + phrase + " beau gosse !");
         } else {
             System.out.println(this.getPrenom() + " " + this.getNom() + " à " + destinataire.getPrenom() + " " + destinataire.getNom() + " : " + phrase);
@@ -51,8 +51,8 @@ public class Cliente extends ClientNeutre {
     @Override
     public String toString() {
         return "Cliente{ Prenom: " + this.getPrenom() + " , Surnom : " + this.getNom() + " , Porte Monnaie : " + this.getPorte_monnaie()
-                + " , Popularité : " + this.getPopularite() + " , Cri : " + this.getCri() + " , boisson_fav_1 : " + this.getBoisson_fav_1() + " , boisson_fav_2 : "
-                + this.getBoisson_fav_2() + " , niveau_alcool : " + this.getNiveau_alcool() + " ,nombre_bijoux : " + this.getNb_bijoux() + " , exclu? = " + this.isExclu() + " }";
+                + " , Popularité : " + this.getPopularite() + " , Cri : " + this.getCri() + " , boisson_fav_1 : " + this.getBoissonFav1() + " , boisson_fav_2 : "
+                + this.getBoissonFav2() + " , niveau_alcool : " + this.getNiveauAlcool() + " ,nombre_bijoux : " + this.getNb_bijoux() + " , exclu? = " + this.isExclu() + " }";
     }
 
     public void verre_gratuit() {

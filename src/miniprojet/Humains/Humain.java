@@ -64,23 +64,34 @@ public abstract class Humain {
     public void offrirVerre(Humain destinataire, Boisson boisson) {
         if (this.canPay(boisson,1)) {
             this.parlerDestinataire(destinataire, "Je t'offre un verre de " + boisson.getName());
-            this.payer(Bar.getInstance().getBarman(),boisson.getPrixVente());
-            destinataire.recevoirVerre(this, boisson);
-        } else {
-            this.parler("Je n'ai pas assez d'argent pour offrir de verre !");
+            if(Bar.getInstance().getStock().getStock(boisson)>0){
+                this.payer(Bar.getInstance().getBarman(),boisson.getPrixVente());
+                this.addPopularite(5);
+                destinataire.recevoirVerre(this, boisson);
+            }
+            else{
+                Bar.getInstance().getBarman().parler("Il n'y a plus de "+boisson.getName());
+            }
+            
         }
     }
     public void offrirTournee(Boisson boisson) {
         if (this.canPay(boisson,Bar.getInstance().getSimulation().getClients().size())) {
             this.parler("Un verre de "+boisson.getName()+" pour tout le monde ! ");
-            for (int i = 0 ; i < Bar.getInstance().getSimulation().getClients().size();i++){
-                Bar.getInstance().getSimulation().getClients().get(i).recevoirVerre(this, boisson);
+            if(Bar.getInstance().getStock().getStock(boisson)>Bar.getInstance().getSimulation().getClients().size()){
+                this.addPopularite(20);
+                this.payer(Bar.getInstance().getBarman(),boisson.getPrixVente()*Bar.getInstance().getSimulation().getClients().size());
+                for (int i = 0 ; i < Bar.getInstance().getSimulation().getClients().size();i++){
+                    Bar.getInstance().getSimulation().getClients().get(i).recevoirVerre(this, boisson);
+                    Bar.getInstance().getSimulation().getClients().get(i).parler(Bar.getInstance().getSimulation().getClients().get(i).getCri());
+                }                
+                Bar.getInstance().getBarman().parler("TOURNEE GENERALE");
+                Bar.getInstance().getPatronne().parler("Les affaires reprennent");
+                
             }
-            this.payer(Bar.getInstance().getBarman(),boisson.getPrixVente()*Bar.getInstance().getSimulation().getClients().size());
-            
-        } 
-        else {
-            this.parler("Je n'ai pas assez d'argent pour offrir de tournée !");
+            else{
+                Bar.getInstance().getBarman().parler("Il n'y a pas assez de " + boisson.getName());
+            }
         }
     }
 

@@ -13,13 +13,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import miniprojet.Bar.*;
 import miniprojet.Humains.*;
+import miniprojet.Fonctions.*;
 
 /**
  *
  * @author Louis
  */
 public class Simulation {
-    
+
     private List<ClientNeutre> clients = new ArrayList();
     private List<ServeurNeutre> serveurs = new ArrayList();
     private List<Table> tables = new ArrayList();
@@ -45,8 +46,8 @@ public class Simulation {
     }
 
     public void affecterServeurs() {
-        int nbServeurs = (int) (Bar.getInstance().getServeurs().size() * (0.6)) + (int) (Math.random() * ((Bar.getInstance().getServeurs().size()+1 - Bar.getInstance().getServeurs().size() * (0.6))));
-        for(int i = 0 ; i < nbServeurs ; i++){
+        int nbServeurs = (int) (Bar.getInstance().getServeurs().size() * (0.6)) + (int) (Math.random() * ((Bar.getInstance().getServeurs().size() + 1 - Bar.getInstance().getServeurs().size() * (0.6))));
+        for (int i = 0; i < nbServeurs; i++) {
             this.getServeurs().add(Bar.getInstance().getServeurs().get(i));
         }
         int indice = 0;
@@ -61,12 +62,79 @@ public class Simulation {
     }
 
     public void simulerHeure() {
-        
-        if(Bar.getInstance().getClients().get(0).getTable().getServeur() instanceof Serveur){
-            Serveur s = (Serveur) Bar.getInstance().getClients().get(0).getTable().getServeur();
+        for (int i = 0; i < Bar.getInstance().getSimulation().getClients().size(); i++) {
+            double random = Math.random();
+            random = (Math.round(random * 100.0) / 100.0);
+            if (Bar.getInstance().getSimulation().getClients().get(i).getTable().getServeur() instanceof Serveur) {
+                Serveur serveur = (Serveur) Bar.getInstance().getSimulation().getClients().get(i).getTable().getServeur();
+                if (random > 0.4) {
+                    random = Math.random();
+                    random = (Math.round(random * 100.0) / 100.0);
+                    if (random > 0.5 * (serveur.getTailleBiceps() / 10)) {
+                        random = Math.random();
+                        random = (Math.round(random * 100.0) / 100.0);
+                        if (random < 0.5) {
+                            Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                        } else {
+                            Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                        }
+                    } else {
+                        random = Math.random();
+                        random = (Math.round(random * 100.0) / 100.0);
+                        if (random < 0.25) {
+                            Bar.getInstance().getSimulation().getClients().get(i).offrirTournee(new Random().getRandomBoisson());
+                        } else {
+                            random = Math.random() * Bar.getInstance().getSimulation().getClients().size();
+                            int indiceClient = (int) random;
+                            random = Math.random();
+                            random = (Math.round(random * 100.0) / 100.0);
+                            if (random < 0.5) {
+                                Bar.getInstance().getSimulation().getClients().get(i).offrirVerre(Bar.getInstance().getSimulation().getClients().get(indiceClient), Bar.getInstance().getSimulation().getClients().get(indiceClient).getBoissonFav2());
+                            } else {
+                                Bar.getInstance().getSimulation().getClients().get(i).offrirVerre(Bar.getInstance().getSimulation().getClients().get(indiceClient), Bar.getInstance().getSimulation().getClients().get(indiceClient).getBoissonFav1());
+                            }
+
+                        }
+                    }
+                }
+            } else if (Bar.getInstance().getClients().get(i).getTable().getServeur() instanceof Serveuse) {
+                Serveuse serveuse = (Serveuse) Bar.getInstance().getClients().get(i).getTable().getServeur();
+                if (random > 0.4) {
+                    random = Math.random();
+                    random = (Math.round(random * 100.0) / 100.0);
+                    if (random > 0.5 * (1-serveuse.getCoeffCharme()/ 10)) {
+                        random = Math.random();
+                        random = (Math.round(random * 100.0) / 100.0);
+                        if (random < 0.5) {
+                            Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                        } else {
+                            Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                        }
+                    } else {
+                        random = Math.random();
+                        random = (Math.round(random * 100.0) / 100.0);
+                        if (random < 0.25) {
+                            Bar.getInstance().getSimulation().getClients().get(i).offrirTournee(new Random().getRandomBoisson());
+                        } else {
+                            random = Math.random() * Bar.getInstance().getSimulation().getClients().size();
+                            int indiceClient = (int) random;
+                            random = Math.random();
+                            random = (Math.round(random * 100.0) / 100.0);
+                            if (random < 0.5) {
+                                Bar.getInstance().getSimulation().getClients().get(i).offrirVerre(Bar.getInstance().getSimulation().getClients().get(indiceClient), Bar.getInstance().getSimulation().getClients().get(indiceClient).getBoissonFav2());
+                            } else {
+                                Bar.getInstance().getSimulation().getClients().get(i).offrirVerre(Bar.getInstance().getSimulation().getClients().get(indiceClient), Bar.getInstance().getSimulation().getClients().get(indiceClient).getBoissonFav1());
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            this.incrementNbHeures();
         }
-        this.incrementNbHeures();
     }
+    
 
     public void incrementNbHeures() {
         this.nbHeures++;
@@ -91,7 +159,6 @@ public class Simulation {
     public int getNbHeures() {
         return nbHeures;
     }
-    
 
     public void setClients(List<ClientNeutre> clients) {
         this.clients = clients;

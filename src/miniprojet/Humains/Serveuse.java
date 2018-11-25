@@ -14,31 +14,31 @@ import miniprojet.Fonctions.Random;
  */
 public class Serveuse extends ServeurNeutre {
 
-    private int coeff_charme;
+    private int coeffCharme;
 
-    public Serveuse(String prenom, String nom, double porte_monnaie, int popularite, String cri, int taille_biceps) {
+    public Serveuse(String prenom, String nom, double porte_monnaie, int popularite, String cri, int coeffCharme) {
         super(prenom, nom, porte_monnaie, popularite, cri);
-        this.coeff_charme = coeff_charme;
+        this.coeffCharme = coeffCharme;
     }
 
     public Serveuse() {
         super(new Random().getRandomPrenom_f(), new Random().getRandomNom(), new Random().getRandomPorteMonnaie(), new Random().getRandomPopularite(), new Random().getRandomCri());
-        this.coeff_charme = (int) (Math.random() * 10);
+        this.coeffCharme = (int) (Math.random() * 10);
 
     }
 
     @Override
     public String toString() {
         return "Serveuse{ Prenom: " + this.getPrenom() + ", Surnom : " + this.getNom() + ", Porte Monnaie : " + this.getPorte_monnaie()
-                + ", Popularité : " + this.getPopularite() + ", Cri : " + this.getCri() + " , coeff_charme : " + coeff_charme + '}';
+                + ", Popularité : " + this.getPopularite() + ", Cri : " + this.getCri() + " , coeff_charme : " + coeffCharme + '}';
     }
 
-    public int getCoeff_charme() {
-        return coeff_charme;
+    public int getCoeffCharme() {
+        return coeffCharme;
     }
 
-    public void setCoeff_charme(int coeff_charme) {
-        this.coeff_charme = coeff_charme;
+    public void setCoeffCharme(int coeffCharme) {
+        this.coeffCharme = coeffCharme;
     }
 
 }

@@ -90,13 +90,16 @@ public class TestClass {
           
 //        PageAccueil NvPerso = new PageAccueil();
         
-//        Bar.getInstance().getSimulation().affecterClients();
-//        Bar.getInstance().getSimulation().affecterServeurs();
-//        
-//        Bar.getInstance().getSimulation().reinitialiser();
-//        new RecupererDatabase();
 
-        
-        
+//        
+//         Bar.getInstance().getSimulation().reinitialiser();
+        new RecupererDatabase();
+        Bar.getInstance().getSimulation().affecterClients();
+        Bar.getInstance().getSimulation().affecterServeurs();
+        Bar.getInstance().getSimulation().simulerHeure();
+        Bar.getInstance().getSimulation().simulerHeure();
+        Bar.getInstance().getSimulation().simulerHeure();
+        Bar.getInstance().getSimulation().simulerHeure();
+      
     }
 }
