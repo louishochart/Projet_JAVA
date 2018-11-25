@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package miniprojet;
+import java.util.ArrayList;
 import miniprojet.president.*;
+import miniprojet.Humains.*;
 
 /**
  *
@@ -12,12 +14,18 @@ import miniprojet.president.*;
  */
 public class TestClass2 {
     public void test2(){
-        Paquet newpaquet=new Paquet();
-        System.out.println(newpaquet.getCartes());
-        newpaquet.coupe(1);
-        System.out.println(newpaquet.getCartes());
-        newpaquet.bat();
-        System.out.println(newpaquet.getCartes());
-        System.out.println(newpaquet.getCartes().get(2));
+        Client client1 = new Client();
+        Client client2 = new Client();
+        Client client3 = new Client();
+        Client client4 = new Client();
+        ArrayList<ClientNeutre> joueurs = new ArrayList();
+        joueurs.add(client1);
+        joueurs.add(client2);
+        joueurs.add(client3);
+        joueurs.add(client4);
+        President lancementPartie = new President(joueurs,1);
+        lancementPartie.jeu();
+        
+        
     }
 }
