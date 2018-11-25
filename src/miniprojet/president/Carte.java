@@ -30,5 +30,5 @@ public class Carte {
      */
     public ArrayList getCarteUnique() {
         return this.carte_unique;
-    } 
+    }
 }
