@@ -81,15 +81,31 @@ public class Simulation {
                     if (random > 0.4) {
                         random = Math.random();
                         random = (Math.round(random * 100.0) / 100.0);
-                        if (random > 0.5 * (1-(serveur.getTailleBiceps() / 10))) {
+                        if (random > 0.5 * (serveur.getTailleBiceps() / 10)) {
                             random = Math.random();
                             random = (Math.round(random * 100.0) / 100.0);
-                            if (random < 0.5) {
-                                Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
-                            } else {
-                                Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                            if (random <0.3*Bar.getInstance().getSimulation().getClients().get(i).getPopularite()/100) {
+                                random = Math.random();
+                                random = (Math.round(random * 100.0) / 100.0);
+                                if (random < 0.5) {
+                                    Bar.getInstance().getBarman().offrirVerre(Bar.getInstance().getSimulation().getClients().get(i), Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                                } else {
+                                    Bar.getInstance().getBarman().offrirVerre(Bar.getInstance().getSimulation().getClients().get(i), Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav1());
+                                }
                             }
-                        } else {
+                            else{
+                                random = Math.random();
+                                random = (Math.round(random * 100.0) / 100.0);
+                                if (random < 0.5) {
+                                    Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                                } 
+                                else {
+                                    Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                                }
+                            }
+                            
+                        } 
+                        else {
                             random = Math.random();
                             random = (Math.round(random * 100.0) / 100.0);
                             if (random < 0.25) {
@@ -114,14 +130,29 @@ public class Simulation {
                     if (random > 0.4) {
                         random = Math.random();
                         random = (Math.round(random * 100.0) / 100.0);
-                        if (random > 0.5 * (serveuse.getCoeffCharme()/ 10)) {
+                        if (random > 0.5 * (1-(serveuse.getCoeffCharme()/ 10))) {
                             random = Math.random();
                             random = (Math.round(random * 100.0) / 100.0);
-                            if (random < 0.5) {
-                                Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
-                            } else {
-                                Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                            if (random <0.3*Bar.getInstance().getSimulation().getClients().get(i).getPopularite()/100) {
+                                random = Math.random();
+                                random = (Math.round(random * 100.0) / 100.0);
+                                if (random < 0.5) {
+                                    Bar.getInstance().getBarman().offrirVerre(Bar.getInstance().getSimulation().getClients().get(i), Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                                } else {
+                                    Bar.getInstance().getBarman().offrirVerre(Bar.getInstance().getSimulation().getClients().get(i), Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav1());
+                                }
                             }
+                            else{
+                                random = Math.random();
+                                random = (Math.round(random * 100.0) / 100.0);
+                                if (random < 0.5) {
+                                    Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                                } 
+                                else {
+                                    Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
+                                }
+                            }
+                            
                         } 
                         else {
                             random = Math.random();
@@ -156,7 +187,8 @@ public class Simulation {
                         if (random < 0.5) {
                             Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
                         } 
-                        else {
+                        else 
+                        {
                             Bar.getInstance().getSimulation().getClients().get(i).commander(Bar.getInstance().getSimulation().getClients().get(i).getBoissonFav2());
                         }
                     }
