@@ -29,8 +29,8 @@ public class Patronne extends Cliente {
         client.setExclu(true);
         for(int i = 0 ; i < Bar.getInstance().getSimulation().getClients().size();i++){
             if(client.equals(Bar.getInstance().getSimulation().getClients().get(i))){
-                Bar.getInstance().getSimulation().getClients().remove(Bar.getInstance().getSimulation().getClients().get(i));
                 Bar.getInstance().getSimulation().getClients().get(i).setTable(new Table());
+                Bar.getInstance().getSimulation().getClients().remove(Bar.getInstance().getSimulation().getClients().get(i));              
                 for(int j = 0 ; j < Bar.getInstance().getSimulation().getTables().size();j++){
                     for(int k = 0 ; k < Bar.getInstance().getSimulation().getTables().get(j).getClients().size();k++ ){
                         if(client.equals(Bar.getInstance().getSimulation().getTables().get(j).getClients().get(k))){
@@ -38,6 +38,8 @@ public class Patronne extends Cliente {
                         }
                     }
                 }
+                Bar.getInstance().getSimulation().getExclus().add(client);
+                Bar.getInstance().getSimulation().getExclush().add(client);
             }
         }
     }
@@ -72,6 +74,7 @@ public class Patronne extends Cliente {
     
     public void verifierCaisse(){
         if(Bar.getInstance().getCaisse().getCaisse()>100){
+            System.out.println("je verifie la caisse");
             this.recupererArgent(Bar.getInstance().getCaisse().getCaisse()-100);
         }
     }

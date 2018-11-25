@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import miniprojet.Bar.*;
 
@@ -47,6 +48,9 @@ public class NouveauBar extends JFrame {
         Bar.getInstance().setPatronne(new Patronne());
         Bar.getInstance().setFournisseur(new Fournisseur());
         Bar.getInstance().setBarman(new Barman());
+        Bar.getInstance().setClients(new ArrayList());
+        Bar.getInstance().setServeurs(new ArrayList());
+        Bar.getInstance().setTables(new ArrayList());
 
         JLabel name = new JLabel(Bar.getInstance().getName());
         JLabel patronne = new JLabel(Bar.getInstance().getPatronne().toString());

@@ -125,7 +125,7 @@ public class NvPerso extends JFrame {
         class ValiderListener implements ActionListener {
 
             public void actionPerformed(ActionEvent ae) {
-                List<ClientNeutre> total = new ArrayList<ClientNeutre>();
+                ArrayList<ClientNeutre> total = new ArrayList();
                 if (jtf.getText().matches("\\d+")) {
                     for (int i = 0; i < parseInt(jtf.getText()); i++) {
                         total.add(new Client());
@@ -137,7 +137,9 @@ public class NvPerso extends JFrame {
                     }
                 }
                 if (total.size() > 0 && !((Bar.getInstance().getClients().size() + total.size()) > Bar.getInstance().getTables().size() * 4)) {
-                    Bar.getInstance().setClients(total);
+                    for(int i = 0 ; i < total.size() ; i++ ){
+                        Bar.getInstance().getClients().add(total.get(i));
+                    }
                     dispose();
                     NvPerso fen = new NvPerso();
                 }
@@ -202,7 +204,7 @@ public class NvPerso extends JFrame {
         class ValiderListener implements ActionListener {
 
             public void actionPerformed(ActionEvent ae) {
-                List<ServeurNeutre> total = new ArrayList<ServeurNeutre>();
+                ArrayList<ServeurNeutre> total = new ArrayList<ServeurNeutre>();
                 if (jtf.getText().matches("\\d+")) {
                     for (int i = 0; i < parseInt(jtf.getText()); i++) {
                         total.add(new Serveur());
@@ -214,7 +216,9 @@ public class NvPerso extends JFrame {
                     }
                 }
                 if (total.size() > 0 && !((Bar.getInstance().getServeurs().size() + total.size()) > Bar.getInstance().getTables().size())) {
-                    Bar.getInstance().setServeurs(total);
+                    for(int i = 0 ; i < total.size() ; i++ ){
+                        Bar.getInstance().getServeurs().add(total.get(i));
+                    }
                     dispose();
                     NvPerso fen = new NvPerso();
                 }
@@ -237,8 +241,8 @@ public class NvPerso extends JFrame {
         private JButton retour = new JButton("Retour");
         private JLabel label = new JLabel("Nombre de tables créées        ");
         private JLabel label2 = new JLabel("Il y a actuellement " + Bar.getInstance().getTables().size()
-                + " tables. Le maximum est de 10 tables. Vous pouvez donc ajouter " + (int) (10 - Bar.getInstance().getTables().size()) + " tables.");
-        private JLabel label3 = new JLabel("Le nombre maximal de 10 tables est déjà atteint. Vous ne pouvez pas ajouter de tables.");
+                + " tables. Le maximum est de 20 tables. Vous pouvez donc ajouter " + (int) (10 - Bar.getInstance().getTables().size()) + " tables.");
+        private JLabel label3 = new JLabel("Le nombre maximal de 20 tables est déjà atteint. Vous ne pouvez pas ajouter de tables.");
         private JTextField jtf = new JTextField();
 
         public void actionPerformed(ActionEvent ae) {
@@ -249,7 +253,7 @@ public class NvPerso extends JFrame {
 
             Box vbox1 = Box.createVerticalBox();
 
-            if (Bar.getInstance().getTables().size() < 10) {
+            if (Bar.getInstance().getTables().size() < 20) {
                 Box hbox = Box.createHorizontalBox();
                 hbox.add(label2);
                 Box hbox1 = Box.createHorizontalBox();

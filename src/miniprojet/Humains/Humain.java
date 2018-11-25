@@ -52,8 +52,7 @@ public abstract class Humain {
     public void payer(Humain humain, float paiement) {
         this.porte_monnaie -= paiement;
         this.parlerDestinataire(humain,"Voila "+paiement+" €");
-        humain.recevoirPaiement(this,paiement);
-        
+        humain.recevoirPaiement(this,paiement);       
     }
     
     public void recevoirPaiement(Humain expediteur,float paiement){
@@ -75,25 +74,7 @@ public abstract class Humain {
             
         }
     }
-    public void offrirTournee(Boisson boisson) {
-        if (this.canPay(boisson,Bar.getInstance().getSimulation().getClients().size())) {
-            this.parler("Un verre de "+boisson.getName()+" pour tout le monde ! ");
-            if(Bar.getInstance().getStock().getStock(boisson)>Bar.getInstance().getSimulation().getClients().size()){
-                this.addPopularite(20);
-                this.payer(Bar.getInstance().getBarman(),boisson.getPrixVente()*Bar.getInstance().getSimulation().getClients().size());
-                for (int i = 0 ; i < Bar.getInstance().getSimulation().getClients().size();i++){
-                    Bar.getInstance().getSimulation().getClients().get(i).recevoirVerre(this, boisson);
-                    Bar.getInstance().getSimulation().getClients().get(i).parler(Bar.getInstance().getSimulation().getClients().get(i).getCri());
-                }                
-                Bar.getInstance().getBarman().parler("TOURNEE GENERALE");
-                Bar.getInstance().getPatronne().parler("Les affaires reprennent");
-                
-            }
-            else{
-                Bar.getInstance().getBarman().parler("Il n'y a pas assez de " + boisson.getName());
-            }
-        }
-    }
+    
 
     public void recevoirVerre(Humain expediteur, Boisson boisson) {
         System.out.println("Merci " + expediteur.getPrenom() + ", mais je n'ai pas soif !");

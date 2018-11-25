@@ -6,6 +6,8 @@
 package miniprojet.president;
 
 import java.util.*;
+import miniprojet.Bar.Bar;
+import miniprojet.Bar.Table;
 import miniprojet.Humains.ClientNeutre;
 
 /**
@@ -13,21 +15,30 @@ import miniprojet.Humains.ClientNeutre;
  * @author ISEN
  */
 public class President {
-    ArrayList<ClientNeutre> joueurs;
-    int table;
+    private ArrayList<ClientNeutre> joueurs;
+    private Table table;
+    private ClientNeutre vainqueur;
+    private int indiceTable;
 
     /**
      * Constructeur de la classe president qui prends en charge la gestion d'une partie
      * @param joueurs liste des 4 joueurs
      * @param table indice de la table
      */
-    public President(ArrayList<ClientNeutre> joueurs, int table) {
-        this.joueurs = joueurs;
+    public President(Table table) {
         this.table = table;
+        for(int i = 0 ; i < Bar.getInstance().getSimulation().getTables().size() ; i++){
+            if(this.table.equals(Bar.getInstance().getSimulation().getTables().get(i))){
+                this.setIndiceTable(i);
+            }
+        }
+        
     }
        
     public void jeu(){
         Paquet newpaquet = new Paquet();
+        
+        this.joueurs = table.getClients();
         //System.out.println("Paquet de Carte");
         //System.out.println(newpaquet.getCartes());
         
@@ -84,21 +95,25 @@ public class President {
             while(true){
                 if(joueurs.get(0).getMain().isEmpty()){
                     System.out.printf("\nVAINQUEUR DE LA PARTIE : Joueur numero %d\n",0);
+                    this.setVainqueur(joueurs.get(0));
                     finPartie=true;
                     break;
                 }
                 if(joueurs.get(1).getMain().isEmpty()){
                         System.out.printf("\nVAINQUEUR DE LA PARTIE : Joueur numero %d\n",1);
+                        this.setVainqueur(joueurs.get(1));
                         finPartie=true;
                         break;
                 }
                 if(joueurs.get(2).getMain().isEmpty()){
                         System.out.printf("\nVAINQUEUR DE LA PARTIE : Joueur numero %d\n",2);
+                        this.setVainqueur(joueurs.get(2));
                         finPartie=true;
                         break;
                 }
                 if(joueurs.get(3).getMain().isEmpty()){
                         System.out.printf("\nVAINQUEUR DE LA PARTIE : Joueur numero %d\n",3);
+                        this.setVainqueur(joueurs.get(3));
                         finPartie=true;
                         break;
                 }
@@ -129,9 +144,40 @@ public class President {
                 else{
                     currentPlayer+=1;
                 }
-                
-                
-            }
+           }
         }
     }
+
+    public ArrayList<ClientNeutre> getJoueurs() {
+        return joueurs;
+    }
+
+    public void setJoueurs(ArrayList<ClientNeutre> joueurs) {
+        this.joueurs = joueurs;
+    }
+
+    public Table getTable() {
+        return table;
+    }
+
+    public void setTable(Table table) {
+        this.table = table;
+    }
+
+    public ClientNeutre getVainqueur() {
+        return vainqueur;
+    }
+
+    public void setVainqueur(ClientNeutre vainqueur) {
+        this.vainqueur = vainqueur;
+    }
+
+    public int getIndiceTable() {
+        return indiceTable;
+    }
+
+    public void setIndiceTable(int indiceTable) {
+        this.indiceTable = indiceTable;
+    }
+    
 }

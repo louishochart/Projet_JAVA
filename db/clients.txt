@@ -1,12 +1,23 @@
-Michel;Vandaele;10.21;45;Cool;SODA;JUSDEFRUIT;0.0;JAUNE
-Edouard;Tordeux;43.54;37;Ca c'est sympa;RHUM;TEQUILA;0.0;ORANGE
-Anthony;Tordeux;29.34;49;YES;CIDRE;JUSDEFRUIT;0.0;ROUGE
-Enguerrand;Bernard;11.74;47;Ca c'est sympa;BIERE;RHUM;0.0;MARRON
-Philémon;Deroo;39.37;5;OOOH;EAU;GIN;0.0;NOIR
-Valentin;Toison;28.64;41;YES;RHUM;GIN;0.0;CYAN
-Thibaut;Toison;12.39;11;Ca c'est sympa;CIDRE;RHUM;0.0;NOIR
-Valentin;Delezenne;34.77;43;YES;WHISKY;SODA;0.0;GRIS
-Thomas;Fromont;43.01;38;YES;JUSDEFRUIT;CIDRE;0.0;GRIS
-Philémon;Vion;16.9;10;Cool;CAFE;VODKA;0.0;NOIR
-Luc;Savard;26.85;12;Cool;JUSDEFRUIT;VODKA;0.0;BLEU
-Baptiste;Fourni;41.19;31;Cool;RHUM;BIERE;0.0;BLEU
+Aurelien;Ducroo;48.82;31;AAAAH;JUSDEFRUIT;BIERE;0.0;CYAN
+Rodolphe;Delpierre;49.05;47;OOOH;WHISKY;CIDRE;0.0;JAUNE
+Justin;Boizard;28.05;42;YES;TEQUILA;WHISKY;0.0;CYAN
+Benjamin;Sauvage;35.97;40;Cool;BIERE;VODKA;0.0;ROUGE
+Michel;Milliote;27.11;46;OOOH;WHISKY;GIN;0.0;JAUNE
+Hedi;Tordeux;36.69;10;Cool;TEQUILA;WHISKY;0.0;VERT
+Eric;Lebrun;40.73;1;Cool;BIERE;VODKA;0.0;BLEU
+Eliott;Bernard;14.32;14;Cool;SODA;VODKA;0.0;NOIR
+Corentin;Herault;33.37;29;Ca c'est sympa;CAFE;RHUM;0.0;BLEU
+Aurelien;Hermel;34.99;7;OOOH;VODKA;TEQUILA;0.0;MARRON
+Martin;Sauvage;21.75;48;Cool;RHUM;GIN;0.0;VIOLET
+Thibaut;Delarue;24.83;37;AAAAH;GIN;TEQUILA;0.0;CYAN
+Luc;Bernard;25.39;5;AAAAH;GIN;JUSDEFRUIT;0.0;GRIS
+Samuel;Fromont;18.73;20;Ca c'est sympa;CAFE;VIN;0.0;VIOLET
+Gregoire;Leclercq;43.38;22;OOOH;RHUM;SODA;0.0;NOIR
+Gregoire;Malbranque;18.77;9;AAAAH;VODKA;RHUM;0.0;CYAN
+Hedi;Ducroo;18.95;29;AAAAH;JUSDEFRUIT;RHUM;0.0;NOIR
+Hugo;Bouchez;29.15;45;Cool;CAFE;RHUM;0.0;BLEU
+David;DelaPorte;32.84;44;YES;VODKA;WHISKY;0.0;CYAN
+Enguerrand;Dujardin;26.76;14;Ca c'est sympa;SODA;RHUM;0.0;JAUNE
+Victor;Lefebvre;27.49;34;Cool;BIERE;EAU;0.0;NOIR
+Gregoire;Thouvenin;13.53;24;Ca c'est sympa;VODKA;RHUM;0.0;NOIR
+Matthieu;Moulart;42.13;10;OOOH;CIDRE;CAFE;0.0;BLANC

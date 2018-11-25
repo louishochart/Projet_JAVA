@@ -22,9 +22,9 @@ public class Bar {
     private String name;
     private Barman barman;
     private Fournisseur fournisseur;
-    private List<Table> tables = new ArrayList();
-    private List<ServeurNeutre> serveurs = new ArrayList();
-    private List<ClientNeutre> clients = new ArrayList();
+    private ArrayList<Table> tables = new ArrayList();
+    private ArrayList<ServeurNeutre> serveurs = new ArrayList();
+    private ArrayList<ClientNeutre> clients = new ArrayList();
     private Stock stock = new Stock();
     private Caisse caisse = new Caisse();
 
@@ -178,7 +178,7 @@ public class Bar {
         }
     }
 
-    public void setTables(List<Table> tables) {
+    public void setTables(ArrayList<Table> tables) {
         this.tables = tables;
     }
 
@@ -190,11 +190,11 @@ public class Bar {
         this.fournisseur = fournisseur;
     }
 
-    public void setServeurs(List<ServeurNeutre> serveurs) {
+    public void setServeurs(ArrayList<ServeurNeutre> serveurs) {
         this.serveurs = serveurs;
     }
 
-    public void setClients(List<ClientNeutre> clients) {
+    public void setClients(ArrayList<ClientNeutre> clients) {
         this.clients = clients;
     }
 
@@ -210,8 +210,8 @@ public class Bar {
         this.simulation = simulation;
     }
 
-    public List<Table> getFreeTables() {
-        List<Table> freeTables = new ArrayList<Table>();
+    public ArrayList<Table> getFreeTables() {
+        ArrayList<Table> freeTables = new ArrayList<Table>();
         for (int i = 0; i < this.getTables().size(); i++) {
             if (this.getTables().get(i).isFree()) {
                 freeTables.add(this.getTables().get(i));
@@ -219,6 +219,7 @@ public class Bar {
         }
         return (freeTables);
     }
+    
 
     public List<ServeurNeutre> getFreeServeurs() {
         List<ServeurNeutre> freeServeurs = new ArrayList<ServeurNeutre>();

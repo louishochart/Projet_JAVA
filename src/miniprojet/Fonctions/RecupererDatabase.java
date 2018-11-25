@@ -168,10 +168,10 @@ public class RecupererDatabase {
         }
     }
 
-    public List<ClientNeutre> getClients() {
-        List<ClientNeutre> total = new ArrayList();
-        List<Client> clients = clients();
-        List<Cliente> clientes = clientes();
+    public ArrayList<ClientNeutre> getClients() {
+        ArrayList<ClientNeutre> total = new ArrayList();
+        ArrayList<Client> clients = clients();
+        ArrayList<Cliente> clientes = clientes();
         for (int i = 0; i < clients.size(); i++) {
             total.add(clients.get(i));
         }
@@ -181,9 +181,9 @@ public class RecupererDatabase {
         return total;
     }
 
-    public List<Client> clients() {
+    public ArrayList<Client> clients() {
         BufferedReader br = null;
-        List<Client> liste = new ArrayList();
+        ArrayList<Client> liste = new ArrayList();
         try {
 
             File file = new File(".\\db\\clients.txt"); // définir l'arborescence
@@ -238,9 +238,9 @@ public class RecupererDatabase {
         }
     }
 
-    public List<Cliente> clientes() {
+    public ArrayList<Cliente> clientes() {
         BufferedReader br = null;
-        List<Cliente> liste = new ArrayList();
+        ArrayList<Cliente> liste = new ArrayList();
         try {
 
             File file = new File(".\\db\\clientes.txt"); // définir l'arborescence
@@ -288,10 +288,10 @@ public class RecupererDatabase {
         }
     }
 
-    public List<ServeurNeutre> getServeurs() {
-        List<ServeurNeutre> total = new ArrayList();
-        List<Serveur> serveurs = serveurs();
-        List<Serveuse> serveuses = serveuses();
+    public ArrayList<ServeurNeutre> getServeurs() {
+        ArrayList<ServeurNeutre> total = new ArrayList();
+        ArrayList<Serveur> serveurs = serveurs();
+        ArrayList<Serveuse> serveuses = serveuses();
         for (int i = 0; i < serveurs.size(); i++) {
             total.add(serveurs.get(i));
         }
@@ -301,9 +301,9 @@ public class RecupererDatabase {
         return total;
     }
 
-    public List<Serveur> serveurs() {
+    public ArrayList<Serveur> serveurs() {
         BufferedReader br = null;
-        List<Serveur> liste = new ArrayList();
+        ArrayList<Serveur> liste = new ArrayList();
         try {
             File file = new File(".\\db\\serveurs.txt"); // définir l'arborescence
             if (!file.exists()) {
@@ -337,9 +337,9 @@ public class RecupererDatabase {
         }
     }
 
-    public List<Serveuse> serveuses() {
+    public ArrayList<Serveuse> serveuses() {
         BufferedReader br = null;
-        List<Serveuse> liste = new ArrayList();
+        ArrayList<Serveuse> liste = new ArrayList();
         try {
             File file = new File(".\\db\\serveuses.txt"); // définir l'arborescence
             if (!file.exists()) {
@@ -442,9 +442,9 @@ public class RecupererDatabase {
         }
     }
 
-    public List<Table> tables() {
+    public ArrayList<Table> tables() {
         BufferedReader br = null;
-        List<Table> liste = new ArrayList();
+        ArrayList<Table> liste = new ArrayList();
         try {
 
             File file = new File(".\\db\\bar.txt"); // définir l'arborescence

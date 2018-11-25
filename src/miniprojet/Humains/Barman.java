@@ -44,12 +44,14 @@ public class Barman extends Humain {
     }
     public void boire(Boisson boisson) {       
         Bar.getInstance().getStock().removeFromStock(boisson, 1);
-        this.parler("Je bois un verre de " + boisson.getName());      
+        this.parler("Je bois un verre de " + boisson.getName());  
+        Bar.getInstance().getSimulation().incrementVerresBus();
     } 
     
     public void recevoirVerre(Humain expediteur, Boisson boisson) {
         this.boire(boisson);
-        this.parlerDestinataire(expediteur, "Merci beaucoup !");   
+        this.parlerDestinataire(expediteur, "Merci beaucoup !");  
+        Bar.getInstance().getSimulation().incrementVerresOfferts();
     }
     
     public void verifierStocks(){
@@ -62,6 +64,7 @@ public class Barman extends Humain {
     public void demanderLivraison(Boisson boisson, int quantite ){
         if(Bar.getInstance().getPatronne().getPorte_monnaie()>(boisson.getPrixAchat()*quantite)){
             Bar.getInstance().getFournisseur().livrer(boisson,quantite);
+            Bar.getInstance().getPatronne().parlerDestinataire(this,"Je renouvelle le stock de"+boisson.getName());
         }
         else{
             Bar.getInstance().getPatronne().parlerDestinataire(this,"Je ne peux pas renouveller le stock de "+boisson.getName());
@@ -71,10 +74,9 @@ public class Barman extends Humain {
         Bar.getInstance().getStock().addStock(boisson, quantite);
     }
 
-    public void recevoir_paiement(Humain expediteur, float paiement) {
+    public void recevoirPaiement(Humain expediteur, float paiement) {
         this.parlerDestinataire(expediteur,"Merci");
         Bar.getInstance().getCaisse().addCaisse(paiement);
-        Bar.getInstance().getPatronne().verifierCaisse();
     }
     public void parlerDestinataire(Humain destinataire, String phrase) {
         System.out.println(this.getPrenom() + " " + this.getNom() + " à " + destinataire.getPrenom() + " " + destinataire.getNom() + " : " + phrase + " coco !");

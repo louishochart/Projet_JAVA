@@ -15,13 +15,13 @@ import java.util.List;
  */
 public class Table {
 
-    List<ClientNeutre> clients = new ArrayList();
+    ArrayList<ClientNeutre> clients = new ArrayList();
     private ServeurNeutre serveur;
 
     public Table() {
     }
 
-    public List<ClientNeutre> getClients() {
+    public ArrayList<ClientNeutre> getClients() {
         return clients;
     }
 
@@ -29,7 +29,7 @@ public class Table {
         return serveur;
     }
 
-    public void setClients(List<ClientNeutre> clients) {
+    public void setClients(ArrayList<ClientNeutre> clients) {
         this.clients = clients;
     }
 

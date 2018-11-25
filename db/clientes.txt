@@ -1,12 +1,15 @@
-Zoé;Malbranque;33.53;4;AAAAH;RHUM;WHISKY;0.0;0
-Zoé;Vion;31.01;34;Cool;SODA;CAFE;0.0;0
-Justine;Boillot;34.17;47;YES;CAFE;RHUM;0.0;0
-Noémie;Huyghe;29.21;47;Cool;VODKA;JUSDEFRUIT;0.0;0
-Christelle;Boizard;43.49;17;Cool;JUSDEFRUIT;EAU;0.0;0
-Justine;Tordeux;44.96;24;OOOH;EAU;BIERE;0.0;0
-Mathilde;Boillot;37.96;5;YES;BIERE;WHISKY;0.0;0
-Zelie;Hemery;25.38;21;Ca c'est sympa;CAFE;JUSDEFRUIT;0.0;0
-Mathilde;Sauvage;42.37;4;YES;CIDRE;BIERE;0.0;0
-Karine;Dujardin;38.42;0;YES;VODKA;RHUM;0.0;0
-Zelie;Engale;17.27;46;Ca c'est sympa;GIN;VODKA;0.0;0
-Jeanne;Paresys;24.57;47;Cool;JUSDEFRUIT;GIN;0.0;0
+Audrey;Meunier;23.13;2;Cool;JUSDEFRUIT;VODKA;0.0;0
+Candice;Milliote;29.92;22;YES;TEQUILA;CIDRE;0.0;0
+Stephanie;Vandaele;38.52;14;Cool;SODA;CIDRE;0.0;0
+Isabelle;Derousseaux;49.31;17;Cool;JUSDEFRUIT;GIN;0.0;0
+Constance;Engale;35.21;33;Ca c'est sympa;VIN;GIN;0.0;0
+Maud;Becarre;33.63;41;Cool;SODA;TEQUILA;0.0;0
+Clara;Milliote;26.85;34;AAAAH;JUSDEFRUIT;EAU;0.0;0
+Christine;Bouchez;14.75;36;AAAAH;BIERE;TEQUILA;0.0;0
+Isabelle;Barres;35.64;45;AAAAH;JUSDEFRUIT;TEQUILA;0.0;0
+Dominique;Thouvenin;44.2;12;Ca c'est sympa;EAU;CAFE;0.0;0
+Prune;Delezenne;45.63;28;YES;VIN;EAU;0.0;0
+Stephanie;Leclercq;49.67;48;YES;WHISKY;GIN;0.0;0
+Audrey;Fourni;26.29;16;Cool;RHUM;BIERE;0.0;0
+Isabelle;Fromont;46.47;27;OOOH;TEQUILA;VIN;0.0;0
+Rose;Hochart;22.84;44;YES;VODKA;BIERE;0.0;0

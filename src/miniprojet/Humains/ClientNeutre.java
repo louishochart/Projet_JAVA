@@ -38,6 +38,7 @@ public abstract class ClientNeutre extends Humain {
             Bar.getInstance().getStock().removeFromStock(boisson, 1);
             this.setNiveauAlcool(this.getNiveauAlcool() + boisson.getDegree());
             this.parler("Je bois un verre de " + boisson.getName());
+            Bar.getInstance().getSimulation().incrementVerresBus();
             if(this.getNiveauAlcool()>1){
                 Bar.getInstance().getPatronne().parlerDestinataire(Bar.getInstance().getBarman(),"Ne sers plus "+this.prenom+" "+this.getNom()+", il n'est plus en état");
             }
@@ -52,7 +53,7 @@ public abstract class ClientNeutre extends Humain {
             Bar.getInstance().getPatronne().exclure(this);
         }
         else{
-            if (Bar.getInstance().getStock().getStock(this.getBoissonFav1()) > 0) {
+            if (Bar.getInstance().getStock().getStock(boisson) > 0) {
                 this.boire(boisson);
             } else {
                 Bar.getInstance().getBarman().parler("Il n'y a plus de " + boisson.getName());
@@ -63,8 +64,32 @@ public abstract class ClientNeutre extends Humain {
     public void recevoirVerre(Humain expediteur, Boisson boisson) {
         Bar.getInstance().getStock().removeFromStock(boisson, 1);
         this.setNiveauAlcool(this.getNiveauAlcool() + boisson.getDegree());
+        Bar.getInstance().getSimulation().incrementVerresOfferts();
+        Bar.getInstance().getSimulation().incrementVerresBus();
         this.parlerDestinataire(expediteur, "Merci beaucoup !");
         
+    }
+    
+    public void offrirTournee(Boisson boisson) {
+        if (this.canPay(boisson,Bar.getInstance().getSimulation().getClients().size())) {
+            this.parler("Un verre de "+boisson.getName()+" pour tout le monde ! ");
+            if(Bar.getInstance().getStock().getStock(boisson)>Bar.getInstance().getSimulation().getClients().size()){
+                this.addPopularite(20);
+                this.payer(Bar.getInstance().getBarman(),boisson.getPrixVente()*Bar.getInstance().getSimulation().getClients().size());
+                for (int i = 0 ; i < Bar.getInstance().getSimulation().getClients().size();i++){
+                    Bar.getInstance().getSimulation().getClients().get(i).recevoirVerre(this, boisson);
+                    Bar.getInstance().getSimulation().getClients().get(i).parler(Bar.getInstance().getSimulation().getClients().get(i).getCri());
+                }                
+                Bar.getInstance().getBarman().parler("TOURNEE GENERALE");
+                Bar.getInstance().getPatronne().parler("Les affaires reprennent");
+                Bar.getInstance().getSimulation().getTournees().add(this);
+                Bar.getInstance().getSimulation().getTourneesh().add(this);
+                
+            }
+            else{
+                Bar.getInstance().getBarman().parler("Il n'y a pas assez de " + boisson.getName());
+            }
+        }
     }
     
     

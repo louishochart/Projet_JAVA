@@ -88,14 +88,26 @@ public class TestClass {
 //        Fournisseur fournisseur = new Fournisseur();
 
           
-//        PageAccueil NvPerso = new PageAccueil();
+        PageAccueil NvPerso = new PageAccueil();
         
 
 //        
 //         Bar.getInstance().getSimulation().reinitialiser();
-        new RecupererDatabase();
-        Bar.getInstance().getSimulation().affecterClients();
-        Bar.getInstance().getSimulation().affecterServeurs();
-        Bar.getInstance().getSimulation().simulerHeure();
+//        new RecupererDatabase();
+//        Bar.getInstance().getSimulation().affecterClients();
+//        Bar.getInstance().getSimulation().affecterServeurs();
+//        System.out.println(Bar.getInstance().getSimulation().getVerresBus());
+//        System.out.println(Bar.getInstance().getSimulation().getVerresOfferts());
+//        Bar.getInstance().getSimulation().simulerHeure();
+//        System.out.println(Bar.getInstance().getSimulation().getVerresBus());
+//        System.out.println(Bar.getInstance().getSimulation().getVerresOfferts());
+//        System.out.println(Bar.getInstance().getSimulation().getVerresBush());
+//        System.out.println(Bar.getInstance().getSimulation().getVerresOffertsh());
+//        Bar.getInstance().getSimulation().simulerHeure();
+//        System.out.println(Bar.getInstance().getSimulation().getVerresBus());
+//        System.out.println(Bar.getInstance().getSimulation().getVerresOfferts());
+//        System.out.println(Bar.getInstance().getSimulation().getVerresBush());
+//        System.out.println(Bar.getInstance().getSimulation().getVerresOffertsh());
+
     }
 }

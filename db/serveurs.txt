@@ -1,3 +1,6 @@
-Valentin;Renault;41.18;34;Cool;EAU;5
-Germain;Boizard;49.72;46;YES;EAU;2
-Matthieu;Delarue;14.61;6;OOOH;EAU;1
+Henri;Lebrun;25.36;43;OOOH;EAU;8
+Edouard;Beirnaert;16.35;22;Ca c'est sympa;EAU;8
+Leo;Lefebvre;24.53;17;Cool;EAU;3
+Eliott;Delpierre;49.94;31;YES;EAU;4
+Germain;Delarue;23.91;11;YES;EAU;3
+Valentin;Lefebvre;32.22;7;Cool;EAU;3

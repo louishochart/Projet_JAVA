@@ -1,3 +1,0 @@
-Sophie;Derousseaux;33.21;35;AAAAH;EAU;6
-Camille;Fromont;37.15;10;AAAAH;EAU;6
-Coralie;Roubaud;27.86;2;OOOH;EAU;3
